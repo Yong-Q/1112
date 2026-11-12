@@ -1,0 +1,40 @@
+{
+ "schema": "les-c1c2-v1",
+ "generated_by": "cdft.scripts.postprocess_shard",
+ "mode": "postprocess",
+ "sim_id": "CO2-T463.6-r01-rho0.5978",
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O"
+ ],
+ "c2_pair": [
+  "C",
+  "O"
+ ],
+ "traj": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CO2-T463.6-r01-rho0.5978/run/traj.dump",
+ "c1c2": {
+  "sim_id": "bulk-CO2-r0.012107-463.6K",
+  "species": "CO2",
+  "T_K": 463.6,
+  "density_mol_A3": 0.012107,
+  "n_frames": 2001,
+  "bins": 2000,
+  "density_kind": "bulk",
+  "c2_pair": [
+   "C",
+   "O"
+  ],
+  "c2_rmax_A": 8.0,
+  "c2_bins": 80,
+  "rho_pair_A3": 0.012106891701836318,
+  "c2_short_trajectory": false,
+  "source": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CO2-T463.6-r01-rho0.5978/run/traj.dump",
+  "source_sha256": "501fcf4dd5f5460d830d13bc0d67876e97bfd9774a6a4ac1c4ffacfc480f2a19"
+ },
+ "outputs": {
+  "f1_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CO2-T463.6-r01-rho0.5978/f1",
+  "f2_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CO2-T463.6-r01-rho0.5978/f2"
+ }
+}

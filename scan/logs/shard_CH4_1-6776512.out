@@ -1,0 +1,19 @@
+/usr/share/lmod/lmod/init/bash: line 35: FPATH: unbound variable
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+=== shard_CH4_1 === node=wqd10nbe11c06 ntasks=32 ===
+--- MD (no-analyze, resumable) ---
+[batch] 1/3 CH4-T290.5-r00-rho0.6700
+[batch] CH4-T290.5-r00-rho0.6700: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CH4-T290.5-r00-rho0.6700/run/traj.dump
+[batch] 2/3 CH4-T290.5-r01-rho0.5978
+[batch] CH4-T290.5-r01-rho0.5978: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CH4-T290.5-r01-rho0.5978/run/traj.dump
+[batch] 3/3 CH4-T290.5-r02-rho0.5256
+[batch] CH4-T290.5-r02-rho0.5256: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CH4-T290.5-r02-rho0.5256/run/traj.dump
+[batch] done: 3 rows, trajectories under /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj
+--- post-process ---
+[post] ERROR CH4-T290.5-r00-rho0.6700: traj missing traj/CH4-T290.5-r00-rho0.6700/run/traj.dump.gz
+[post] ERROR CH4-T290.5-r01-rho0.5978: traj missing traj/CH4-T290.5-r01-rho0.5978/run/traj.dump.gz
+[post] CH4-T290.5-r02-rho0.5256: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CH4-T290.5-r02-rho0.5256 (frames=2001, rmax=8 A)
+[post] 1/3 rows posted (or already done)
+=== shard_CH4_1 done ===

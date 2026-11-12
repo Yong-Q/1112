@@ -1,0 +1,16 @@
+/usr/share/lmod/lmod/init/bash: line 35: FPATH: unbound variable
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+=== shard_C2H4_4 === node=wqd10nbe11c04 ntasks=48 ===
+--- MD (no-analyze, resumable) ---
+[batch] 1/2 C2H4-T430.4-r08-rho0.0922
+[batch] C2H4-T430.4-r08-rho0.0922: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/C2H4-T430.4-r08-rho0.0922/run/traj.dump
+[batch] 2/2 C2H4-T430.4-r09-rho0.0200
+[batch] skip C2H4-T430.4-r09-rho0.0200 (MD complete, no-analyze mode)
+[batch] done: 2 rows, trajectories under /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj
+--- post-process ---
+[post] C2H4-T430.4-r08-rho0.0922: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/C2H4-T430.4-r08-rho0.0922 (frames=2001, rmax=8 A)
+[post] skip C2H4-T430.4-r09-rho0.0200: status=skipped_not_run
+[post] 1/2 rows posted (or already done)
+=== shard_C2H4_4 done ===

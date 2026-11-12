@@ -1,0 +1,40 @@
+{
+ "schema": "les-c1c2-v1",
+ "generated_by": "cdft.scripts.postprocess_shard",
+ "mode": "postprocess",
+ "sim_id": "CH4-T290.5-r08-rho0.0922",
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O"
+ ],
+ "c2_pair": [
+  "C",
+  "C"
+ ],
+ "traj": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CH4-T290.5-r08-rho0.0922/run/traj.dump",
+ "c1c2": {
+  "sim_id": "bulk-CH4-r0.001782-290.5K",
+  "species": "CH4",
+  "T_K": 290.5,
+  "density_mol_A3": 0.001782,
+  "n_frames": 2001,
+  "bins": 2000,
+  "density_kind": "bulk",
+  "c2_pair": [
+   "C",
+   "C"
+  ],
+  "c2_rmax_A": 8.0,
+  "c2_bins": 80,
+  "rho_pair_A3": 0.0017819684416199401,
+  "c2_short_trajectory": false,
+  "source": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CH4-T290.5-r08-rho0.0922/run/traj.dump",
+  "source_sha256": "5b84f7e6a25e895e461897515ec091f4591b12fd18b89600936a7b438ce6198c"
+ },
+ "outputs": {
+  "f1_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CH4-T290.5-r08-rho0.0922/f1",
+  "f2_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CH4-T290.5-r08-rho0.0922/f2"
+ }
+}

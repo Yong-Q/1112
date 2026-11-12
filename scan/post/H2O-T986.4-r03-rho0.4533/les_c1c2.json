@@ -1,0 +1,40 @@
+{
+ "schema": "les-c1c2-v1",
+ "generated_by": "cdft.scripts.postprocess_shard",
+ "mode": "postprocess",
+ "sim_id": "H2O-T986.4-r03-rho0.4533",
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O"
+ ],
+ "c2_pair": [
+  "O",
+  "O"
+ ],
+ "traj": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/H2O-T986.4-r03-rho0.4533/run/traj.dump.gz",
+ "c1c2": {
+  "sim_id": "bulk-H2O-r0.015442-986.4K",
+  "species": "H2O",
+  "T_K": 986.4,
+  "density_mol_A3": 0.015442,
+  "n_frames": 2001,
+  "bins": 2000,
+  "density_kind": "bulk",
+  "c2_pair": [
+   "O",
+   "O"
+  ],
+  "c2_rmax_A": 8.0,
+  "c2_bins": 80,
+  "rho_pair_A3": 0.015441753588348123,
+  "c2_short_trajectory": false,
+  "source": "traj/H2O-T986.4-r03-rho0.4533/run/traj.dump.gz",
+  "source_sha256": "14763dbd112f283b6b2e4ffddeba9c2aef1d08903f66e4fd35208740b4c5bc03"
+ },
+ "outputs": {
+  "f1_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/H2O-T986.4-r03-rho0.4533/f1",
+  "f2_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/H2O-T986.4-r03-rho0.4533/f2"
+ }
+}

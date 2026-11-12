@@ -1,0 +1,12 @@
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+===== np=32 =====
+Loop time of 11.4985 on 32 procs for 200 steps with 1500 atoms
+Performance: 0.751 ns/day, 31.940 hours/ns, 17.394 timesteps/s, 26.090 katom-step/s
+===== np=48 =====
+Loop time of 9.72649 on 48 procs for 200 steps with 1500 atoms
+Performance: 0.888 ns/day, 27.018 hours/ns, 20.562 timesteps/s, 30.844 katom-step/s
+===== np=64 =====
+Loop time of 23.0397 on 64 procs for 200 steps with 1500 atoms
+Performance: 0.375 ns/day, 63.999 hours/ns, 8.681 timesteps/s, 13.021 katom-step/s

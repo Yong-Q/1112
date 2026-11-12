@@ -1,0 +1,40 @@
+{
+ "schema": "les-c1c2-v1",
+ "generated_by": "cdft.scripts.postprocess_shard",
+ "mode": "postprocess",
+ "sim_id": "NH3-T618.2-r00-rho0.6700",
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O"
+ ],
+ "c2_pair": [
+  "N",
+  "N"
+ ],
+ "traj": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/NH3-T618.2-r00-rho0.6700/run/traj.dump.gz",
+ "c1c2": {
+  "sim_id": "bulk-NH3-r0.017488-618.2K",
+  "species": "NH3",
+  "T_K": 618.2,
+  "density_mol_A3": 0.017488,
+  "n_frames": 2001,
+  "bins": 2000,
+  "density_kind": "bulk",
+  "c2_pair": [
+   "N",
+   "N"
+  ],
+  "c2_rmax_A": 8.0,
+  "c2_bins": 80,
+  "rho_pair_A3": 0.01748768692993534,
+  "c2_short_trajectory": false,
+  "source": "traj/NH3-T618.2-r00-rho0.6700/run/traj.dump.gz",
+  "source_sha256": "a4b306ac9d7c97f5dd3738587abb59e778fc1e68c5de2a0d7d3bbd4787ae3ab1"
+ },
+ "outputs": {
+  "f1_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/NH3-T618.2-r00-rho0.6700/f1",
+  "f2_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/NH3-T618.2-r00-rho0.6700/f2"
+ }
+}

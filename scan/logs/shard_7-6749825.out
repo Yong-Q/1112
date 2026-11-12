@@ -1,0 +1,16 @@
+/usr/share/lmod/lmod/init/bash: line 35: FPATH: unbound variable
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+=== shard 7 === node=wqd10nbb05c13 ntasks=32 ===
+--- MD (no-analyze, resumable) ---
+[batch] 1/2 CO2-T463.6-r06-rho0.2367
+[batch] CO2-T463.6-r06-rho0.2367: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CO2-T463.6-r06-rho0.2367/run/traj.dump
+[batch] 2/2 CO2-T463.6-r07-rho0.1644
+[batch] CO2-T463.6-r07-rho0.1644: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CO2-T463.6-r07-rho0.1644/run/traj.dump
+[batch] done: 2 rows, trajectories under /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj
+--- post-process ---
+[post] CO2-T463.6-r06-rho0.2367: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CO2-T463.6-r06-rho0.2367 (frames=2001, rmax=8 A)
+[post] CO2-T463.6-r07-rho0.1644: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CO2-T463.6-r07-rho0.1644 (frames=2001, rmax=8 A)
+[post] 2/2 rows posted (or already done)
+=== shard 7 done ===

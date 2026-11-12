@@ -1,0 +1,31 @@
+=== post_all start Wed Nov 11 10:21:47 CST 2026 node=wqd10nbe12c12 ===
+--- shard_5 10:21:47 ---
+[post] 3/3 rows posted (or already done)
+--- shard_6 10:21:52 ---
+[post] 3/3 rows posted (or already done)
+--- shard_7 10:21:52 ---
+[post] 2/2 rows posted (or already done)
+--- shard_8 10:21:53 ---
+[post] skip CO2-T463.6-r09-rho0.0200: status=skipped_not_run
+[post] 1/2 rows posted (or already done)
+--- shard_H2O_1 10:21:53 ---
+[post] H2O-T986.4-r00-rho0.6700: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/H2O-T986.4-r00-rho0.6700 (frames=2001, rmax=8 A)
+[post] H2O-T986.4-r01-rho0.5978: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/H2O-T986.4-r01-rho0.5978 (frames=2001, rmax=8 A)
+[post] skip H2O-T986.4-r02-rho0.5256: no meta.json (MD not done)
+[post] 2/3 rows posted (or already done)
+--- shard_H2O_2 12:49:15 ---
+[post] H2O-T986.4-r03-rho0.4533: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/H2O-T986.4-r03-rho0.4533 (frames=2001, rmax=8 A)
+[post] H2O-T986.4-r04-rho0.3811: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/H2O-T986.4-r04-rho0.3811 (frames=2001, rmax=8 A)
+[post] 3/3 rows posted (or already done)
+--- shard_H2O_3 15:05:44 ---
+[post] 2/2 rows posted (or already done)
+--- shard_H2O_4 15:05:46 ---
+[post] skip H2O-T986.4-r09-rho0.0200: status=skipped_not_run
+[post] 1/2 rows posted (or already done)
+--- shard_NH3_1 15:05:46 ---
+[post] NH3-T618.2-r00-rho0.6700: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/NH3-T618.2-r00-rho0.6700 (frames=2001, rmax=8 A)
+[post] NH3-T618.2-r01-rho0.5978: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/NH3-T618.2-r01-rho0.5978 (frames=2001, rmax=8 A)
+[post] skip NH3-T618.2-r02-rho0.5256: no meta.json (MD not done)
+[post] 2/3 rows posted (or already done)
+--- shard_NH3_2 17:21:31 ---
+slurmstepd: error: *** JOB 7030467 ON wqd10nbe12c12 CANCELLED AT 2026-11-11T18:22:11 DUE TO TIME LIMIT ***

@@ -1,0 +1,19 @@
+/usr/share/lmod/lmod/init/bash: line 35: FPATH: unbound variable
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+=== shard 6 === node=wqd10nbb05c08 ntasks=32 ===
+--- MD (no-analyze, resumable) ---
+[batch] 1/3 CO2-T463.6-r03-rho0.4533
+[batch] CO2-T463.6-r03-rho0.4533: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CO2-T463.6-r03-rho0.4533/run/traj.dump
+[batch] 2/3 CO2-T463.6-r04-rho0.3811
+[batch] CO2-T463.6-r04-rho0.3811: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CO2-T463.6-r04-rho0.3811/run/traj.dump
+[batch] 3/3 CO2-T463.6-r05-rho0.3089
+[batch] CO2-T463.6-r05-rho0.3089: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/CO2-T463.6-r05-rho0.3089/run/traj.dump
+[batch] done: 3 rows, trajectories under /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj
+--- post-process ---
+[post] CO2-T463.6-r03-rho0.4533: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CO2-T463.6-r03-rho0.4533 (frames=2001, rmax=8 A)
+[post] CO2-T463.6-r04-rho0.3811: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CO2-T463.6-r04-rho0.3811 (frames=2001, rmax=8 A)
+[post] CO2-T463.6-r05-rho0.3089: F1/F2 -> /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/post/CO2-T463.6-r05-rho0.3089 (frames=2001, rmax=8 A)
+[post] 3/3 rows posted (or already done)
+=== shard 6 done ===

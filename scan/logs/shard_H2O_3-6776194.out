@@ -1,0 +1,7 @@
+/usr/share/lmod/lmod/init/bash: line 35: FPATH: unbound variable
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+=== shard_H2O_3 === node=wqd10nbd09c01 ntasks=32 ===
+--- MD (no-analyze, resumable) ---
+/var/spool/slurmd/job6776194/slurm_script: line 24: PY: unbound variable

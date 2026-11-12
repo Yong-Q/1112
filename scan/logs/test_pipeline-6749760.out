@@ -1,0 +1,8 @@
+/usr/share/lmod/lmod/init/bash: line 35: FPATH: unbound variable
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+[batch] 1/1 H2O-T986.4-r00-rho0.6700
+[batch] H2O-T986.4-r00-rho0.6700: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/_test_traj/H2O-T986.4-r00-rho0.6700/run/traj.dump
+[batch] done: 1 rows, trajectories under /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/_test_traj
+=== pipeline test OK ===

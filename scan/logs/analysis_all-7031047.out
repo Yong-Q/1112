@@ -1,0 +1,26 @@
+=== analysis_all start Wed Nov 11 10:41:41 CST 2026 ===
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/scan_analysis.py", line 679, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/scan_analysis.py", line 668, in main
+    run_states(root, out, force=args.force, n_frames=args.frames,
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/scan_analysis.py", line 473, in run_states
+    struct = analyze_state(traj, species, ana / "analysis",
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/scan_analysis.py", line 231, in analyze_state
+    for idx, atoms in enumerate(iter_frames(traj, stride=1)):
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/scan_analysis.py", line 53, in iter_frames
+    for f in read_dump(path, elements=ELEMENTS, stride=max(1, stride)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/dump_mol.py", line 50, in read_dump
+    data = data.reshape(n, len(cols))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: cannot reshape array of size 10710 into shape (3000,9)
+[scan] C2H4-T430.4-r00-rho0.6700: /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/C2H4-T430.4-r00-rho0.6700/run/traj.dump.gz
+[scan] C2H4-T430.4-r01-rho0.5978: /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/C2H4-T430.4-r01-rho0.5978/run/traj.dump.gz
+[scan] C2H4-T430.4-r02-rho0.5256: /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/traj/C2H4-T430.4-r02-rho0.5256/run/traj.dump
+=== analysis_all done Wed Nov 11 11:18:47 CST 2026 ===
