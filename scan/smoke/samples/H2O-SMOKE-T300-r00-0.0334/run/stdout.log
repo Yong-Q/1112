@@ -1,0 +1,172 @@
+LAMMPS (30 Mar 2026)
+KOKKOS mode with Kokkos version 5.0.2 is enabled
+  using double precision
+  using view layout = legacy
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+  using 1 OpenMP thread(s) per MPI task
+Reading data file ...
+  orthogonal box = (0 0 0) to (12.420655 12.420655 12.420655)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  192 atoms
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+  read_data CPU = 0.005 seconds
+Loading MACEKokkos model from '/publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off_chno.json' ... success
+Symmetrix streamed_edges requested='direct' resolved='direct'
+Activated Execution JIT host artifact 'jit-r1-gen11-f32-b8531dc63d1308d2'
+Symmetrix execution profile='capacity'
+  mapping LAMMPS type 1 (C) to MACEKokkos type 1
+  mapping LAMMPS type 2 (H) to MACEKokkos type 0
+  mapping LAMMPS type 3 (N) to MACEKokkos type 2
+  mapping LAMMPS type 4 (O) to MACEKokkos type 3
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+- KOKKOS package: https://doi.org/10.1145/3731599.3767498
+The log file lists these citations in BibTeX format.
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Neighbor list info ...
+  update: every = 10 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 6.5
+  ghost atom cutoff = 6.5
+  binsize = 3.25, bins = 4 4 4
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair symmetrix/mace/float32/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 5e-04
+Per MPI rank memory allocation (min/avg/max) = 6.31 | 6.31 | 6.31 Mbytes
+   Step          Temp          PotEng    
+         0   300           -133195.88    
+        10   343.54757     -133196.93    
+Loop time of 1.32518 on 1 procs for 10 steps with 192 atoms
+
+Performance: 0.326 ns/day, 73.621 hours/ns, 7.546 timesteps/s, 1.449 katom-step/s
+99.4% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 1.322      | 1.322      | 1.322      |   0.0 | 99.76
+Bond    | 4.497e-06  | 4.497e-06  | 4.497e-06  |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.00014868 | 0.00014868 | 0.00014868 |   0.0 |  0.01
+Output  | 1.9984e-05 | 1.9984e-05 | 1.9984e-05 |   0.0 |  0.00
+Modify  | 0.0018237  | 0.0018237  | 0.0018237  |   0.0 |  0.14
+Other   |            | 0.00121    |            |       |  0.09
+
+Nlocal:            192 ave         192 max         192 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           1344 ave        1344 max        1344 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:        20914 ave       20914 max       20914 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 20914
+Ave neighs/atom = 108.92708
+Ave special neighs/atom = 0
+Neighbor list builds = 0
+Dangerous builds = 0
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 10
+  Time step     : 5e-04
+Per MPI rank memory allocation (min/avg/max) = 6.31 | 6.31 | 6.31 Mbytes
+   Step          Temp          PotEng    
+        10   343.54757     -133196.93    
+        50   631.39456     -133204.51    
+Loop time of 5.36937 on 1 procs for 40 steps with 192 atoms
+
+Performance: 0.322 ns/day, 74.575 hours/ns, 7.450 timesteps/s, 1.430 katom-step/s
+99.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 5.3671     | 5.3671     | 5.3671     |   0.0 | 99.96
+Bond    | 1.9355e-05 | 1.9355e-05 | 1.9355e-05 |   0.0 |  0.00
+Neigh   | 0.00065565 | 0.00065565 | 0.00065565 |   0.0 |  0.01
+Comm    | 0.00067266 | 0.00067266 | 0.00067266 |   0.0 |  0.01
+Output  | 2.3227e-05 | 2.3227e-05 | 2.3227e-05 |   0.0 |  0.00
+Modify  | 0.00054378 | 0.00054378 | 0.00054378 |   0.0 |  0.01
+Other   |            | 0.0003359  |            |       |  0.01
+
+Nlocal:            192 ave         192 max         192 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           1344 ave        1344 max        1344 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:        20860 ave       20860 max       20860 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 20860
+Ave neighs/atom = 108.64583
+Ave special neighs/atom = 0
+Neighbor list builds = 1
+Dangerous builds = 0
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 0
+  Time step     : 5e-04
+Per MPI rank memory allocation (min/avg/max) = 6.31 | 6.31 | 6.31 Mbytes
+   Step          Temp          PotEng    
+         0   631.39456     -133204.51    
+       100   568.34455     -133206.17    
+       200   540.00575     -133209.04    
+       300   439.44058     -133209.62    
+       400   386.57919     -133210.81    
+       500   368.11538     -133212.39    
+Loop time of 66.3293 on 1 procs for 500 steps with 192 atoms
+
+Performance: 0.326 ns/day, 73.699 hours/ns, 7.538 timesteps/s, 1.447 katom-step/s
+99.5% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 66.287     | 66.287     | 66.287     |   0.0 | 99.94
+Bond    | 0.0002493  | 0.0002493  | 0.0002493  |   0.0 |  0.00
+Neigh   | 0.0094623  | 0.0094623  | 0.0094623  |   0.0 |  0.01
+Comm    | 0.0080897  | 0.0080897  | 0.0080897  |   0.0 |  0.01
+Output  | 0.014022   | 0.014022   | 0.014022   |   0.0 |  0.02
+Modify  | 0.0066681  | 0.0066681  | 0.0066681  |   0.0 |  0.01
+Other   |            | 0.003778   |            |       |  0.01
+
+Nlocal:            192 ave         192 max         192 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           1400 ave        1400 max        1400 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:        21866 ave       21866 max       21866 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 21866
+Ave neighs/atom = 113.88542
+Ave special neighs/atom = 0
+Neighbor list builds = 14
+Dangerous builds = 0
+Total wall time: 0:01:18

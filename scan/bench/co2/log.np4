@@ -1,0 +1,126 @@
+LAMMPS (30 Mar 2026)
+KOKKOS mode with Kokkos version 5.0.2 is enabled
+  using double precision
+  using view layout = legacy
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+units metal
+atom_style molecular/kk
+atom_modify map yes
+boundary p p p
+package kokkos neigh half newton on
+newton on
+read_data /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/CO2/r09_rho0.0200.lammps
+Reading data file ...
+  orthogonal box = (0 0 0) to (118.0867 118.0867 118.0867)
+  2 by 1 by 2 MPI processor grid
+  reading atoms ...
+  2001 atoms
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+  read_data CPU = 0.051 seconds
+pair_style symmetrix/mace/float32/kk streamed_edges direct profile capacity jit_host_artifact /publicfs10/fs10-m9/home/m9s005258/.cache/symmetrix/execution-jit/artifacts/8d00f0566cc8a5f6a603befb0eab51f47d3a025c19c9b9d92e0731eb351e84f7/factorized_host_plugin_gen11_src0c65a7c611c15feff220748dc034a7a963176ec834be421668b0f9c04a5ca982.so
+pair_coeff * * /publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off_chno.json C H N O
+Loading MACEKokkos model from '/publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off_chno.json' ... success
+Symmetrix streamed_edges requested='direct' resolved='direct'
+Activated Execution JIT host artifact 'jit-r1-gen11-f32-b8531dc63d1308d2'
+Symmetrix execution profile='capacity'
+  mapping LAMMPS type 1 (C) to MACEKokkos type 1
+  mapping LAMMPS type 2 (H) to MACEKokkos type 0
+  mapping LAMMPS type 3 (N) to MACEKokkos type 2
+  mapping LAMMPS type 4 (O) to MACEKokkos type 3
+neighbor 2.0 bin
+neigh_modify every 10 delay 0 check yes
+timestep 0.0005
+velocity all create 463.6 12345 mom yes rot no dist gaussian
+thermo 100
+thermo_style custom step temp pe
+run_style verlet/kk
+fix 1 all nvt temp 463.6 463.6 0.1
+run 2000
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- KOKKOS package: https://doi.org/10.1145/3731599.3767498
+
+@inproceedings{Johansson25,
+ author = {A. Johansson and E. Weinberg and C. Trott and M. McCarthy and S. Moore},
+ title = {{LAMMPS-KOKKOS}: {P}erformance Portable Molecular Dynamics Across Exascale Architectures},
+ year = 2025,
+ booktitle = {Proceedings of the SC '25 Workshops of the International Conference for High Performance Computing,
+  Networking, Storage and Analysis},
+ pages = {1217–1232},
+}
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Neighbor list info ...
+  update: every = 10 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 6.5
+  ghost atom cutoff = 6.5
+  binsize = 3.25, bins = 37 37 37
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair symmetrix/mace/float32/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Symmetrix rank 0 graph capacity: active receivers=530, features=746, edges=1060; planned receivers=530, features=746, edges=1060; planned bytes=39286100; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=1, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=0, communicated H1 allocations=1
+Symmetrix rank 1 graph capacity: active receivers=504, features=754, edges=1008; planned receivers=504, features=754, edges=1008; planned bytes=37774316; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32256, feature position bytes=0; graph replacements=1, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=0, communicated H1 allocations=1
+Symmetrix rank 2 graph capacity: active receivers=493, features=750, edges=986; planned receivers=493, features=750, edges=986; planned bytes=37065920; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31552, feature position bytes=0; graph replacements=1, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=0, communicated H1 allocations=1
+Symmetrix rank 3 graph capacity: active receivers=474, features=764, edges=948; planned receivers=474, features=764, edges=948; planned bytes=36037116; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=30336, feature position bytes=0; graph replacements=1, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=0, communicated H1 allocations=1
+Per MPI rank memory allocation (min/avg/max) = 7.636 | 7.689 | 7.742 Mbytes
+   Step          Temp          PotEng    
+         0   463.6         -3425121.3    
+       100   451.338       -3425114.8    
+Symmetrix rank 0 graph capacity: active receivers=490, features=784, edges=980; planned receivers=490, features=784, edges=980; planned bytes=37206348; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=2, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=2
+Symmetrix rank 1 graph capacity: active receivers=509, features=797, edges=1018; planned receivers=509, features=797, edges=1018; planned bytes=38563796; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32576, feature position bytes=0; graph replacements=2, graph updates=0, geometry allocations=2, result allocations=2, M0 replacements=2, M0 adjoint allocations=0, M0 alias detaches=1, M0 alias active=0, communicated H1 allocations=2
+Symmetrix rank 2 graph capacity: active receivers=491, features=786, edges=982; planned receivers=491, features=786, edges=982; planned bytes=37279608; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31552, feature position bytes=0; graph replacements=2, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=2
+Symmetrix rank 3 graph capacity: active receivers=511, features=813, edges=1022; planned receivers=511, features=813, edges=1022; planned bytes=38824460; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32704, feature position bytes=0; graph replacements=2, graph updates=0, geometry allocations=2, result allocations=2, M0 replacements=2, M0 adjoint allocations=0, M0 alias detaches=1, M0 alias active=0, communicated H1 allocations=2
+       200   406.50079     -3425099      
+Symmetrix rank 0 graph capacity: active receivers=492, features=795, edges=984; planned receivers=492, features=795, edges=984; planned bytes=37430512; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=3, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=3
+Symmetrix rank 1 graph capacity: active receivers=512, features=806, edges=1024; planned receivers=512, features=806, edges=1024; planned bytes=38830172; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32768, feature position bytes=0; graph replacements=3, graph updates=0, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=0, communicated H1 allocations=3
+Symmetrix rank 2 graph capacity: active receivers=484, features=798, edges=968; planned receivers=484, features=798, edges=968; planned bytes=36965492; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31552, feature position bytes=0; graph replacements=3, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=3
+Symmetrix rank 3 graph capacity: active receivers=513, features=831, edges=1026; planned receivers=513, features=831, edges=1026; planned bytes=39113836; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32832, feature position bytes=0; graph replacements=3, graph updates=0, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=0, communicated H1 allocations=3
+       300   371.96618     -3425085.5    
+Symmetrix rank 0 graph capacity: active receivers=493, features=802, edges=986; planned receivers=493, features=802, edges=986; planned bytes=37556568; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=4, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 1 graph capacity: active receivers=510, features=806, edges=1020; planned receivers=510, features=806, edges=1020; planned bytes=38708484; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32768, feature position bytes=0; graph replacements=3, graph updates=1, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=3
+Symmetrix rank 2 graph capacity: active receivers=485, features=803, edges=970; planned receivers=485, features=803, edges=970; planned bytes=37072916; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31552, feature position bytes=0; graph replacements=4, graph updates=0, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 3 graph capacity: active receivers=513, features=841, edges=1026; planned receivers=513, features=841, edges=1026; planned bytes=39206996; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32832, feature position bytes=0; graph replacements=4, graph updates=0, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=4
+       400   380.67549     -3425083      
+Symmetrix rank 0 graph capacity: active receivers=488, features=797, edges=976; planned receivers=488, features=797, edges=976; planned bytes=37205768; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=4, graph updates=1, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 1 graph capacity: active receivers=509, features=807, edges=1018; planned receivers=509, features=807, edges=1018; planned bytes=38656956; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32768, feature position bytes=0; graph replacements=4, graph updates=1, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 2 graph capacity: active receivers=495, features=804, edges=990; planned receivers=495, features=804, edges=990; planned bytes=37773496; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31680, feature position bytes=0; graph replacements=5, graph updates=0, geometry allocations=2, result allocations=2, M0 replacements=2, M0 adjoint allocations=0, M0 alias detaches=1, M0 alias active=0, communicated H1 allocations=5
+Symmetrix rank 3 graph capacity: active receivers=509, features=840, edges=1018; planned receivers=509, features=840, edges=1018; planned bytes=38954304; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32832, feature position bytes=0; graph replacements=4, graph updates=1, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=4
+       500   426.22562     -3425090.6    
+Symmetrix rank 0 graph capacity: active receivers=488, features=798, edges=976; planned receivers=488, features=798, edges=976; planned bytes=37215084; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=4, graph updates=2, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 1 graph capacity: active receivers=509, features=810, edges=1018; planned receivers=509, features=810, edges=1018; planned bytes=38684904; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32768, feature position bytes=0; graph replacements=5, graph updates=1, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=5
+Symmetrix rank 2 graph capacity: active receivers=494, features=801, edges=988; planned receivers=494, features=801, edges=988; planned bytes=37684704; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31680, feature position bytes=0; graph replacements=5, graph updates=1, geometry allocations=2, result allocations=2, M0 replacements=2, M0 adjoint allocations=0, M0 alias detaches=1, M0 alias active=1, communicated H1 allocations=5
+Symmetrix rank 3 graph capacity: active receivers=510, features=834, edges=1020; planned receivers=510, features=834, edges=1020; planned bytes=38959252; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32832, feature position bytes=0; graph replacements=4, graph updates=2, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=4
+       600   478.52732     -3425100.9    
+Symmetrix rank 0 graph capacity: active receivers=493, features=798, edges=986; planned receivers=493, features=798, edges=986; planned bytes=37519304; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=4, graph updates=3, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 1 graph capacity: active receivers=509, features=804, edges=1018; planned receivers=509, features=804, edges=1018; planned bytes=38629008; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32768, feature position bytes=0; graph replacements=5, graph updates=2, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=5
+Symmetrix rank 2 graph capacity: active receivers=491, features=801, edges=982; planned receivers=491, features=801, edges=982; planned bytes=37502172; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31680, feature position bytes=0; graph replacements=5, graph updates=2, geometry allocations=2, result allocations=2, M0 replacements=2, M0 adjoint allocations=0, M0 alias detaches=1, M0 alias active=1, communicated H1 allocations=5
+Symmetrix rank 3 graph capacity: active receivers=508, features=835, edges=1016; planned receivers=508, features=835, edges=1016; planned bytes=38846880; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32832, feature position bytes=0; graph replacements=4, graph updates=3, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=4
+       700   504.28192     -3425105.6    
+Symmetrix rank 0 graph capacity: active receivers=491, features=794, edges=982; planned receivers=491, features=794, edges=982; planned bytes=37360352; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=4, graph updates=4, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 1 graph capacity: active receivers=508, features=803, edges=1022; planned receivers=508, features=803, edges=1022; planned bytes=38559232; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32768, feature position bytes=0; graph replacements=6, graph updates=2, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=5
+Symmetrix rank 2 graph capacity: active receivers=493, features=805, edges=986; planned receivers=493, features=805, edges=986; planned bytes=37661124; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31680, feature position bytes=0; graph replacements=6, graph updates=2, geometry allocations=2, result allocations=2, M0 replacements=2, M0 adjoint allocations=0, M0 alias detaches=1, M0 alias active=1, communicated H1 allocations=6
+Symmetrix rank 3 graph capacity: active receivers=509, features=835, edges=1018; planned receivers=509, features=835, edges=1018; planned bytes=38907724; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32832, feature position bytes=0; graph replacements=4, graph updates=4, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=4
+       800   500.82806     -3425104.2    
+Symmetrix rank 0 graph capacity: active receivers=489, features=795, edges=978; planned receivers=489, features=795, edges=978; planned bytes=37247980; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=4, graph updates=5, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix rank 1 graph capacity: active receivers=511, features=803, edges=1034; planned receivers=511, features=803, edges=1034; planned bytes=38742148; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33088, feature position bytes=0; graph replacements=7, graph updates=2, geometry allocations=2, result allocations=4, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=5
+Symmetrix rank 2 graph capacity: active receivers=492, features=806, edges=984; planned receivers=492, features=806, edges=984; planned bytes=37609596; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=31680, feature position bytes=0; graph replacements=7, graph updates=2, geometry allocations=2, result allocations=2, M0 replacements=2, M0 adjoint allocations=0, M0 alias detaches=1, M0 alias active=1, communicated H1 allocations=7
+Symmetrix rank 3 graph capacity: active receivers=509, features=835, edges=1020; planned receivers=509, features=835, edges=1020; planned bytes=38907852; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=32832, feature position bytes=0; graph replacements=4, graph updates=5, geometry allocations=2, result allocations=3, M0 replacements=3, M0 adjoint allocations=0, M0 alias detaches=2, M0 alias active=1, communicated H1 allocations=4
+       900   479.5382      -3425099.6    
+Symmetrix rank 0 graph capacity: active receivers=489, features=800, edges=978; planned receivers=489, features=800, edges=978; planned bytes=37294560; policy=capacity-y-only; profile=capacity; plan=mh0-direct-capacity-y-only; fixed workspace=disabled; workspace receivers=0, edges=0, bytes=0, batches=0; pair edge geometry bytes=33920, feature position bytes=0; graph replacements=4, graph updates=6, geometry allocations=1, result allocations=1, M0 replacements=1, M0 adjoint allocations=0, M0 alias detaches=0, M0 alias active=1, communicated H1 allocations=4
+Symmetrix 

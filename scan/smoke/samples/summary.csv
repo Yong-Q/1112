@@ -1,0 +1,2 @@
+sim_id,species,temperature,density,steps,dump_every,timestep,traj,outdir,n_frames,us_per_atom_step,hours_per_ns,status
+H2O-SMOKE-T300-r00-0.0334,H2O,300.0,0.0334,500,100,0.0005,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples/H2O-SMOKE-T300-r00-0.0334/run/traj.dump.gz,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples/H2O-SMOKE-T300-r00-0.0334,,690.9302083333334,73.69922222222223,md_complete

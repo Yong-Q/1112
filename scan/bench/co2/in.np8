@@ -1,0 +1,18 @@
+units metal
+atom_style molecular/kk
+atom_modify map yes
+boundary p p p
+package kokkos neigh half newton on
+newton on
+read_data /publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/CO2/r09_rho0.0200.lammps
+pair_style symmetrix/mace/float32/kk streamed_edges direct profile capacity jit_host_artifact /publicfs10/fs10-m9/home/m9s005258/.cache/symmetrix/execution-jit/artifacts/8d00f0566cc8a5f6a603befb0eab51f47d3a025c19c9b9d92e0731eb351e84f7/factorized_host_plugin_gen11_src0c65a7c611c15feff220748dc034a7a963176ec834be421668b0f9c04a5ca982.so
+pair_coeff * * /publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off_chno.json C H N O
+neighbor 2.0 bin
+neigh_modify every 10 delay 0 check yes
+timestep 0.0005
+velocity all create 463.6 12345 mom yes rot no dist gaussian
+thermo 100
+thermo_style custom step temp pe
+run_style verlet/kk
+fix 1 all nvt temp 463.6 463.6 0.1
+run 2000

@@ -1,0 +1,24 @@
+gcc-14.2.0 loaded successful
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+NODE=wqd10nbe12c06 CPU=1 NP=
+NODE=wqd10nbe12c06 CPU=1 NP=
+[batch] 1/1 H2O-SMOKE-T300-r00-0.0334
+Traceback (most recent call last):
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/les_batch.py", line 405, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/les_batch.py", line 399, in main
+    run_row(row, args, outroot)
+  File "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/new/sampling/les_batch.py", line 222, in run_row
+    traj_path.unlink()
+  File "/publicfs10/fs10-share/soft/share-soft/miniforge/miniforge3/lib/python3.12/pathlib.py", line 1342, in unlink
+    os.unlink(self)
+FileNotFoundError: [Errno 2] No such file or directory: '/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples/H2O-SMOKE-T300-r00-0.0334/run/traj.dump'
+[batch] 1/1 H2O-SMOKE-T300-r00-0.0334
+[batch] H2O-SMOKE-T300-r00-0.0334: compressed traj 0.00 -> 0.00 GB
+[batch] H2O-SMOKE-T300-r00-0.0334: MD done, traj=/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples/H2O-SMOKE-T300-r00-0.0334/run/traj.dump.gz
+[batch] done: 1 rows, trajectories under /publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples

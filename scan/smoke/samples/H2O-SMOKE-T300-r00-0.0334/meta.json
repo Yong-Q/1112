@@ -1,0 +1,42 @@
+{
+  "sim_id": "H2O-SMOKE-T300-r00-0.0334",
+  "species": "H2O",
+  "elements": [
+    "C",
+    "H",
+    "N",
+    "O"
+  ],
+  "temperature_K": 300.0,
+  "timestep_ps": 0.0005,
+  "steps": 500,
+  "dump_every": 100,
+  "density_mol_A3": 0.0334,
+  "c2_pair": [
+    "O",
+    "O"
+  ],
+  "seed": 12345,
+  "model": "/publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off_chno.json",
+  "model_sha256": "b0e346bbe83306c1b1f73193a54cfaba9ff140788aff71847a10cc3539937431",
+  "cubin": "/publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off.cubin",
+  "cubin_sha256": "acb7f274d5273f2cd072533d56a39d5e9831e4355d9501d57492233ebd8b26e5",
+  "host_artifact": "/publicfs10/fs10-m9/home/m9s005258/.cache/symmetrix/execution-jit/artifacts/8d00f0566cc8a5f6a603befb0eab51f47d3a025c19c9b9d92e0731eb351e84f7/factorized_host_plugin_gen11_src0c65a7c611c15feff220748dc034a7a963176ec834be421668b0f9c04a5ca982.so",
+  "host_artifact_sha256": "e6b7363430e54137cc1154fb3c4b392c43dd80e33d78b63cae25e6447fcc59a4",
+  "data": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/data/H2O_64.lammps",
+  "data_sha256": "d646f1a77bb3490e433b342ade3373c34051d87fc6c298614aaba0fc1f1cada6",
+  "traj": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples/H2O-SMOKE-T300-r00-0.0334/run/traj.dump.gz",
+  "traj_sha256": "78591b9882d2436b2e6e6d1ae4a56596ba01784874a1561ee5ea7ca72b2a76c7",
+  "timing": {
+    "loop_time_s": 66.3293,
+    "per_step_ms": 132.6586,
+    "us_per_atom_step": 690.9302083333334,
+    "steps_per_ns": 2000000.0,
+    "seconds_per_ns": 265317.2,
+    "hours_per_ns": 73.69922222222223,
+    "days_per_ns": 3.070800925925926
+  },
+  "traj_raw_bytes": 71269,
+  "traj_gz_bytes": 30772,
+  "status": "md_complete"
+}

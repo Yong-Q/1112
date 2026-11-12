@@ -1,0 +1,2 @@
+sim_id,data,traj,species,temperature,timestep,steps,dump_every,density,c2_pair,seed,elements
+H2O-SMOKE-T300-r00-0.0334,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/data/H2O_64.lammps,,H2O,300.0,0.0005,500,100,0.0334,O O,12345,C H N O

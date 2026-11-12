@@ -1,0 +1,40 @@
+{
+ "schema": "les-c1c2-v1",
+ "generated_by": "sampling.les_c1c2",
+ "mode": "analyze-only",
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O"
+ ],
+ "c2_pair": [
+  "O",
+  "O"
+ ],
+ "traj": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples/H2O-SMOKE-T300-r00-0.0334/run/traj.dump",
+ "traj_sha256": "922de8dd329acb29c685035a8af06dd68da3e41972febb33094e13a0ec4c788c",
+ "c1c2": {
+  "sim_id": "bulk-H2O-r0.0334-300.0K",
+  "species": "H2O",
+  "T_K": 300.0,
+  "density_mol_A3": 0.0334,
+  "n_frames": 6,
+  "bins": 2000,
+  "density_kind": "bulk",
+  "c2_pair": [
+   "O",
+   "O"
+  ],
+  "c2_rmax_A": 6.2103275506,
+  "c2_bins": 80,
+  "rho_pair_A3": 0.03340000000037864,
+  "c2_short_trajectory": true,
+  "source": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/samples/H2O-SMOKE-T300-r00-0.0334/run/traj.dump",
+  "source_sha256": "922de8dd329acb29c685035a8af06dd68da3e41972febb33094e13a0ec4c788c"
+ },
+ "outputs": {
+  "f1_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/post/f1",
+  "f2_dir": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/_smoke/post/f2"
+ }
+}

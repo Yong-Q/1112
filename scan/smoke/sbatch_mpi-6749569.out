@@ -1,0 +1,8 @@
+gcc-14.2.0 loaded successful
+gcc-14.2.0 remove successful
+gcc-14.2.0 loaded successful
+NODE=wqd10nbe12c06 SLURM_NTASKS=8 SLURM_CPUS_ON_NODE=8
+/publicfs10/fs10-share/soft/share-soft/openmpi/openmpi-4.1.8/install-new/bin/mpirun
+mpirun (Open MPI) 4.1.8
+
+      8 wqd10nbe12c06
