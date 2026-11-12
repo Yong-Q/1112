@@ -1,0 +1,271 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{fontspec,xeCJK,amsmath,amssymb,booktabs,hyperref,fancyhdr}
+\setmainfont[Path=/home/qiuyong/fonts/,BoldFont=ARIALBD.TTF,ItalicFont=ARIALI.TTF]{arial.ttf}
+\setCJKmainfont[Path=/home/qiuyong/fonts/]{1611458310630572.ttf}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{OFF23 $\to$ POLAR：重加权推导与方差审计}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\E}{\mathbb E}\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\ESS}{\operatorname{ESS}}
+\input{docs/results/reweight_variance_20261027_numbers.tex}
+\begin{document}
+\begin{center}{\LARGE 重加权因子方差：修订推导与结论}\\[8pt]
+{\large 统计力学推导、501 帧实测结果及 $g(r),c_1,c_2$ 的适用边界}\\[6pt]
+2026-10-27 修订版 · 原 PDF 保留为历史版本\end{center}
+\section{先给结论与数据来源}
+复算对象是仓库上传的 501 帧水轨迹能量：384 个水分子（1152 原子），生产段 500 ps，每 1 ps 一帧，名义温度 300 K。源势为 MACE-OFF23，目标势为 MACE-POLAR。输入为
+\texttt{validation/off23\_500ps\_water1152\_2026-10-23/frames\_501\_total\_energies.csv}。
+本报告重算已有能量，不包含新的势函数单点计算，也不认证模型或轨迹的物理精度。
+
+\begin{center}\begin{tabular}{lr}\toprule
+量（全部方差采用分母 $n$） & 实测值\\\midrule
+帧数 $n$ & \csname N\endcsname\\
+$k_BT$ / eV & \csname KbtEv\endcsname\\
+$\operatorname{sd}(\Delta U)$ / eV & \csname DeltaUStdEv\endcsname\\
+$\beta\operatorname{sd}(\Delta U)$ & \csname SigmaBeta\endcsname\\
+相对方差 $\widehat{\mathrm{CV}}^2$ & \csname CvSquared\endcsname\\
+归一化权重方差 $v_w$ & \csname NormalizedWeightVarianceDdof0\endcsname\\
+均值为 1 的权重方差 $v_R$ & \csname MeanOneWeightVarianceDdof0\endcsname\\
+Kish $\widehat{\ESS}$ & \csname Ess\endcsname\\
+$\widehat{\ESS}/n$ & \csname EssFraction\endcsname\\
+最大单帧权重 & \csname MaxWeight\endcsname\\
+前三帧权重之和 & \csname Top3Mass\endcsname\\\bottomrule
+\end{tabular}\end{center}
+\textbf{推荐回答“方差多大”时报告相对方差 $\widehat{\mathrm{CV}}^2$，并附 ESS。}
+原始指数权重的绝对方差随任意能量常数改变；只有给出权重定义才有可比性。当前约 93.2\% 的权重落在三帧上，不能把 501 帧视为 501 个同等信息量的目标系综样本。Kish ESS 是权重集中度诊断，不等同于任意性质的精确独立样本数。
+\textbf{数值实现未验收：}实际 MD 日志与 PyTorch OFF 重算的差值，去常数后标准差约
+0.030 eV，即 300 K 下约 $1.16k_BT$。这足以影响指数权重。
+当前数值是给定 CSV 的复算，尚不能把低 ESS 全部归因于两个势的物理差异。
+需同帧、同模型、同精度、同边界条件核实能量和力；不能据此直接认定是 FP32 的全部影响。
+\newpage
+\section{从配分函数逐步得到重加权公式}
+设两种势在相同 $N,V,T$、相同构型空间及测度下定义；动量积分相同，可消去。$x$ 包含所有原子坐标，$L,H$ 表示源势与目标势：
+\begin{align}
+ Z_L&=\int e^{-\beta U_L(x)}\,dx,&p_L(x)&=Z_L^{-1}e^{-\beta U_L(x)},\\
+ Z_H&=\int e^{-\beta U_H(x)}\,dx,&\Delta U(x)&=U_H(x)-U_L(x).
+\end{align}
+将 $e^{-\beta U_H}=e^{-\beta U_L}e^{-\beta\Delta U}$ 代入，得
+\begin{align}
+q(x)&=e^{-\beta\Delta U(x)}\quad\text{（未归一化比值；整体常数在自归一化中抵消）},\\
+\E_L[q]&=\frac1{Z_L}\int e^{-\beta U_H(x)}dx=\frac{Z_H}{Z_L},\\
+\E_H[A]&=\frac{\int A(x)e^{-\beta U_L(x)}q(x)dx}{Z_H}
+ =\frac{\E_L[qA]}{\E_L[q]}.
+\end{align}
+这是一条总体恒等式。对源系综抽到的 $n$ 帧，采用自归一化重要性采样：
+\begin{equation}
+ \hat w_i=\frac{q_i}{\sum_jq_j},\qquad \hat A_H=\sum_i\hat w_i A(x_i).
+\end{equation}
+有限样本的比值估计一般有偏；总体恒等式并不保证有限轨迹的无偏性或精度。目标有重要构型而源轨迹未访问时，重加权不能凭空产生这些构型。
+
+\subsection{逐帧修正什么才合理？}
+每帧采用自己的真实 $\Delta U_i$ 正是上述公式要求的。若给能量差统一加常数 $C$，
+\begin{equation}
+q'_i=e^{-\beta C}q_i,\qquad \hat w'_i=\hat w_i.
+\end{equation}
+因此去掉整体参考能零点不会改善 ESS。反之，逐帧随意减去不同 $C_i$ 会把权重变成 $q'_i=q_i e^{\beta C_i}$，相当于改变目标分布；不能以“对齐能量”为理由消掉真实构型依赖的差值。
+
+例外是有明确证据的计算误差修复（错误单位、原子顺序、能量累加精度等），或用经验证的模型预测真实差值。不能将真实物理差值与数值误差一起任意扣除。当前 OFF 重算能量与 MD 日志间存在数值差异，需同帧同精度复核，不能据此直接宣称全部低 ESS 来自物理差异。
+\newpage
+\section{四种方差的定义及 ESS 的精确代数关系}
+对任意非负 $q_i$，令
+\begin{equation}
+\bar q=\frac1n\sum_iq_i,\quad v_q=\frac1n\sum_i(q_i-\bar q)^2,
+\quad \widehat{\mathrm{CV}}^2=\frac{v_q}{\bar q^2}.
+\end{equation}
+展开平方可得
+\begin{equation}
+1+\widehat{\mathrm{CV}}^2
+=\frac{n^{-1}\sum_iq_i^2}{(n^{-1}\sum_iq_i)^2}
+=\frac{n\sum_iq_i^2}{(\sum_iq_i)^2}.
+\end{equation}
+Kish 权重集中度定义为
+\begin{equation}\boxed{
+\widehat{\ESS}=\frac{(\sum_iq_i)^2}{\sum_iq_i^2}
+=\frac1{\sum_i\hat w_i^2}
+=\frac{n}{1+\widehat{\mathrm{CV}}^2}.}
+\end{equation}
+这里是\textbf{有限样本的精确代数恒等式}，与帧是否独立无关；把它解释成误差等价独立样本量才需要额外假设。若使用 Bessel 修正的分母 $n-1$，不可直接套同一恒等式。
+
+定义 $R_i=n\hat w_i=q_i/\bar q$，其经验均值严格为 1：
+\begin{align}
+ v_R&=\frac1n\sum_i(R_i-1)^2=\widehat{\mathrm{CV}}^2
+ =\frac n{\widehat{\ESS}}-1,\\
+ v_w&=\frac1n\sum_i(\hat w_i-1/n)^2
+ =\frac1{n\widehat{\ESS}}-\frac1{n^2}=\frac{v_R}{n^2}.
+\end{align}
+所以 $v_w$ 数值小不代表重叠好：它被 $n^2$ 缩放了。对比不同帧数时，应优先看 $v_R$ 或 $\ESS/n$。
+
+原始 $q_i$ 在当前约 480 eV 的能量差下会下溢。稳定计算采用
+\begin{equation}
+a_i=e^{-\beta(\Delta U_i-\Delta U_{\min})},\quad
+\hat w_i=a_i/\sum_j a_j.
+\end{equation}
+此标度下 $\bar a=\csname ShiftedRawMean\endcsname$，$v_a=\csname ShiftedRawVarianceDdof0\endcsname$。
+原始量可用对数报告：
+\begin{align}
+\log\bar q&=-\beta\Delta U_{\min}+\log\bar a
+ =\csname LogRawMean\endcsname,\\
+\log v_q&=-2\beta\Delta U_{\min}+\log v_a
+ =\csname LogRawVariance\endcsname.
+\end{align}
+对数为自然对数；绝对值极小反映参考能零点，并不表明权重波动小。
+\newpage
+\section{总体方差、重叠与能量差波动}
+真正的密度比为 $r(x)=q(x)/\E_Lq=p_H(x)/p_L(x)$。其总体均值为 1，故
+\begin{align}
+\Var_L(r)&=\E_L(r^2)-1
+ =\int\frac{p_H(x)^2}{p_L(x)}dx-1\\
+ &=\chi^2(p_H\Vert p_L).
+\end{align}
+这给出方差与系综不重叠的直接关系。假设独立同分布、所需矩有限且大数律适用，则
+\begin{equation}
+\frac{\widehat{\ESS}}n\longrightarrow
+\frac1{1+\Var_L(r)}.
+\end{equation}
+但 $R_i=q_i/\bar q$ 使用经验分母，不是真正已知的 $r(x_i)$；本报告的 212 左右是\textbf{经验相对方差}，不能据此证明总体 $\chi^2$ 也等于该数。缺失的尾部可能使总体方差更大。
+
+\subsection{高斯能量差近似：为何不能直接当实测 ESS？}
+若额外假定 $X=\beta\Delta U\sim\mathcal N(m,s^2)$，由正态矩母函数得
+\begin{align}
+\E(e^{-X})&=e^{-m+s^2/2},&\E(e^{-2X})&=e^{-2m+2s^2},\\
+\mathrm{CV}_q^2&=e^{s^2}-1,&\ESS/n&\approx e^{-s^2}.
+\end{align}
+当前 $s=13.7616$，这个高斯总体近似给出 $\ESS/n\approx5.66\times10^{-83}$，远小于经验值 0.004688。它不是 501 帧的 ESS 计算结果；极端尾部在有限样本中几乎不可检验，高斯模型本身也未获证明。不能把高斯外推当精确的所需帧数预测。
+
+\subsection{KL 与二阶矩尺度：仅作条件模型比较}
+Chatterjee--Diaconis 定理依赖目标对数密度比的尾部集中性；其样本量尺度涉及
+$D_1=D_{\rm KL}(p_H\Vert p_L)$。而二阶矩涉及
+$D_2=\log(1+\chi^2)$，由 Jensen 不等式可得 $D_1\le D_2$。
+因此不能称 KL 判据比方差/ESS 判据更严厉，也不是两项独立实验证据。
+
+若\textbf{额外假定完整源分布的} $X=\beta\Delta U\sim\mathcal N(m,s^2)$，
+指数倾斜给出 $D_1=s^2/2$、$D_2=s^2$。
+代入经验 $s=13.7616$ 仅在这一模型中有 $e^{D_1}\approx1.33\times10^{41}$、
+$e^{D_2}\approx1.77\times10^{82}$。501 帧未确定总体尾部；
+\textbf{这些不是实测总体散度或真实所需采样帧数。此前将其写成生产算量结论，现予撤回。}
+
+单帧总能量差的标准差为 0.355765 eV，约 $13.76k_BT$。除以固定原子数后仅为 0.308824 meV/atom，但玻尔兹曼因子必须使用\textbf{整盒总能量差}。将每原子能量差直接放入指数会人为抬高 ESS。$\sqrt{N}$ 波动标度还要求局域贡献近似独立或短程相关，不是任意系统都成立的恒等式。
+
+增加样本在适当条件下可改善估计，不能宣称 ESS 必然永远不增长。当前结果支持的是：直接对这 501 帧重加权高度集中，可靠恢复目标统计性质尚未成立。
+\newpage
+\section{权重方差如何传到统计性质？}
+令 $\mu_H=\E_H A$，$m_1=\E_L q$。对独立样本，将比值在总体均值处一阶展开：
+\begin{align}
+\hat A_H-\mu_H
+&\simeq\frac1{nm_1}\sum_{i=1}^nq_i(A_i-\mu_H),\\
+\Var(\hat A_H)&\simeq\frac1{nm_1^2}\E_L[q^2(A-\mu_H)^2].
+\end{align}
+这说明误差还取决于 $A$ 与权重的相关性。相同 ESS 不保证 $g(r)$、能量或密度有相同精度。
+
+对于相关 MD 帧，令 $Y_i=q_i(A_i-\mu_H)$，在平稳、相关可求和条件下：
+\begin{equation}
+\Var(\hat A_H)\simeq
+\frac{\gamma_Y(0)+2\sum_{k\ge1}\gamma_Y(k)}{nm_1^2},
+\quad \gamma_Y(k)=\operatorname{Cov}(Y_i,Y_{i+k}).
+\end{equation}
+应使用连续时间块重采样，并在每个块自助样本内重新归一化权重，完整重算后续性质。不能简单用任意未加权自相关时间去修正 Kish ESS。当前权重集中于极少帧，即使自助法也不能补出未采到的构型。
+
+\subsection{$g(r)$ 与 $c_2$}
+固定粒子数及体积下，先定义每帧同样归一化的配对直方图观测量 $A_r(x)$，再做 $\hat g_H(r)=\sum_i\hat w_i A_r(x_i)$。配对计数、壳层体积、有限粒子数归一化必须一致。此前独立脚本的无序对计数因子错误已另行记录，本报告没有替换旧结果。
+
+对于\textbf{均匀、各向同性、单组分标量密度}，OZ 关系给出
+\begin{equation}
+h=g-1,\quad S(k)=1+\rho\hat h(k),\quad
+\hat c^{(2)}(k)=\frac{\hat h(k)}{1+\rho\hat h(k)}.
+\end{equation}
+固定密度下的线性误差传播为
+\begin{equation}
+\delta\hat c^{(2)}\simeq\frac{\delta\hat h}{S^2},\qquad
+\Var(\hat c^{(2)})\simeq\frac{\Var(\hat h)}{S^4}.
+\end{equation}
+小 $S$ 区域会放大误差；密度不确定时还须包含密度误差及交叉协方差。分子位点相关需要相应矩阵理论；O--O RDF 不自动等于质心 RDF。
+
+现有独立空间审计发现轨迹沿 $z$ 有明显分层，时间平均分箱密度 CV 约 0.888；因此当前数据\textbf{不能未经论证直接套均匀体相标量 OZ 得到合格的 $c_2$}。
+\newpage
+\section{$c_1$、参考能零点及修正势的正确含义}
+采用 $c_1=-\beta\,\delta F_{\rm ex}/\delta\rho$ 的约定，平衡 Euler--Lagrange 方程为
+\begin{equation}
+\log(\rho(x)\Lambda^3)-c_1(x)+\beta V_{\rm ext}(x)-\beta\mu=0.
+\end{equation}
+因此从密度得绝对 $c_1$ 还需要同一约定下的目标化学势。固定 $N$ 的一条轨迹不直接给出跨粒子数的自由能导数。减去空间常数可研究相对剖面，但不能宣称已确定绝对 $c_1$。
+
+\textbf{旧材料中“能量加常数就让 $c_1$ 平移”的说法必须限定：}
+若对所有 $N$ 加同一常数 $C$，$F\to F+C$，泛函导数不变；若每分子参考能加 $a$，$F\to F+a\int\rho dx$，则 $c_1\to c_1-\beta a$，$c_2$ 不变。只有在已明确跨 $N$ 的能量基准后才能讨论这种平移。单一固定 $N$ 的 480 eV 偏移不足以判定化学势修正。
+
+修正势可写作
+\begin{equation}
+U_{\rm corr}(x)=U_L(x)+f_\theta(x),\qquad f_\theta\approx U_H-U_L.
+\end{equation}
+在 $U_{\rm corr}$ 下\textbf{重新采样}，残差权重为
+\begin{equation}
+q_{\rm res}=e^{-\beta[U_H-U_{\rm corr}]}.
+\end{equation}
+若残差的构型依赖波动显著减小且采样覆盖目标，ESS 有望提高；这需要实测验证。只在旧帧上拟合后改写指数、却不保持目标能量定义，不是正确的校正。保留原始目标权重时，拟合本身也不会改变旧轨迹的 ESS。
+
+若使用 MD，修正力须为 $\Delta\mathbf F=-\nabla f_\theta$，力损失正确符号为
+$\|\Delta\mathbf F+\nabla f_\theta\|^2$。MC 可以使用能量差，但提议分布及接受率必须满足目标的详细平衡。
+
+\section{文献对照与接下来怎么验证}
+Herzog 等的 MLPT 工作讨论源轨迹到目标理论的重加权，并在重叠不足时使用 MLMC 重新采样，而非随意逐帧抹除差值。Hilpert 与 Kresse 的水研究强调势函数能量误差对热力学重加权的影响。两者支持“代理势应接近目标分布”的路线，但不直接认证本数据的 $c_1/c_2$。
+
+建议顺序：同帧统一精度核对两个势及 MD 引擎能量；确认空间分层和目标系综；训练并独立验证修正势后重新采样；最后做权重、时间相关及 $g/S/c_2$ 的完整不确定度评估。论文提供的方法不能替代这几项数据检查。
+
+
+\newpage
+\section{学生势数据的资格与文献解释修订}
+\textbf{撤回学生生产尺寸失败结论。}1152 原子的 501 帧来自 OFF23，
+学生势只在这些旧帧上补算能量。因此基于 $U_H-U_S$ 的 1.19/501
+仅为该指数序列在 OFF 构型上的集中度，不是学生自采样到 POLAR 的 ESS。
+如果 $x\sim p_L$，误用该权重得到的分布正比于
+$\exp[-\beta(U_L+U_H-U_S)]$，一般不等于 $p_H$。
+应采用 $q_{H/L}=q_{H/S}q_{S/L}$，或在学生势下重新平衡并采样。
+
+96 原子案例的 8.43/19 仅为 0.2 ps 短轨迹诊断；气相和 bulk 池化验证集
+未被认证为单一平衡系综，不能由评分均匀程度宣称生产统计可用。
+未加权学生采样给出学生系综，不能自动作为 POLAR 参考。
+
+\subsection{三种指标不能混用}
+对同一批 OFF23\,$\to$\,POLAR 帧，Kish ESS 为 2.34867；
+DiffTRe 式(5)的熵形式 $\exp[-\sum_iw_i\log w_i]$ 为 3.06152；
+Herzog 式(4)/(5)的升序半权重指标 $I_w$ 为 0。
+它们都反映当前经验权重集中，但数值定义与阈值不同，也不证明总体误差条。
+
+\subsection{MBAR 与水论文的解释}
+Shirts--Chodera 原文明确允许未直接采样的目标态 $N_i=0$，
+前提是已有采样分布覆盖它。不能说每个待估状态必须直接采样；
+同样，给旧帧补算中间势能量不会增加构型覆盖。
+其最优与无偏陈述属于适当条件下的渐近性质。
+
+Hilpert--Kresse 正文明确报告 63 个水、5000 构型，292 K 时
+MACE ESS=4200、KbP ESS=720；323 K 时 KbP ESS=70。
+前述“正文未给出4200”的说法撤回。其成功例接近同一个 RPBE-D3 目标，
+不直接认证跨 OFF23/POLAR 的本例。截尾可能增大 ESS，但引入偏差和阈值不确定度。
+
+\subsection{2019 MLPT 式(18)的符号不一致}
+若预测误差按原文式(17)为 $E\sim\mathcal N(\Delta,s_\epsilon^2)$，则
+\begin{equation}
+\frac{\int E e^{-\beta E}P(E\mid\Delta)dE}
+{\int e^{-\beta E}P(E\mid\Delta)dE}=\Delta-\beta s_\epsilon^2.
+\end{equation}
+上传式(18)印为正号，与上述定义的积分不一致。
+独立 Simpson 积分取 $\beta=1,\Delta=0,s_\epsilon=1$ 得到 $-1$。
+这是印刷假设下的符号核对，不推断作者程序如何实现。
+$s_\epsilon$ 是预测残差，不能用真实势间差值波动代替；
+一般结构量也没有直接加减 $\beta s_\epsilon^2$ 的普遍修正。
+
+\textbf{修订状态：}已修文档解释与构建入口；未重新评估势函数能量，
+未生成新的 MD/MC，也未认证目标 $c_1/c_2$。
+详细原文页码与复算见仓库的
+\texttt{FORMULA\_CROSSCHECK\_PRIMARY\_PDFS\_2026-10-27.md}。
+
+\newpage
+\begin{thebibliography}{9}
+\bibitem{herzog} B. Herzog et al., Assessing the Accuracy of Machine Learning Thermodynamic Perturbation Theory: Density Functional Theory and Beyond. JCTC 18, 1382--1394 (2022). \href{https://doi.org/10.1021/acs.jctc.1c01034}{DOI: 10.1021/acs.jctc.1c01034}.
+\bibitem{hilpert} T. Hilpert and G. Kresse, Accurate Thermophysical Properties of Water using Machine-Learned Potentials. JCP 164, 194504 (2026). \href{https://doi.org/10.1063/5.0325444}{DOI: 10.1063/5.0325444}; \href{https://arxiv.org/html/2601.21103v1}{开放全文}.
+\bibitem{cd} S. Chatterjee and P. Diaconis, The Sample Size Required in Importance Sampling. Ann. Appl. Probab. 28, 1099--1135 (2018). \href{https://doi.org/10.1214/17-AAP1326}{DOI: 10.1214/17-AAP1326}.
+\bibitem{ess} V. Elvira, L. Martino and C. P. Robert, Rethinking the Effective Sample Size. International Statistical Review (2022). \href{https://doi.org/10.1111/insr.12500}{DOI: 10.1111/insr.12500}.
+\end{thebibliography}
+\end{document}

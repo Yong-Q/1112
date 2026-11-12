@@ -1,0 +1,61 @@
+{
+  "scope": "Weekly source snapshots; original records unchanged",
+  "test_commit": "65a0423",
+  "symmetrix_polar_commit": "68f08d1",
+  "files": [
+    {
+      "file": "evidence/teacher_student_by_species.json",
+      "sha256": "ce1fe67eb37e02bcffbc6c764c71f24ce4c52cd630252e655c6b05d36f6cd2a7",
+      "source_repository": "symmetrix-polar",
+      "source_path": "docs/results/data/valid_by_species.json"
+    },
+    {
+      "file": "evidence/planD_backbone_benchmark.json",
+      "sha256": "6b14f53a393a8c4604dc5e3bd71c03fc9123215d4acffe08c26d2e336dd3df30",
+      "source_repository": "symmetrix-polar",
+      "source_path": "bench/plan_d_bulk_2026-10-25/results/speed_lammps_5184.json"
+    },
+    {
+      "file": "evidence/off_polar_weights_501.csv",
+      "sha256": "7472cd5f4d8624218cbc9e221e30fb758df1746ea71bf573a622df6ed34e7ade",
+      "source_repository": "test",
+      "source_path": "docs/results/20261027_off_polar_audit/independent_weights.csv"
+    },
+    {
+      "file": "evidence/off_polar_energy_audit.json",
+      "sha256": "5e4753c2e4586e39128e85237c8da898a1ced8cf5a5226a2efe6c84ca828d72b",
+      "source_repository": "test",
+      "source_path": "docs/results/20261027_off_polar_audit/energy_ess_audit.json"
+    },
+    {
+      "file": "evidence/com_diagnostic_summary.json",
+      "sha256": "4722248e49f3d65770780536ef6bbd1de99ca8d19e7dec8c3fc270d021495496",
+      "source_repository": "test",
+      "source_path": "docs/results/com_estimator_trial_20261028/summary.json"
+    },
+    {
+      "file": "evidence/density_estimator_profiles.csv",
+      "sha256": "af5e9bec36f18bc5cf0bf4acaada6302ca136de1d7b5d81d06e40d4e31d8f273",
+      "source_repository": "test",
+      "source_path": "docs/results/c1_estimator_pilot_20261028/full_profiles.csv"
+    },
+    {
+      "file": "evidence/density_estimator_summary.json",
+      "sha256": "01497c1ef6d59f12c9ad62fa34f2f46429a5764c4212c519f75c5ddae93e0485",
+      "source_repository": "test",
+      "source_path": "docs/results/c1_estimator_pilot_20261028/summary.json"
+    },
+    {
+      "file": "evidence/cutoff_diagnostics.csv",
+      "sha256": "3099d5b04a785c3a90f6a521f5bf7d848d0316a0ee3636a52e5122d05af27db1",
+      "source_repository": "test",
+      "source_path": "docs/results/reweight_boundary_scan_20261028/cutoffs.csv"
+    },
+    {
+      "file": "evidence/six_teacher_smoke.json",
+      "sha256": "3ab44f55fafaf08a7433a4305e5d6214cbb659b8d91b47263f6ea9b91f7db104",
+      "source_repository": "symmetrix-polar",
+      "source_path": "docs/results/data/path_b_six_molecule_smoke_2026-10-22.json"
+    }
+  ]
+}

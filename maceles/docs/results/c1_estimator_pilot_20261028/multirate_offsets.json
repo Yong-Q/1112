@@ -1,0 +1,53 @@
+{
+  "source_frames": 501,
+  "stride": 5,
+  "denominator_q_frames": 501,
+  "results": [
+    {
+      "offset": 0,
+      "qA_frames": 101,
+      "weight_mass_in_qA_subset": 0.2992025865048985,
+      "max_weight_frame_included": false,
+      "estimated_particle_count": 569.9187168530535,
+      "RMS_vs_full_density_per_A3": 0.011656890856590113,
+      "same_subset_self_normalized_count": 384.0
+    },
+    {
+      "offset": 1,
+      "qA_frames": 100,
+      "weight_mass_in_qA_subset": 0.00036493026218007823,
+      "max_weight_frame_included": false,
+      "estimated_particle_count": 0.7020674355925216,
+      "RMS_vs_full_density_per_A3": 0.02534362247609657,
+      "same_subset_self_normalized_count": 383.99999999999983
+    },
+    {
+      "offset": 2,
+      "qA_frames": 100,
+      "weight_mass_in_qA_subset": 0.09343359840499849,
+      "max_weight_frame_included": false,
+      "estimated_particle_count": 179.75129395547228,
+      "RMS_vs_full_density_per_A3": 0.015036582945618228,
+      "same_subset_self_normalized_count": 384.0
+    },
+    {
+      "offset": 3,
+      "qA_frames": 100,
+      "weight_mass_in_qA_subset": 0.6044391446605892,
+      "max_weight_frame_included": true,
+      "estimated_particle_count": 1162.844204063828,
+      "RMS_vs_full_density_per_A3": 0.056816411839577155,
+      "same_subset_self_normalized_count": 384.00000000000006
+    },
+    {
+      "offset": 4,
+      "qA_frames": 100,
+      "weight_mass_in_qA_subset": 0.0025597401673334965,
+      "max_weight_frame_included": false,
+      "estimated_particle_count": 4.924530523522874,
+      "RMS_vs_full_density_per_A3": 0.025053488748615457,
+      "same_subset_self_normalized_count": 384.00000000000006
+    }
+  ],
+  "scope": "Deterministic thinning of one trajectory. Full-data direct curve is not an independent target reference. q and A correlations, one dominant target frame, and limited support remain; lower m is not automatically faster because target energy dominates cost."
+}

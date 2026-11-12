@@ -1,0 +1,2 @@
+bin/lmp filter=lfs diff=lfs merge=lfs -text
+dist/*.tar.gz filter=lfs diff=lfs merge=lfs -text

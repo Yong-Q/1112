@@ -1,0 +1,89 @@
+{
+  "caveat": "Uniform fixed-dipole 1.85 D is an approximation not target POLAR electric-field energy or induced polarization. This computes field on stored frames, not field-driven MD. Prior source+target common external potential cancels at same T.",
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505,
+    606,
+    707,
+    808,
+    909,
+    1010
+  ],
+  "cutoffs": {
+    "0": {
+      "site_sd_eV_per_s_mean": 0.8369927259380004,
+      "site_equal_sd_scale_ratio_of_mean": 0.4250515925943753,
+      "site_equal_sd_scale_range": [
+        0.3020178147626776,
+        0.7743160962117585
+      ],
+      "uniform_corrected_eV_per_VA": 2.082069309970768,
+      "uniform_equal_sd_VA": 0.17087091647052302,
+      "uniform_legacy_eV_per_VA": 2.2701165031351964,
+      "uniform_legacy_equal_sd_VA": 0.15671666659332995
+    },
+    "10": {
+      "site_sd_eV_per_s_mean": 0.8200157631491656,
+      "site_equal_sd_scale_ratio_of_mean": 0.42116951145158826,
+      "site_equal_sd_scale_range": [
+        0.29416193310567645,
+        0.7490478690501348
+      ],
+      "uniform_corrected_eV_per_VA": 2.0637229723685064,
+      "uniform_equal_sd_VA": 0.1673507747756299,
+      "uniform_legacy_eV_per_VA": 2.249542398566847,
+      "uniform_legacy_equal_sd_VA": 0.1535270633566023
+    },
+    "20": {
+      "site_sd_eV_per_s_mean": 0.8125553320276404,
+      "site_equal_sd_scale_ratio_of_mean": 0.4207367551484831,
+      "site_equal_sd_scale_range": [
+        0.29040505881428824,
+        0.7599559683030006
+      ],
+      "uniform_corrected_eV_per_VA": 2.069313721460788,
+      "uniform_equal_sd_VA": 0.16521027731579072,
+      "uniform_legacy_eV_per_VA": 2.2485844967369495,
+      "uniform_legacy_equal_sd_VA": 0.15203871336479358
+    },
+    "30": {
+      "site_sd_eV_per_s_mean": 0.8097995694725635,
+      "site_equal_sd_scale_ratio_of_mean": 0.4213673916434537,
+      "site_equal_sd_scale_range": [
+        0.2901035825777674,
+        0.762025787005298
+      ],
+      "uniform_corrected_eV_per_VA": 2.0683064481098765,
+      "uniform_equal_sd_VA": 0.1649770674236755,
+      "uniform_legacy_eV_per_VA": 2.250841751453157,
+      "uniform_legacy_equal_sd_VA": 0.15159801088741584
+    },
+    "50": {
+      "site_sd_eV_per_s_mean": 0.8139180444434585,
+      "site_equal_sd_scale_ratio_of_mean": 0.42291860642303203,
+      "site_equal_sd_scale_range": [
+        0.29305265640869416,
+        0.7668117815471385
+      ],
+      "uniform_corrected_eV_per_VA": 2.0962581710944357,
+      "uniform_equal_sd_VA": 0.16420739098127043,
+      "uniform_legacy_eV_per_VA": 2.2808453347895092,
+      "uniform_legacy_equal_sd_VA": 0.15091820556537378
+    },
+    "100": {
+      "site_sd_eV_per_s_mean": 0.8207985729065344,
+      "site_equal_sd_scale_ratio_of_mean": 0.4191491607806378,
+      "site_equal_sd_scale_range": [
+        0.2921508928553444,
+        0.7637154355884586
+      ],
+      "uniform_corrected_eV_per_VA": 2.0793515913099663,
+      "uniform_equal_sd_VA": 0.16545399750649184,
+      "uniform_legacy_eV_per_VA": 2.2558890106309044,
+      "uniform_legacy_equal_sd_VA": 0.1525061877523408
+    }
+  }
+}

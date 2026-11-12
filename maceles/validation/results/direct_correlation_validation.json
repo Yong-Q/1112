@@ -1,0 +1,21 @@
+{
+ "smooth_gaussian": {
+  "rho": 0.2,
+  "c0": -5.0,
+  "sigma": 0.5,
+  "max_abs_error": 4.938272013532696e-13,
+  "c2_at_zero": -4.999999999999506,
+  "c_exact_at_zero": -5.0
+ },
+ "py_hard_sphere": {
+  "eta": 0.4,
+  "rho": 0.7639437268410978,
+  "max_abs_error_0.2_to_0.9": 2.078337502098293e-13,
+  "c2_at_zero": -28.251425198354458,
+  "c_exact_at_zero": -25.000000000000004,
+  "note": "discontinuous c(r) causes Gibbs ringing at r=0"
+ },
+ "ideal_gas": {
+  "max_abs_c2": 0.0
+ }
+}

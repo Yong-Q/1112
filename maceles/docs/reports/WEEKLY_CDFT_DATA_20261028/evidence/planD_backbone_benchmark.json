@@ -1,0 +1,146 @@
+{
+ "results": [
+  {
+   "tag": "plan_d_bulk_f32_trial0",
+   "rc": 0,
+   "atoms": 5184,
+   "samples_ms": [
+    23.4878,
+    270.826,
+    31.6729,
+    23.1693,
+    23.2916,
+    291.69,
+    26.9463,
+    23.2596,
+    1478.22,
+    23.2718
+   ],
+   "median_ms": 25.21705,
+   "min_ms": 23.1693,
+   "median_us_per_atom_step": 4.864400077160494,
+   "min_us_per_atom_step": 4.469386574074074,
+   "resolved": [
+    "Symmetrix streamed_edges requested='direct' resolved='direct'"
+   ],
+   "jit_lines": [
+    "Activated Execution JIT device artifact 'jit-r1-gen11-f32-29f6298ae84d2005'"
+   ],
+   "neighbor_builds": [
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0"
+   ],
+   "stderr_tail": ""
+  },
+  {
+   "tag": "plan_d_bulk_f32_trial1",
+   "rc": 0,
+   "atoms": 5184,
+   "samples_ms": [
+    23.2722,
+    23.4726,
+    2075.7400000000002,
+    30.9308,
+    23.1126,
+    287.786,
+    30.3147,
+    30.4109,
+    23.1647,
+    23.3061
+   ],
+   "median_ms": 26.89365,
+   "min_ms": 23.1126,
+   "median_us_per_atom_step": 5.187818287037038,
+   "min_us_per_atom_step": 4.458449074074075,
+   "resolved": [
+    "Symmetrix streamed_edges requested='direct' resolved='direct'"
+   ],
+   "jit_lines": [
+    "Activated Execution JIT device artifact 'jit-r1-gen11-f32-29f6298ae84d2005'"
+   ],
+   "neighbor_builds": [
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0"
+   ],
+   "stderr_tail": ""
+  },
+  {
+   "tag": "plan_d_bulk_f32_trial2",
+   "rc": 0,
+   "atoms": 5184,
+   "samples_ms": [
+    25.5655,
+    23.174899999999997,
+    530.4870000000001,
+    23.6372,
+    23.400399999999998,
+    23.4567,
+    23.232499999999998,
+    23.520699999999998,
+    1448.24,
+    25.0424
+   ],
+   "median_ms": 23.57895,
+   "min_ms": 23.174899999999997,
+   "median_us_per_atom_step": 4.548408564814815,
+   "min_us_per_atom_step": 4.470466820987654,
+   "resolved": [
+    "Symmetrix streamed_edges requested='direct' resolved='direct'"
+   ],
+   "jit_lines": [
+    "Activated Execution JIT device artifact 'jit-r1-gen11-f32-29f6298ae84d2005'"
+   ],
+   "neighbor_builds": [
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0",
+    "Neighbor list builds = 0"
+   ],
+   "stderr_tail": ""
+  }
+ ],
+ "summary": {
+  "model": "/workspace/group/shared/bza/symmetrix-polar/bench/plan_d_bulk_2026-10-25/models/bulk/plan_d_bulk_symmetrix.json",
+  "model_sha256": "61f943f8b0379750ce0ead98a05f029d08bb06779762689fac717bdd8f64c161",
+  "model_bytes": 19639094,
+  "data": "/workspace/group/shared/bza/symmetrix-polar/bench/paper_scale_2026-10-20/water_5184.data",
+  "protocol": "1 warm-up + 10 measured run-1 blocks, 3 fresh processes",
+  "median_us_per_atom_step_per_trial": [
+   4.864400077160494,
+   5.187818287037038,
+   4.548408564814815
+  ],
+  "median_of_trial_medians_us_per_atom_step": 4.864400077160494,
+  "min_us_per_atom_step_per_trial": [
+   4.469386574074074,
+   4.458449074074075,
+   4.470466820987654
+  ],
+  "best_min_us_per_atom_step": 4.458449074074075
+ }
+}

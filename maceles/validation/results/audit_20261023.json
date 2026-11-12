@@ -1,0 +1,116 @@
+{
+  "kind": "existing_evidence_audit_not_corrected_labels",
+  "audited_baseline_commit": "af743290aa844937711884d791d5aa28b22bf636",
+  "input_sha256": {
+    "examples/water96/reweight/reweight_manifest.json": "b593a3a11c606297c14c1ac19fc457e724dea332112dd10bc3e6acf701437639",
+    "examples/water96/off_traj_96_prod.xyz": "0fbde0e4abc86275de28e2e98e6d601aeed40302b1031e9ebff180bbf288f445",
+    "sampling/off_polar.py": "8e1112765f3cc2cd88b23a93f0f18c9d196af9d1f17af2a433c0d803166d7b44",
+    "sampling/direct_correlation.py": "cb3354198be041f0d1b04dd085272982b4563eaf363b0c4dba5403a4214441d9",
+    "sampling/trajectory.py": "60bb051f433d2141c7cb8577055de8ee9b8c0ed1334046a9d91f11c280514ece",
+    "scripts/monitor_ess.py": "95e75c8bab4f2b20429f2310607d920de7f20242b9efa8f37d9b0b14a4bcde9d",
+    "docs/results/ess_live_1152.json": "ef7481fdea0880fd9975f591c5072d09f51379d58a13235e22fcc06eb4a14900"
+  },
+  "weight_replay": {
+    "stored_temperature_K": 334.0,
+    "stored_ess": 3.6270322247424427,
+    "maximum_saved_weight_difference": 1.459943277382081e-14,
+    "at_300K": {
+      "temperature_K": 300.0,
+      "frames": 36,
+      "sigma_beta": 4.331627665645827,
+      "ess_weight_only": 3.338001798354263,
+      "ess_fraction": 0.0927222721765073,
+      "max_weight": 0.4654691867953316,
+      "top3_weight": 0.8264342892913499,
+      "top5_weight": 0.9832836274620758
+    },
+    "at_334K": {
+      "temperature_K": 334.0,
+      "frames": 36,
+      "sigma_beta": 3.8906835320172104,
+      "ess_weight_only": 3.6270322247425373,
+      "ess_fraction": 0.10075089513173714,
+      "max_weight": 0.43267953019693745,
+      "top3_weight": 0.8021365646493037,
+      "top5_weight": 0.9731871770876837
+    },
+    "autocorrelation_adjusted": false
+  },
+  "trajectory": {
+    "frames": 36,
+    "first_step": 3000,
+    "last_step": 10000,
+    "metadata_temperatures_K": [
+      300.0
+    ],
+    "kinetic_temperature_method": "ASE get_temperature using stored momenta and masses",
+    "kinetic_temperature_mean_K": 340.9675786344785,
+    "kinetic_temperature_sd_K": 40.637567055451576,
+    "four_equal_time_blocks": [
+      {
+        "block": 0,
+        "frames": 9,
+        "first_step": 3000,
+        "last_step": 4600,
+        "kinetic_temperature_mean_K": 386.2110624340823,
+        "energy_gap_mean_eV": 39.87657369566861,
+        "saved_weight_mass": 0.9815195730036708
+      },
+      {
+        "block": 1,
+        "frames": 9,
+        "first_step": 4800,
+        "last_step": 6400,
+        "kinetic_temperature_mean_K": 351.44948769678086,
+        "energy_gap_mean_eV": 40.037911691169334,
+        "saved_weight_mass": 0.00626663483205197
+      },
+      {
+        "block": 2,
+        "frames": 9,
+        "first_step": 6600,
+        "last_step": 8200,
+        "kinetic_temperature_mean_K": 314.5340478925202,
+        "energy_gap_mean_eV": 39.99306701689946,
+        "saved_weight_mass": 0.010055999921104421
+      },
+      {
+        "block": 3,
+        "frames": 9,
+        "first_step": 8400,
+        "last_step": 10000,
+        "kinetic_temperature_mean_K": 311.6757165145308,
+        "energy_gap_mean_eV": 40.07479391410824,
+        "saved_weight_mass": 0.002157792243173161
+      }
+    ],
+    "warning": "Kinetic block means are descriptive, not proof of a canonical ensemble or a new reweighting temperature."
+  },
+  "rdf_counterexample": {
+    "uniform_random_gas_frames": 80,
+    "atoms_per_frame": 32,
+    "box_A": 20.0,
+    "rmax_A": 6.0,
+    "expected_g": 1.0,
+    "current_mean_g_for_2_to_5A": 5.162092447529057,
+    "shell_corrected_mean_g_for_2_to_5A": 0.9829904942495535,
+    "current_shell_formula": "4*pi/3*(r_hi**2-r_lo**2)",
+    "required_shell_volume_formula": "4*pi/3*(r_hi**3-r_lo**3)",
+    "archived_rmax_A": 8.0,
+    "archived_half_box_A": 5.848035476425731,
+    "not_a_corrected_c2_result": true
+  },
+  "widom_denominator_counterexample": {
+    "attempted": 4,
+    "retained": 2,
+    "current_c1": 0.0,
+    "required_c1_if_rejected_factors_are_zero": -0.6931471805599453,
+    "nonfinite_insertion_energies_must_be_errors_not_silent_rejections": true
+  },
+  "additional_code_findings": [
+    "c2_from_g replaces a nonzero first radial midpoint by rpad=0 before transforming h.",
+    "O-O scalar OZ output is not a full molecular position-orientation c2; the target coordinate must be explicit.",
+    "Widom insertion does not declare an isolated-molecule/ideal-internal reference and has no frame-weight argument.",
+    "The 1152-atom record contains only six early frames including timestep zero; no stationary-ensemble conclusion is established."
+  ]
+}

@@ -1,0 +1,3 @@
+sim_id,data,traj,species,temperature,timestep,steps,dump_every,density,c2_pair,seed,elements
+CO2-T463.6-r08-rho0.0922,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/CO2/r08_rho0.0922.lammps,,CO2,463.6,0.0005,2000000,1000,0.001868,C O,12345,C H N O
+CO2-T463.6-r09-rho0.0200,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/CO2/r09_rho0.0200.lammps,,CO2,463.6,0.0005,2000000,1000,0.000405,C O,12345,C H N O

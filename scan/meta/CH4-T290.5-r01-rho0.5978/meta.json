@@ -1,0 +1,41 @@
+{
+ "sim_id": "CH4-T290.5-r01-rho0.5978",
+ "species": "CH4",
+ "elements": [
+  "C",
+  "H",
+  "N",
+  "O"
+ ],
+ "temperature_K": 290.5,
+ "timestep_ps": 0.0005,
+ "steps": 2000000,
+ "dump_every": 1000,
+ "density_mol_A3": 0.011551,
+ "c2_pair": [
+  "C",
+  "C"
+ ],
+ "seed": 12345,
+ "model": "/publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off_chno.json",
+ "model_sha256": "b0e346bbe83306c1b1f73193a54cfaba9ff140788aff71847a10cc3539937431",
+ "cubin": "/publicfs10/fs10-m9/home/m9s005258/qy/test/assets/maceles_off/maceles_off.cubin",
+ "cubin_sha256": "acb7f274d5273f2cd072533d56a39d5e9831e4355d9501d57492233ebd8b26e5",
+ "host_artifact": "/publicfs10/fs10-m9/home/m9s005258/.cache/symmetrix/execution-jit/artifacts/8d00f0566cc8a5f6a603befb0eab51f47d3a025c19c9b9d92e0731eb351e84f7/factorized_host_plugin_gen11_src0c65a7c611c15feff220748dc034a7a963176ec834be421668b0f9c04a5ca982.so",
+ "host_artifact_sha256": "e6b7363430e54137cc1154fb3c4b392c43dd80e33d78b63cae25e6447fcc59a4",
+ "data": "/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/CH4/r01_rho0.5978.lammps",
+ "data_sha256": "90e7bcf6cc51131e3aba5008a38a269b46c5336d88eb7a742e3a1e1cf6894bf6",
+ "traj": "traj/CH4-T290.5-r01-rho0.5978/run/traj.dump.gz",
+ "traj_sha256": "30d1dc31ccd7005044c1455307e2d870e8e4c1d61ba26e728e23c8f2e8f7ecd5",
+ "timing": {
+  "loop_time_s": 175296.0,
+  "per_step_ms": 87.64800000000001,
+  "us_per_atom_step": 35.059200000000004,
+  "steps_per_ns": 2000000.0,
+  "seconds_per_ns": 175296.0,
+  "hours_per_ns": 48.693333333333335,
+  "days_per_ns": 2.028888888888889
+ },
+ "status": "md_complete",
+ "traj_gz_bytes": 139487499
+}

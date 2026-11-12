@@ -1,0 +1,48 @@
+{
+  "source_temperature_K": 300,
+  "cutoff_ps": 20,
+  "frame_count": 481,
+  "reference_sd_logq": 13.224195288570824,
+  "threshold_definition": "sd(log q_combined) / sd(log q_OFF_to_POLAR_at_300K) = 2; source trajectory is fixed at 300K",
+  "site_seed_roots": {
+    "0": [
+      0.7172534382930552
+    ],
+    "1": [
+      0.5606611226830116
+    ],
+    "2": [
+      1.1640600226237237
+    ],
+    "3": [
+      1.3692044969063806
+    ],
+    "4": [
+      0.5769393505301542
+    ],
+    "5": [
+      0.9114499405424055
+    ],
+    "6": [
+      0.5188615546496268
+    ],
+    "7": [
+      0.8596352915738169
+    ],
+    "8": [
+      0.8896560261455857
+    ],
+    "9": [
+      0.5977175612057937
+    ]
+  },
+  "site_mean_sd_first_crossing": 0.7326225830533086,
+  "uniform_positive_field_roots_V_A": [
+    0.28166259331143734
+  ],
+  "no_field_target_temperature_roots_K": [
+    214.02189857530288,
+    475.82978914650914
+  ],
+  "explanation": "Threshold means combined standard deviation = two times baseline; individual fluctuation terms are not added as scalar magnitudes; correlated terms determine total. At changed target T the model term is scaled by betaT, not a fixed 1."
+}

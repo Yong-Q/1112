@@ -1,0 +1,405 @@
+{
+  "inputs": {
+    "atoms_per_box": 3000,
+    "production_ns": 1.0,
+    "equilibration_ns_budget": 0.1,
+    "timestep_fs": 0.5,
+    "reference_LJ_Tc_star": 1.312,
+    "reference_LJ_rhoc_star": 0.316,
+    "target_T_star_reference": 2.0,
+    "rho_star_min": 0.02,
+    "rho_star_max": 0.67,
+    "pilot_states_per_species": 10,
+    "expanded_states_per_species": 20,
+    "trajectory_save_interval_ps": 1.0,
+    "online_structure_interval_ps": 0.05,
+    "target_scoring_interval_ps_candidate": 5.0,
+    "runtime_scenarios_us_atom_step": [
+      6.34,
+      10.0,
+      20.0,
+      40.0
+    ],
+    "planning_reserve_us_atom_step": 20.0,
+    "schedule_buffer_fraction": 0.25,
+    "runtime_scope": "6.34 is pre-fix toy-checkpoint water evidence; 10/20/40 are arithmetic scenarios, not measured official-model rates or confidence bounds.",
+    "density_mapping_scope": "Corresponding-states budgeting convention based on full-LJ critical constants and real-fluid EOS constants; not a physical fit of MACELES, nor exact correspondence to PRL's truncated-shifted 4sigma LJ.",
+    "model_status": "Use official MACELES-OFF small 192-channel checkpoint with charge-response force fix for prospective production; no official-model 3000-atom timing available in pinned snapshot.",
+    "execution_status": "planning_only_not_submitted"
+  },
+  "species": [
+    {
+      "formula": "H2O",
+      "fluid": "Water",
+      "atoms_per_molecule": 3,
+      "Tc_K": 647.096,
+      "rhoc_mol_m3": 17873.72799560906,
+      "molar_mass_kg_mol": 0.018015268,
+      "BibTeX_EOS": "Wagner-JPCRD-2002",
+      "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Water.json",
+      "source_sha256": "540f8e84f721e526e2f9acff775cd9dbddcf2ef35284440ea501b7dd37ac53ac",
+      "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614",
+      "T_plan_K": 986.4268292682926,
+      "sigma_reference_A": 3.0848947060835306,
+      "molecules": 1000,
+      "atoms": 3000,
+      "rho_min_nm3": 0.6812538347817115,
+      "rho_max_nm3": 22.822003465187336,
+      "mass_density_min_g_cm3": 0.020379746835443045,
+      "mass_density_max_g_cm3": 0.6827215189873419,
+      "box_L_min_A": 35.2545691113624,
+      "box_L_max_A": 113.64849267200702,
+      "pilot_spacing_nm3": 2.4600832922672913,
+      "expanded_max_spacing_nm3": 1.2300416461336456,
+      "expanded_min_spacing_nm3": 0.6150208230668228,
+      "time_production_h_at_reserve": 33.333333333333336
+    },
+    {
+      "formula": "NH3",
+      "fluid": "Ammonia",
+      "atoms_per_molecule": 4,
+      "Tc_K": 405.56,
+      "rhoc_mol_m3": 13696,
+      "molar_mass_kg_mol": 0.01703052,
+      "BibTeX_EOS": "Gao-JPCRD-2023",
+      "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Ammonia.json",
+      "source_sha256": "3767030442d75716b7c803fe00795974575619460e595a2e6235d4b615636ce3",
+      "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614",
+      "T_plan_K": 618.2317073170732,
+      "sigma_reference_A": 3.3711712223208106,
+      "molecules": 750,
+      "atoms": 3000,
+      "rho_min_nm3": 0.5220205053731645,
+      "rho_max_nm3": 17.48768693000101,
+      "mass_density_min_g_cm3": 0.014762658349367087,
+      "mass_density_max_g_cm3": 0.4945490547037975,
+      "box_L_min_A": 35.003351664339405,
+      "box_L_max_A": 112.83865482951667,
+      "pilot_spacing_nm3": 1.8850740471808716,
+      "expanded_max_spacing_nm3": 0.9425370235904358,
+      "expanded_min_spacing_nm3": 0.4712685117952179,
+      "time_production_h_at_reserve": 33.333333333333336
+    },
+    {
+      "formula": "CH4",
+      "fluid": "Methane",
+      "atoms_per_molecule": 5,
+      "Tc_K": 190.564,
+      "rhoc_mol_m3": 10139.128,
+      "molar_mass_kg_mol": 0.0160428,
+      "BibTeX_EOS": "Setzmann-JPCRD-1991",
+      "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Methane.json",
+      "source_sha256": "a74d4225db6c06b188cc30a2af4cdcbc2892c0e131a622222c638225735d65f9",
+      "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614",
+      "T_plan_K": 290.49390243902434,
+      "sigma_reference_A": 3.7265920929791556,
+      "molecules": 600,
+      "atoms": 3000,
+      "rho_min_nm3": 0.386450987339603,
+      "rho_max_nm3": 12.946108075876701,
+      "mass_density_min_g_cm3": 0.010294936878379745,
+      "mass_density_max_g_cm3": 0.34488038542572147,
+      "box_L_min_A": 35.920083760768364,
+      "box_L_max_A": 115.79388087735455,
+      "pilot_spacing_nm3": 1.3955174542818995,
+      "expanded_max_spacing_nm3": 0.6977587271409498,
+      "expanded_min_spacing_nm3": 0.3488793635704749,
+      "time_production_h_at_reserve": 33.333333333333336
+    },
+    {
+      "formula": "C2H4",
+      "fluid": "Ethylene",
+      "atoms_per_molecule": 6,
+      "Tc_K": 282.35,
+      "rhoc_mol_m3": 7636.9293156279,
+      "molar_mass_kg_mol": 0.02805316,
+      "BibTeX_EOS": "Smukala-JPCRD-2000",
+      "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Ethylene.json",
+      "source_sha256": "5c54797571d3042224de87ec4c163880d9d2f9fcade5c6c7ca758635ce7a5181",
+      "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614",
+      "T_plan_K": 430.4115853658537,
+      "sigma_reference_A": 4.095803722936752,
+      "molecules": 500,
+      "atoms": 3000,
+      "rho_min_nm3": 0.29108014754988404,
+      "rho_max_nm3": 9.751184942921116,
+      "mass_density_min_g_cm3": 0.013559493670886073,
+      "mass_density_max_g_cm3": 0.45424303797468346,
+      "box_L_min_A": 37.15103097238171,
+      "box_L_max_A": 119.76202738105356,
+      "pilot_spacing_nm3": 1.0511227550412479,
+      "expanded_max_spacing_nm3": 0.5255613775206239,
+      "expanded_min_spacing_nm3": 0.26278068876031196,
+      "time_production_h_at_reserve": 33.333333333333336
+    },
+    {
+      "formula": "C2H6",
+      "fluid": "Ethane",
+      "atoms_per_molecule": 8,
+      "Tc_K": 305.322,
+      "rhoc_mol_m3": 6856.8866849999995,
+      "molar_mass_kg_mol": 0.03006904,
+      "BibTeX_EOS": "Buecker-JPCRD-2006",
+      "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Ethane.json",
+      "source_sha256": "cdc71e1c43af94ea454a7c5dc184ad735ea6bccc7028ec969ad60b774fe93e19",
+      "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614",
+      "T_plan_K": 465.4298780487805,
+      "sigma_reference_A": 4.245573878585463,
+      "molecules": 375,
+      "atoms": 3000,
+      "rho_min_nm3": 0.26134896704075805,
+      "rho_max_nm3": 8.755190395865394,
+      "mass_density_min_g_cm3": 0.013049367089033693,
+      "mass_density_max_g_cm3": 0.4371537974826287,
+      "box_L_min_A": 34.98822340699836,
+      "box_L_max_A": 112.7898865794174,
+      "pilot_spacing_nm3": 0.9437601587582929,
+      "expanded_max_spacing_nm3": 0.47188007937914644,
+      "expanded_min_spacing_nm3": 0.23594003968957322,
+      "time_production_h_at_reserve": 33.333333333333336
+    },
+    {
+      "formula": "CO2",
+      "fluid": "CarbonDioxide",
+      "atoms_per_molecule": 3,
+      "Tc_K": 304.1282,
+      "rhoc_mol_m3": 10624.9063,
+      "molar_mass_kg_mol": 0.0440098,
+      "BibTeX_EOS": "Span-JPCRD-1996",
+      "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/CarbonDioxide.json",
+      "source_sha256": "9d3ebf8fcce8052f06e0d0fabca849309d2a4a638e9dcccc1ac9efd1e32af75e",
+      "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614",
+      "T_plan_K": 463.6100609756097,
+      "sigma_reference_A": 3.668909707550405,
+      "molecules": 1000,
+      "atoms": 3000,
+      "rho_min_nm3": 0.4049663373443721,
+      "rho_max_nm3": 13.566372301036465,
+      "mass_density_min_g_cm3": 0.029594936789983546,
+      "mass_density_max_g_cm3": 0.9914303824644488,
+      "box_L_min_A": 41.92876683703636,
+      "box_L_max_A": 135.16378928283177,
+      "pilot_spacing_nm3": 1.4623784404102322,
+      "expanded_max_spacing_nm3": 0.7311892202051161,
+      "expanded_min_spacing_nm3": 0.36559461010255806,
+      "time_production_h_at_reserve": 33.333333333333336
+    }
+  ],
+  "density_grid": [
+    {
+      "id": 1,
+      "rho_star": 0.02,
+      "stage": "pilot"
+    },
+    {
+      "id": 2,
+      "rho_star": 0.03805555555555556,
+      "stage": "extension"
+    },
+    {
+      "id": 3,
+      "rho_star": 0.05611111111111111,
+      "stage": "extension"
+    },
+    {
+      "id": 4,
+      "rho_star": 0.09222222222222222,
+      "stage": "pilot"
+    },
+    {
+      "id": 5,
+      "rho_star": 0.12833333333333333,
+      "stage": "extension"
+    },
+    {
+      "id": 6,
+      "rho_star": 0.16444444444444445,
+      "stage": "pilot"
+    },
+    {
+      "id": 7,
+      "rho_star": 0.20055555555555554,
+      "stage": "extension"
+    },
+    {
+      "id": 8,
+      "rho_star": 0.23666666666666666,
+      "stage": "pilot"
+    },
+    {
+      "id": 9,
+      "rho_star": 0.2727777777777778,
+      "stage": "extension"
+    },
+    {
+      "id": 10,
+      "rho_star": 0.3088888888888889,
+      "stage": "pilot"
+    },
+    {
+      "id": 11,
+      "rho_star": 0.345,
+      "stage": "extension"
+    },
+    {
+      "id": 12,
+      "rho_star": 0.3811111111111111,
+      "stage": "pilot"
+    },
+    {
+      "id": 13,
+      "rho_star": 0.4172222222222222,
+      "stage": "extension"
+    },
+    {
+      "id": 14,
+      "rho_star": 0.4533333333333333,
+      "stage": "pilot"
+    },
+    {
+      "id": 15,
+      "rho_star": 0.48944444444444446,
+      "stage": "extension"
+    },
+    {
+      "id": 16,
+      "rho_star": 0.5255555555555556,
+      "stage": "pilot"
+    },
+    {
+      "id": 17,
+      "rho_star": 0.5616666666666666,
+      "stage": "extension"
+    },
+    {
+      "id": 18,
+      "rho_star": 0.5977777777777777,
+      "stage": "pilot"
+    },
+    {
+      "id": 19,
+      "rho_star": 0.6338888888888888,
+      "stage": "extension"
+    },
+    {
+      "id": 20,
+      "rho_star": 0.67,
+      "stage": "pilot"
+    }
+  ],
+  "timing": [
+    {
+      "rate_us_atom_step": 6.34,
+      "rate_status": "toy_reference_pre_fix",
+      "states_per_species": 10,
+      "total_trajectories": 60,
+      "production_ns": 60.0,
+      "equilibration_ns_budget": 6.0,
+      "h_per_production_ns": 10.566666666666666,
+      "total_gpu_h": 697.4,
+      "ideal_2gpu_days": 14.529166666666667,
+      "ideal_3gpu_days": 9.68611111111111,
+      "gpu_h_with_25pct_buffer": 871.75,
+      "3gpu_days_with_25pct_buffer": 12.10763888888889
+    },
+    {
+      "rate_us_atom_step": 6.34,
+      "rate_status": "toy_reference_pre_fix",
+      "states_per_species": 20,
+      "total_trajectories": 120,
+      "production_ns": 120.0,
+      "equilibration_ns_budget": 12.0,
+      "h_per_production_ns": 10.566666666666666,
+      "total_gpu_h": 1394.8,
+      "ideal_2gpu_days": 29.058333333333334,
+      "ideal_3gpu_days": 19.37222222222222,
+      "gpu_h_with_25pct_buffer": 1743.5,
+      "3gpu_days_with_25pct_buffer": 24.21527777777778
+    },
+    {
+      "rate_us_atom_step": 10.0,
+      "rate_status": "scenario_not_measurement",
+      "states_per_species": 10,
+      "total_trajectories": 60,
+      "production_ns": 60.0,
+      "equilibration_ns_budget": 6.0,
+      "h_per_production_ns": 16.666666666666668,
+      "total_gpu_h": 1100.0,
+      "ideal_2gpu_days": 22.916666666666668,
+      "ideal_3gpu_days": 15.277777777777779,
+      "gpu_h_with_25pct_buffer": 1375.0,
+      "3gpu_days_with_25pct_buffer": 19.09722222222222
+    },
+    {
+      "rate_us_atom_step": 10.0,
+      "rate_status": "scenario_not_measurement",
+      "states_per_species": 20,
+      "total_trajectories": 120,
+      "production_ns": 120.0,
+      "equilibration_ns_budget": 12.0,
+      "h_per_production_ns": 16.666666666666668,
+      "total_gpu_h": 2200.0,
+      "ideal_2gpu_days": 45.833333333333336,
+      "ideal_3gpu_days": 30.555555555555557,
+      "gpu_h_with_25pct_buffer": 2750.0,
+      "3gpu_days_with_25pct_buffer": 38.19444444444444
+    },
+    {
+      "rate_us_atom_step": 20.0,
+      "rate_status": "scenario_not_measurement",
+      "states_per_species": 10,
+      "total_trajectories": 60,
+      "production_ns": 60.0,
+      "equilibration_ns_budget": 6.0,
+      "h_per_production_ns": 33.333333333333336,
+      "total_gpu_h": 2200.0,
+      "ideal_2gpu_days": 45.833333333333336,
+      "ideal_3gpu_days": 30.555555555555557,
+      "gpu_h_with_25pct_buffer": 2750.0,
+      "3gpu_days_with_25pct_buffer": 38.19444444444444
+    },
+    {
+      "rate_us_atom_step": 20.0,
+      "rate_status": "scenario_not_measurement",
+      "states_per_species": 20,
+      "total_trajectories": 120,
+      "production_ns": 120.0,
+      "equilibration_ns_budget": 12.0,
+      "h_per_production_ns": 33.333333333333336,
+      "total_gpu_h": 4400.0,
+      "ideal_2gpu_days": 91.66666666666667,
+      "ideal_3gpu_days": 61.111111111111114,
+      "gpu_h_with_25pct_buffer": 5500.0,
+      "3gpu_days_with_25pct_buffer": 76.38888888888889
+    },
+    {
+      "rate_us_atom_step": 40.0,
+      "rate_status": "scenario_not_measurement",
+      "states_per_species": 10,
+      "total_trajectories": 60,
+      "production_ns": 60.0,
+      "equilibration_ns_budget": 6.0,
+      "h_per_production_ns": 66.66666666666667,
+      "total_gpu_h": 4400.0,
+      "ideal_2gpu_days": 91.66666666666667,
+      "ideal_3gpu_days": 61.111111111111114,
+      "gpu_h_with_25pct_buffer": 5500.0,
+      "3gpu_days_with_25pct_buffer": 76.38888888888889
+    },
+    {
+      "rate_us_atom_step": 40.0,
+      "rate_status": "scenario_not_measurement",
+      "states_per_species": 20,
+      "total_trajectories": 120,
+      "production_ns": 120.0,
+      "equilibration_ns_budget": 12.0,
+      "h_per_production_ns": 66.66666666666667,
+      "total_gpu_h": 8800.0,
+      "ideal_2gpu_days": 183.33333333333334,
+      "ideal_3gpu_days": 122.22222222222223,
+      "gpu_h_with_25pct_buffer": 11000.0,
+      "3gpu_days_with_25pct_buffer": 152.77777777777777
+    }
+  ],
+  "decision": "10 states/species pilot; reserve up to 20 with 10 added states/species; no sufficiency or exact PRL equivalence claim."
+}

@@ -1,0 +1,6 @@
+{
+  "sim_id": "C2H4-T430.4-r09-rho0.0200",
+  "status": "skipped_not_run",
+  "note": "rho*=0.02 \u6539\u7531 shard_<mol>_lo \u5355\u72ec\u4f5c\u4e1a\u8dd1 (outroot=scan/traj_lo, \u7ed3\u675f\u540e\u81ea\u52a8\u5408\u5e76\u56de scan/traj)",
+  "marked_at": "2026-11-05T19:46:49"
+}

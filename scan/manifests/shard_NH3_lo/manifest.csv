@@ -1,0 +1,2 @@
+sim_id,data,traj,species,temperature,timestep,steps,dump_every,density,c2_pair,seed,elements
+NH3-T618.2-r09-rho0.0200,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/NH3/r09_rho0.0200.lammps,,NH3,618.2,0.0005,2000000,1000,0.000522,N N,12345,C H N O

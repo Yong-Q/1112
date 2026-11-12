@@ -1,0 +1,175 @@
+{
+  "source_temperature_K": 300,
+  "frame_count": 481,
+  "cutoff_ps": 20,
+  "baseline_sd_logq": 13.224195288570824,
+  "definition": "2x is SD of combined log weight / 300K no-field SD. One 300K source trajectory; T is target reweighting; fixed dipole 1.85D, E positive along z, not self-consistent target polarization. Not physical accuracy bounds.",
+  "field_E_0p25_twofold_temperature_crossings_K": [
+    271.05735381423506,
+    409.20962841979
+  ],
+  "zero_field_twofold_temperature_crossings_K": [
+    214.02189857530286,
+    475.8297891465091
+  ],
+  "rows": [
+    {
+      "temperature_K": 200,
+      "ratio_no_field": 2.3930977755906295,
+      "ratio_E_0p25_V_per_A": 3.2615406171225962,
+      "positive_2x_roots_V_per_A": []
+    },
+    {
+      "temperature_K": 225,
+      "ratio_no_field": 1.74027018998707,
+      "ratio_E_0p25_V_per_A": 2.6444580933515454,
+      "positive_2x_roots_V_per_A": [
+        0.12543174611986696
+      ]
+    },
+    {
+      "temperature_K": 250,
+      "ratio_no_field": 1.2954574993254178,
+      "ratio_E_0p25_V_per_A": 2.2266621624877483,
+      "positive_2x_roots_V_per_A": [
+        0.21044831976896872
+      ]
+    },
+    {
+      "temperature_K": 260,
+      "ratio_no_field": 1.1739685997622187,
+      "ratio_E_0p25_V_per_A": 2.1061571500738694,
+      "positive_2x_roots_V_per_A": [
+        0.23146792119952417
+      ]
+    },
+    {
+      "temperature_K": 270,
+      "ratio_no_field": 1.0849818450267368,
+      "ratio_E_0p25_V_per_A": 2.008995183056241,
+      "positive_2x_roots_V_per_A": [
+        0.24840937928936685
+      ]
+    },
+    {
+      "temperature_K": 275,
+      "ratio_no_field": 1.0525467902816252,
+      "ratio_E_0p25_V_per_A": 1.9685107740059895,
+      "positive_2x_roots_V_per_A": [
+        0.25562541717008724
+      ]
+    },
+    {
+      "temperature_K": 280,
+      "ratio_no_field": 1.0279214456541599,
+      "ratio_E_0p25_V_per_A": 1.933073790784639,
+      "positive_2x_roots_V_per_A": [
+        0.2621054855829447
+      ]
+    },
+    {
+      "temperature_K": 290,
+      "ratio_no_field": 1.000793939878769,
+      "ratio_E_0p25_V_per_A": 1.8762845927538105,
+      "positive_2x_roots_V_per_A": [
+        0.2730754340477906
+      ]
+    },
+    {
+      "temperature_K": 295,
+      "ratio_no_field": 0.9973840808665686,
+      "ratio_E_0p25_V_per_A": 1.8544013466881193,
+      "positive_2x_roots_V_per_A": [
+        0.2776501772404455
+      ]
+    },
+    {
+      "temperature_K": 300,
+      "ratio_no_field": 1.0,
+      "ratio_E_0p25_V_per_A": 1.8365050513221928,
+      "positive_2x_roots_V_per_A": [
+        0.28166259331143734
+      ]
+    },
+    {
+      "temperature_K": 305,
+      "ratio_no_field": 1.0080178934029882,
+      "ratio_E_0p25_V_per_A": 1.8223321269853232,
+      "positive_2x_roots_V_per_A": [
+        0.28513902767400895
+      ]
+    },
+    {
+      "temperature_K": 310,
+      "ratio_no_field": 1.0207953418098845,
+      "ratio_E_0p25_V_per_A": 1.8116222985777461,
+      "positive_2x_roots_V_per_A": [
+        0.288101358699032
+      ]
+    },
+    {
+      "temperature_K": 320,
+      "ratio_no_field": 1.0581199333444506,
+      "ratio_E_0p25_V_per_A": 1.7995770633514598,
+      "positive_2x_roots_V_per_A": [
+        0.2925528640716401
+      ]
+    },
+    {
+      "temperature_K": 330,
+      "ratio_no_field": 1.1073314317234915,
+      "ratio_E_0p25_V_per_A": 1.7984137459725251,
+      "positive_2x_roots_V_per_A": [
+        0.29512522883237347
+      ]
+    },
+    {
+      "temperature_K": 340,
+      "ratio_no_field": 1.1645936888613126,
+      "ratio_E_0p25_V_per_A": 1.80632469074638,
+      "positive_2x_roots_V_per_A": [
+        0.2958852930147201
+      ]
+    },
+    {
+      "temperature_K": 350,
+      "ratio_no_field": 1.2269500220573848,
+      "ratio_E_0p25_V_per_A": 1.821681287771359,
+      "positive_2x_roots_V_per_A": [
+        0.2948651597720511
+      ]
+    },
+    {
+      "temperature_K": 360,
+      "ratio_no_field": 1.2922214574992739,
+      "ratio_E_0p25_V_per_A": 1.8430495352049865,
+      "positive_2x_roots_V_per_A": [
+        0.29206514953766205
+      ]
+    },
+    {
+      "temperature_K": 375,
+      "ratio_no_field": 1.3923117722873297,
+      "ratio_E_0p25_V_per_A": 1.8837172084392628,
+      "positive_2x_roots_V_per_A": [
+        0.2844497782350537
+      ]
+    },
+    {
+      "temperature_K": 380,
+      "ratio_no_field": 1.4257326532878036,
+      "ratio_E_0p25_V_per_A": 1.8990559441004415,
+      "positive_2x_roots_V_per_A": [
+        0.28096512050930844
+      ]
+    },
+    {
+      "temperature_K": 400,
+      "ratio_no_field": 1.5574919127903721,
+      "ratio_E_0p25_V_per_A": 1.9665815909796183,
+      "positive_2x_roots_V_per_A": [
+        0.261874122822017
+      ]
+    }
+  ]
+}

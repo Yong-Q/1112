@@ -1,0 +1,23 @@
+{
+  "atoms_per_box": 3000,
+  "production_ns": 1.0,
+  "equilibration_ns_budget": 0.1,
+  "timestep_fs": 0.5,
+  "reference_LJ_Tc_star": 1.312,
+  "reference_LJ_rhoc_star": 0.316,
+  "target_T_star_reference": 2.0,
+  "rho_star_min": 0.02,
+  "rho_star_max": 0.67,
+  "pilot_states_per_species": 10,
+  "expanded_states_per_species": 20,
+  "trajectory_save_interval_ps": 1.0,
+  "online_structure_interval_ps": 0.05,
+  "target_scoring_interval_ps_candidate": 5.0,
+  "runtime_scenarios_us_atom_step": [6.34, 10.0, 20.0, 40.0],
+  "planning_reserve_us_atom_step": 20.0,
+  "schedule_buffer_fraction": 0.25,
+  "runtime_scope": "6.34 is pre-fix toy-checkpoint water evidence; 10/20/40 are arithmetic scenarios, not measured official-model rates or confidence bounds.",
+  "density_mapping_scope": "Corresponding-states budgeting convention based on full-LJ critical constants and real-fluid EOS constants; not a physical fit of MACELES, nor exact correspondence to PRL's truncated-shifted 4sigma LJ.",
+  "model_status": "Use official MACELES-OFF small 192-channel checkpoint with charge-response force fix for prospective production; no official-model 3000-atom timing available in pinned snapshot.",
+  "execution_status": "planning_only_not_submitted"
+}

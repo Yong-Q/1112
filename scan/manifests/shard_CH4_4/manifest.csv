@@ -1,0 +1,3 @@
+sim_id,data,traj,species,temperature,timestep,steps,dump_every,density,c2_pair,seed,elements
+CH4-T290.5-r08-rho0.0922,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/CH4/r08_rho0.0922.lammps,,CH4,290.5,0.0005,2000000,1000,0.001782,C C,12345,C H N O
+CH4-T290.5-r09-rho0.0200,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/CH4/r09_rho0.0200.lammps,,CH4,290.5,0.0005,2000000,1000,0.000386,C C,12345,C H N O

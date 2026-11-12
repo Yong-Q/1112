@@ -1,0 +1,15 @@
+{
+ "n_frames": 501,
+ "g_rms_hist_vs_spec": 2.996839227914588,
+ "g_block_err_hist_mean": 0.032702414864533534,
+ "g_block_err_spec_mean": 0.1318598902946088,
+ "rho_block_err_count_mean": 0.0024306359001226414,
+ "multirate": {
+  "naive_vs_cv_rms": 0.014722992672116974,
+  "offset_spread_rms": 0.10121186587920648,
+  "n_dense": 501,
+  "n_sparse": 101
+ },
+ "rho_rms_count_vs_force": 0.18788949803751265,
+ "rho_block_err_force_mean": 0.21906989860196735
+}

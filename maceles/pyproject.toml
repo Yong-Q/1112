@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "off-polar-reweight"
+version = "0.1.0"
+description = "Reweight a MACE-OFF trajectory to the MACE-POLAR ensemble with FEP/importance sampling"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Symmetrix-Polar"}]
+dependencies = [
+  "numpy>=1.24",
+  "ase>=3.22",
+  "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+mace = ["torch>=2.1", "mace-torch>=0.3.16"]
+test = ["pytest>=8"]
+
+[project.scripts]
+off-polar-run = "sampling.cli:run_main"
+off-polar-reweight = "sampling.cli:reweight_main"
+off-polar-c2 = "sampling.cli:c2_main"
+
+[tool.setuptools.packages.find]
+include = ["sampling*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,22 @@
+{
+  "model": "SPC three-site parameters + PPPM, not SPC/E",
+  "N_water": 384,
+  "N_atoms": 1152,
+  "temperature_K": 300,
+  "dt_fs": 1,
+  "production_ps": 500,
+  "frames": 501,
+  "time_average": "All production frames 0–500 ps; no smoothing or spatial centering",
+  "density_variable": "oxygen-site count per spatial volume, same as original panel b",
+  "z_bins": 40,
+  "box_A": [
+    23.392141905702925,
+    23.392141905702925,
+    35.088212858554385
+  ],
+  "integral_water": 384.0,
+  "SPC_peak_O_Aminus3": 0.03302145708582836,
+  "source_trajectory_sha256": "3b12a3b87dbb1e87be66d505d0a9ae3e5ff9a2407ce21df1a2f5030f09f4c822",
+  "reference_protocol": "SPC run: 100 ps equilibration, 500 ps production; OFF run: 20 ps equilibration, 500 ps production. Same N, box and T, different potentials and sampling histories.",
+  "full_reference": "https://github.com/starlessinred-interns/qiuyong/tree/main/report/homogeneous_sampling_20261029_v4/evidence/spc_water_reference_20261029"
+}

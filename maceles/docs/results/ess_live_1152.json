@@ -1,0 +1,8 @@
+{
+ "n_frames": 6,
+ "last_timestep": 10000,
+ "sigma_beta": 93.82934397691955,
+ "ess": 1.0,
+ "ess_fraction": 0.16666666666666666,
+ "verdict": "collapse"
+}

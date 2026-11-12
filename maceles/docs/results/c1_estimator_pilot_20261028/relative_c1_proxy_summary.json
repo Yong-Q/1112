@@ -1,0 +1,9 @@
+{
+  "reference_z_A": 18.85991441147298,
+  "common_source_direct_smoothed_density_min_A3": 0.005,
+  "comparison_bins": 23,
+  "direct_vs_source_relative_logrho_RMS": 0.16744282693207108,
+  "smoothed_vs_source_relative_logrho_RMS": 0.11079426964058402,
+  "smoothed_vs_direct_relative_logrho_RMS": 0.1369623537503151,
+  "scope": "Conditional EL interpretation only: matched position-only external field, equilibrium/ensemble and reference conventions assumed; no absolute chemical potential, no direct POLAR MD reference, and no uncertainty/accuracy claim."
+}

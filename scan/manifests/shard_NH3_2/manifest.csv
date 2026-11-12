@@ -1,0 +1,4 @@
+sim_id,data,traj,species,temperature,timestep,steps,dump_every,density,c2_pair,seed,elements
+NH3-T618.2-r03-rho0.4533,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/NH3/r03_rho0.4533.lammps,,NH3,618.2,0.0005,2000000,1000,0.011832,N N,12345,C H N O
+NH3-T618.2-r04-rho0.3811,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/NH3/r04_rho0.3811.lammps,,NH3,618.2,0.0005,2000000,1000,0.009947,N N,12345,C H N O
+NH3-T618.2-r05-rho0.3089,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/NH3/r05_rho0.3089.lammps,,NH3,618.2,0.0005,2000000,1000,0.008062,N N,12345,C H N O

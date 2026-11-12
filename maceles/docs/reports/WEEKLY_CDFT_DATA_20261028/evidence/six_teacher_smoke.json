@@ -1,0 +1,68 @@
+{
+ "H2O": {
+  "n_configs": 8,
+  "atoms_per_box": 36,
+  "energy_mean_eV": -24955.964654354415,
+  "energy_std_eV": 1.4568552162456878,
+  "energy_min_eV": -24957.771144100872,
+  "energy_max_eV": -24952.92896659461,
+  "f_rms_mean_eV_A": 2.093315898026412,
+  "f_max_max_eV_A": 14.80152260551447,
+  "xyz": "/vepfs-mlp2/c20250207/lvdingyang/matos-v2-state/runtime/scopes/users/yongqiu2023-163-com/workspace-state/shared/bza/symmetrix-polar/bench/path_b_six_molecule_smoke_2026-10-22/attempt-01/path_b_six_molecule_smoke/H2O_single_points.xyz"
+ },
+ "NH3": {
+  "n_configs": 8,
+  "atoms_per_box": 48,
+  "energy_mean_eV": -18463.130019594028,
+  "energy_std_eV": 1.6348107358671802,
+  "energy_min_eV": -18465.12143227747,
+  "energy_max_eV": -18460.456537280374,
+  "f_rms_mean_eV_A": 1.6204880517553955,
+  "f_max_max_eV_A": 12.950660968097914,
+  "xyz": "/vepfs-mlp2/c20250207/lvdingyang/matos-v2-state/runtime/scopes/users/yongqiu2023-163-com/workspace-state/shared/bza/symmetrix-polar/bench/path_b_six_molecule_smoke_2026-10-22/attempt-01/path_b_six_molecule_smoke/NH3_single_points.xyz"
+ },
+ "C2H4": {
+  "n_configs": 8,
+  "atoms_per_box": 72,
+  "energy_mean_eV": -25649.938864107415,
+  "energy_std_eV": 3.3325418076067046,
+  "energy_min_eV": -25653.709195743155,
+  "energy_max_eV": -25643.160808413788,
+  "f_rms_mean_eV_A": 1.8897934868499147,
+  "f_max_max_eV_A": 15.840638898462721,
+  "xyz": "/vepfs-mlp2/c20250207/lvdingyang/matos-v2-state/runtime/scopes/users/yongqiu2023-163-com/workspace-state/shared/bza/symmetrix-polar/bench/path_b_six_molecule_smoke_2026-10-22/attempt-01/path_b_six_molecule_smoke/C2H4_single_points.xyz"
+ },
+ "CH4": {
+  "n_configs": 8,
+  "atoms_per_box": 60,
+  "energy_mean_eV": -13218.635404873972,
+  "energy_std_eV": 1.9423445330274485,
+  "energy_min_eV": -13220.934487874893,
+  "energy_max_eV": -13214.786520921427,
+  "f_rms_mean_eV_A": 1.3947751084198083,
+  "f_max_max_eV_A": 8.10287243123369,
+  "xyz": "/vepfs-mlp2/c20250207/lvdingyang/matos-v2-state/runtime/scopes/users/yongqiu2023-163-com/workspace-state/shared/bza/symmetrix-polar/bench/path_b_six_molecule_smoke_2026-10-22/attempt-01/path_b_six_molecule_smoke/CH4_single_points.xyz"
+ },
+ "C2H6": {
+  "n_configs": 8,
+  "atoms_per_box": 96,
+  "energy_mean_eV": -26049.688376603983,
+  "energy_std_eV": 2.7215031987363765,
+  "energy_min_eV": -26053.37525985295,
+  "energy_max_eV": -26046.608544277675,
+  "f_rms_mean_eV_A": 1.4957679105652077,
+  "f_max_max_eV_A": 11.32586757058448,
+  "xyz": "/vepfs-mlp2/c20250207/lvdingyang/matos-v2-state/runtime/scopes/users/yongqiu2023-163-com/workspace-state/shared/bza/symmetrix-polar/bench/path_b_six_molecule_smoke_2026-10-22/attempt-01/path_b_six_molecule_smoke/C2H6_single_points.xyz"
+ },
+ "CO2": {
+  "n_configs": 8,
+  "atoms_per_box": 36,
+  "energy_mean_eV": -61588.20718007911,
+  "energy_std_eV": 2.3706116711278225,
+  "energy_min_eV": -61591.142580148946,
+  "energy_max_eV": -61583.59246379934,
+  "f_rms_mean_eV_A": 3.8157587964765463,
+  "f_max_max_eV_A": 37.46711023094335,
+  "xyz": "/vepfs-mlp2/c20250207/lvdingyang/matos-v2-state/runtime/scopes/users/yongqiu2023-163-com/workspace-state/shared/bza/symmetrix-polar/bench/path_b_six_molecule_smoke_2026-10-22/attempt-01/path_b_six_molecule_smoke/CO2_single_points.xyz"
+ }
+}

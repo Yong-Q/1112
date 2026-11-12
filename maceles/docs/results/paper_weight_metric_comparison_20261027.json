@@ -1,0 +1,20 @@
+{
+  "n": 501,
+  "temperature_K": 300,
+  "input_sha256": "8368a09c7d0e60e590536acd22f3d9742499761a63b7101746d283fb443501e3",
+  "Kish_ESS": 2.3486739510645824,
+  "entropy_ESS_DiffTRe": 3.0615237899890344,
+  "entropy_nats": 1.1189127626027355,
+  "Herzog_Iw_as_defined_ascending": 0.0,
+  "Herzog_ascending_index_N": 501,
+  "top_sorted_frames_needed_for_half_weight": 1,
+  "CV_squared_ddof0": 212.31185615309096,
+  "empirical_D1_plugin_NOT_true_KL": 5.097693338482129,
+  "empirical_D2_plugin_NOT_true_Renyi2": 5.362755208335226,
+  "gaussian_assumption_sigma_beta_squared": 189.38185908180827,
+  "gaussian_assumption_D1": 94.69092954090414,
+  "gaussian_assumption_D2": 189.38185908180827,
+  "gaussian_assumption_exp_D1": 1.32968321299948e+41,
+  "gaussian_assumption_exp_D2": 1.7680574469326205e+82,
+  "warning": "D1/D2 plugin estimates on finite frames do not establish population divergences. Gaussian values assume exact source normal energy gap and exponential tilt; not estimates of required production trajectory lengths."
+}

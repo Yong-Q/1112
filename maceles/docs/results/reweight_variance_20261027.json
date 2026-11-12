@@ -1,0 +1,22 @@
+{
+  "N": 501,
+  "temperature_K": 300,
+  "kBT_eV": 0.025851999786435,
+  "delta_U_mean_eV": 480.86383778725803,
+  "delta_U_std_eV": 0.35576509114985466,
+  "sigma_beta": 13.761608157544966,
+  "shifted_raw_mean": 0.003349079301098658,
+  "shifted_raw_variance_ddof0": 0.002381360301190851,
+  "normalized_weight_variance_ddof0": 0.0008458605987748692,
+  "mean_one_weight_variance_ddof0": 212.311856153091,
+  "CV_squared": 212.31185615309127,
+  "ESS": 2.3486739510645824,
+  "ESS_fraction": 0.004687971958212739,
+  "max_weight": 0.5959870772176551,
+  "top3_mass": 0.9321827557368432,
+  "log_raw_mean": -18567.930321966895,
+  "log_raw_variance": -37130.50258772042,
+  "gaussian_heuristic_ESS_fraction": 5.655924821532084e-83,
+  "input_sha256": "8368a09c7d0e60e590536acd22f3d9742499761a63b7101746d283fb443501e3",
+  "definitions": "All variances use denominator N. R_i=N*w_i. a_i=exp[-beta*(delta_U_i-min(delta_U))]. Empirical weight statistics; not a population overlap estimate or confidence interval."
+}

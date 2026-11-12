@@ -1,0 +1,50 @@
+[reweight500] 501 frames, 1152 atoms
+/opt/matos-tools/conda/envs/matos-compute/lib/python3.11/site-packages/e3nn/o3/_wigner.py:10: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/opt/matos-tools/conda/envs/matos-compute/lib/python3.11/site-packages/mace/calculators/mace.py:226: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(f=model_path, map_location=device)
+WARNING:root:Default dtype float32 does not match model dtype float64, converting models to float32.
+/opt/matos-tools/conda/envs/matos-compute/lib/python3.11/site-packages/mace/calculators/mace.py:226: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(f=model_path, map_location=device)
+WARNING:root:Default dtype float64 does not match model dtype float32, converting models to float64.
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Using MACE-Polar model for MACECalculator with /workspace/group/shared/bza/task3_sampling_database/mlip/models/mace-polar/MACE-POLAR-1-M.model
+[reweight500] 25/501 51.8s (2.07s/frame)
+[reweight500] 50/501 74.0s (1.48s/frame)
+[reweight500] 75/501 94.8s (1.26s/frame)
+[reweight500] 100/501 115.4s (1.15s/frame)
+[reweight500] 125/501 136.1s (1.09s/frame)
+[reweight500] 150/501 156.7s (1.04s/frame)
+[reweight500] 175/501 177.4s (1.01s/frame)
+[reweight500] 200/501 197.8s (0.99s/frame)
+[reweight500] 225/501 218.3s (0.97s/frame)
+[reweight500] 250/501 238.8s (0.96s/frame)
+[reweight500] 275/501 259.5s (0.94s/frame)
+[reweight500] 300/501 280.4s (0.93s/frame)
+[reweight500] 325/501 300.9s (0.93s/frame)
+[reweight500] 350/501 321.6s (0.92s/frame)
+[reweight500] 375/501 342.2s (0.91s/frame)
+[reweight500] 400/501 362.8s (0.91s/frame)
+[reweight500] 425/501 383.6s (0.90s/frame)
+[reweight500] 450/501 404.1s (0.90s/frame)
+[reweight500] 475/501 424.7s (0.89s/frame)
+[reweight500] 500/501 445.5s (0.89s/frame)
+{
+ "traj": "/workspace/group/shared/bza/symmetrix-polar/bench/off23_500ps_water1152_2026-10-23/traj_500ps_1fs.lammpstrj",
+ "n_frames": 501,
+ "n_atoms": 1152,
+ "temperature_K": 300.0,
+ "source_model": "/workspace/group/shared/bza/task3_sampling_database/mlip/models/MACE-OFF23_medium.model",
+ "target_model": "/workspace/group/shared/bza/task3_sampling_database/mlip/models/mace-polar/MACE-POLAR-1-M.model",
+ "dE_meV_per_atom_mean": 417.41652585699484,
+ "dE_meV_per_atom_std": 0.30882386384536004,
+ "residual_meV_per_atom_std": 0.2855919402691343,
+ "sigma_beta": 13.761608157776532,
+ "sigma_beta_residual": 13.761608157776532,
+ "ess": 2.3486739510314862,
+ "ess_fraction": 0.004687971958146679,
+ "linear_slope": 0.9247699657655172,
+ "linear_intercept_eV": -59650.777158631114,
+ "linear_r2": 0.9623833961636912,
+ "verdict": "collapse"
+}

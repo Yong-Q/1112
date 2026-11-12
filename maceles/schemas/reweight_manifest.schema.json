@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://off-polar-reweight.local/schemas/reweight_manifest.schema.json",
+  "title": "Off-polar reweighting manifest",
+  "type": "object",
+  "required": [
+    "schema_version", "kind", "temperature_K", "n_frames", "n_atoms",
+    "sigma_beta", "ess", "ess_fraction", "linear", "verdict", "frames"
+  ],
+  "properties": {
+    "schema_version": {"type": "integer", "minimum": 1},
+    "kind": {"const": "off_to_polar_reweight"},
+    "source_model": {"type": "string"},
+    "target_model": {"type": "string"},
+    "source_sha256": {"type": "string"},
+    "target_sha256": {"type": "string"},
+    "temperature_K": {"type": "number", "exclusiveMinimum": 0},
+    "beta_eV_inv": {"type": "number", "exclusiveMinimum": 0},
+    "n_frames": {"type": "integer", "minimum": 2},
+    "n_atoms": {"type": "integer", "minimum": 1},
+    "constant_offset_meV_per_atom": {"type": "number"},
+    "delta_meV_per_atom_std": {"type": "number", "minimum": 0},
+    "sigma_beta": {"type": "number", "minimum": 0},
+    "ess": {"type": "number", "minimum": 1},
+    "ess_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+    "linear": {
+      "type": "object",
+      "required": ["slope", "intercept_eV", "r2", "residual_rms_meV_per_atom"],
+      "properties": {
+        "slope": {"type": "number"},
+        "intercept_eV": {"type": "number"},
+        "r2": {"type": "number"},
+        "residual_rms_meV_per_atom": {"type": "number", "minimum": 0}
+      }
+    },
+    "force_mae_meV_per_A_mean": {"type": "number", "minimum": 0},
+    "verdict": {"type": "string", "enum": ["usable", "marginal", "collapse"]},
+    "frames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["index", "n_atoms", "e_source_eV", "e_target_eV",
+                     "dE_total_eV", "dE_meV_per_atom", "beta_dE", "weight"],
+        "properties": {
+          "index": {"type": "integer", "minimum": 0},
+          "n_atoms": {"type": "integer", "minimum": 1},
+          "e_source_eV": {"type": "number"},
+          "e_target_eV": {"type": "number"},
+          "dE_total_eV": {"type": "number"},
+          "dE_meV_per_atom": {"type": "number"},
+          "beta_dE": {"type": "number"},
+          "weight": {"type": "number", "minimum": 0, "maximum": 1},
+          "force_mae_meV_per_A": {"type": "number"}
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

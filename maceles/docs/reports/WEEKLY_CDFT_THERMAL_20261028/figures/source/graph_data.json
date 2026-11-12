@@ -1,0 +1,419 @@
+{
+  "version": "2026-10-28.1",
+  "legend": {
+    "done": "已完成：具体操作或资料已存档",
+    "partial": "部分完成：仅支持限定诊断",
+    "todo": "待完成或未验证"
+  },
+  "graphs": [
+    {
+      "id": "roadmap",
+      "title": "通用关联泛函：研究主线",
+      "nodes": [
+        {
+          "id": "goal",
+          "x": 30,
+          "y": 30,
+          "label": "研究目标\n跨分子 c1 / c2 泛化",
+          "state": "todo",
+          "detail": "目标是不同小分子、不同密度与外场下的统一关联泛函。未见分子泛化和物理性质验收仍未完成。"
+        },
+        {
+          "id": "literature",
+          "x": 335,
+          "y": 30,
+          "label": "PRL / PNAS / JCTC\n方法与数据核对",
+          "state": "done",
+          "detail": "已核对 PRL 的体相 g(r)→c2→Fex Hessian、PNAS 随机场 MD→质心密度与潜变量μ、JCTC CO2 位置—取向密度。模拟单位和数量不可混算。",
+          "sources": [
+            {
+              "label": "PNAS原文",
+              "url": "https://doi.org/10.1073/pnas.2610049123"
+            },
+            {
+              "label": "PRL原文",
+              "url": "https://doi.org/10.1103/PhysRevLett.134.056103"
+            },
+            {
+              "label": "JCTC原文",
+              "url": "https://doi.org/10.1021/acs.jctc.5c00484"
+            }
+          ]
+        },
+        {
+          "id": "molecules",
+          "x": 640,
+          "y": 30,
+          "label": "六分子势函数\n教师单点与范围",
+          "state": "partial",
+          "detail": "H2O、NH3、CH4、C2H4、C2H6、CO2：每种8个随机构型教师烟测；极端近接高力；不构成均匀/限域数据验证。",
+          "sources": [
+            {
+              "label": "六分子教师烟测",
+              "url": "https://github.com/Yong-Q/symmetrix-polar/blob/68f08d1/docs/results/PATH_B_SIX_MOLECULE_SMOKE_2026-10-22.md"
+            }
+          ]
+        },
+        {
+          "id": "student",
+          "x": 945,
+          "y": 30,
+          "label": "蒸馏势与速度\n验证教师一致性",
+          "state": "partial",
+          "detail": "Plan D 留出集 E/F 有记录；CO2 体相力误差较大；完整电荷/偶极/Ewald端到端性能仍需测。教师一致性不等于DFT真值。",
+          "sources": [
+            {
+              "label": "学生留出集原始指标",
+              "url": "https://github.com/Yong-Q/symmetrix-polar/blob/68f08d1/docs/results/data/valid_by_species.json"
+            }
+          ]
+        },
+        {
+          "id": "source",
+          "x": 1250,
+          "y": 30,
+          "label": "OFF23 源轨迹\n水 500 ps",
+          "state": "partial",
+          "detail": "一条 384 水分子、300 K轨迹；501帧逐帧能量。固定N界面分层，实际引擎与重算能量一致性待解决。",
+          "sources": [
+            {
+              "label": "500 ps轨迹与输入",
+              "url": "https://github.com/Yong-Q/test/tree/65a0423/validation/off23_500ps_water1152_2026-10-23"
+            }
+          ]
+        },
+        {
+          "id": "sampling",
+          "x": 30,
+          "y": 255,
+          "label": "基础轨迹采样\n条件内复用",
+          "state": "todo",
+          "detail": "每种分子先建立基础源轨迹，温度/外场在实际重叠支持下后处理复用，不为每个条件自动新跑。不同密度或不足覆盖时补采。"
+        },
+        {
+          "id": "reweight",
+          "x": 335,
+          "y": 255,
+          "label": "势能差与 MD\n热波动比较",
+          "state": "partial",
+          "detail": "300 K 水：去前20 ps后，势能差标准差 0.297 meV/atom，OFF23 势能标准差 1.388 meV/atom，比值 0.214；这是同帧初筛，目标密度及关联仍需独立验证。",
+          "sources": []
+        },
+        {
+          "id": "estimate",
+          "x": 640,
+          "y": 255,
+          "label": "密度与关联采集\n计数 / 力 / 谱估计",
+          "state": "partial",
+          "detail": "已试算质心密度和质心对统计。目标POLAR力辅助估计、对照独立目标轨迹未完成；平滑仅比较稳定性。",
+          "sources": [
+            {
+              "label": "质心统计和限制",
+              "url": "https://github.com/Yong-Q/test/tree/65a0423/docs/results/com_estimator_trial_20261028"
+            },
+            {
+              "label": "密度估计器对照",
+              "url": "https://github.com/Yong-Q/test/tree/65a0423/docs/results/c1_estimator_pilot_20261028"
+            }
+          ]
+        },
+        {
+          "id": "c1",
+          "x": 945,
+          "y": 255,
+          "label": "c1 监督\n密度 + 场 + 化学势",
+          "state": "todo",
+          "detail": "需要目标密度、对应外场、温度及化学势参考；PNAS以模拟级潜变量处理μ。当前只有相对诊断，没有可认证绝对c1。"
+        },
+        {
+          "id": "c2",
+          "x": 1250,
+          "y": 255,
+          "label": "c2 监督\ng / S → OZ 或响应",
+          "state": "todo",
+          "detail": "仅均匀单组分标量体相可使用对应标量OZ；分层水、位点/质心或取向关系要使用匹配表示。尚无合格目标c2标签。"
+        },
+        {
+          "id": "xi",
+          "x": 335,
+          "y": 480,
+          "label": "分子 ξ 表示\n元素 / 图 / 相互作用",
+          "state": "partial",
+          "detail": "已有早期类别、图及相互作用表征研究；本周两仓提供势与标签准备，尚无六分子统一严格评估及未见分子验证。",
+          "sources": [
+            {
+              "label": "早期留分子实验",
+              "url": "https://github.com/Yong-Q/c1_cdft/blob/main/universal_cdft_functional/research_notes/xi_generalization_20261015/co2_h2o_held5/RESULT_SUMMARY.json"
+            }
+          ]
+        },
+        {
+          "id": "model",
+          "x": 640,
+          "y": 480,
+          "label": "统一泛函训练\nc1 与 c2 约束",
+          "state": "todo",
+          "detail": "计划统一输入分子描述、密度与温度；数据和物理标签尚未通过验收，不宣称六分子模型已训练完成。"
+        },
+        {
+          "id": "gen",
+          "x": 945,
+          "y": 480,
+          "label": "泛化测试\n留分子 / 留状态 / 留外场",
+          "state": "todo",
+          "detail": "按分子、状态、力场、构型组分离训练验证测试；对未见分子设置真实参考，排除泄漏。"
+        },
+        {
+          "id": "physics",
+          "x": 1250,
+          "y": 480,
+          "label": "物理性质验证\n密度 / g / S / 相平衡",
+          "state": "todo",
+          "detail": "cDFT自洽求解与独立目标MD/MC比较；体相状态方程、结构和限域适用范围逐项验证。"
+        }
+      ],
+      "edges": [
+        [
+          "goal",
+          "literature"
+        ],
+        [
+          "literature",
+          "molecules"
+        ],
+        [
+          "molecules",
+          "student"
+        ],
+        [
+          "student",
+          "source"
+        ],
+        [
+          "molecules",
+          "sampling"
+        ],
+        [
+          "source",
+          "reweight"
+        ],
+        [
+          "sampling",
+          "estimate"
+        ],
+        [
+          "reweight",
+          "estimate"
+        ],
+        [
+          "estimate",
+          "c1"
+        ],
+        [
+          "estimate",
+          "c2"
+        ],
+        [
+          "molecules",
+          "xi"
+        ],
+        [
+          "xi",
+          "model"
+        ],
+        [
+          "c1",
+          "model"
+        ],
+        [
+          "c2",
+          "model"
+        ],
+        [
+          "model",
+          "gen"
+        ],
+        [
+          "gen",
+          "physics"
+        ]
+      ]
+    },
+    {
+      "id": "sampling",
+      "title": "单体系采样与验收流程",
+      "nodes": [
+        {
+          "id": "spec",
+          "x": 30,
+          "y": 30,
+          "label": "锁定体系\n分子 / 势 / 条件",
+          "state": "partial",
+          "detail": "六分子和教师单点评估已有记录；目标力场适用域、300 K状态点、盒尺寸和物性参考仍逐项确定。",
+          "sources": [
+            {
+              "label": "教师烟测状态",
+              "url": "https://github.com/Yong-Q/symmetrix-polar/blob/68f08d1/docs/results/PATH_B_SIX_MOLECULE_SMOKE_2026-10-22.md"
+            }
+          ]
+        },
+        {
+          "id": "preflight",
+          "x": 335,
+          "y": 30,
+          "label": "引擎预检\n单点 E / F / PBC",
+          "state": "todo",
+          "detail": "OFF源引擎与重算能量有约0.026 meV/atom 去常数波动；邻居表、精度、路径哈希以及目标力等需验证。",
+          "sources": [
+            {
+              "label": "源能量一致性问题",
+              "url": "https://github.com/Yong-Q/test/blob/65a0423/docs/TODO_OFF_POLAR_2026-10-27.md"
+            }
+          ]
+        },
+        {
+          "id": "pilot",
+          "x": 640,
+          "y": 30,
+          "label": "基础轨迹\n每种2个独立副本",
+          "state": "todo",
+          "detail": "建议每分子一个300 K基础状态，2条独立副本；每条0.2 ns平衡+1 ns生产。总12条新轨迹，现有水500 ps只作诊断，需核查可否续跑及均匀性。"
+        },
+        {
+          "id": "judge",
+          "x": 945,
+          "y": 30,
+          "label": "平衡与相关性\n分块 / 双种子",
+          "state": "todo",
+          "detail": "比较温度、能量、密度、g(r)和慢模态的分块与独立副本；预先制定容差，不能只按固定20ps判断平衡。"
+        },
+        {
+          "id": "proceed",
+          "x": 1250,
+          "y": 255,
+          "label": "设定候选条件\n温度 / 外场范围",
+          "state": "todo",
+          "detail": "一次对源帧评估目标能量，候选温度/外场在重叠和统计误差可接受范围内后处理复用；不为每个温度/外场自动补轨迹。"
+        },
+        {
+          "id": "bulk",
+          "x": 30,
+          "y": 255,
+          "label": "体相密度覆盖\n不足时补密度锚点",
+          "state": "todo",
+          "detail": "按需扩展至每分子3个密度锚点、每点2副本：6×3×2=36条源轨迹；NVT单盒固定平均密度，不能承诺不同均匀密度无代价获得。",
+          "sources": [
+            {
+              "label": "采样缺陷审计",
+              "url": "https://github.com/Yong-Q/symmetrix-polar/blob/68f08d1/docs/design/SAMPLING_AUDIT_2026-10-23.md"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "x": 945,
+          "y": 255,
+          "label": "外场 / 温度重加权\n复用已有源帧",
+          "state": "todo",
+          "detail": "事后从同一批源帧生成候选外场/温度响应；极化随外场变化时目标能量需随场重算，某些态覆盖不足需补模拟。",
+          "sources": [
+            {
+              "label": "水的范围扫描",
+              "url": "https://github.com/Yong-Q/test/tree/65a0423/docs/results/reweight_boundary_scan_20261028"
+            }
+          ]
+        },
+        {
+          "id": "teacher",
+          "x": 1250,
+          "y": 30,
+          "label": "目标势单点\n每帧一次起步",
+          "state": "todo",
+          "detail": "12条1ns轨迹每1ps存1帧，共12000帧、约12000次目标势单点；36条为36000。对仅100帧评分只可使用该100帧，力与场响应可能增加成本。"
+        },
+        {
+          "id": "quality",
+          "x": 640,
+          "y": 255,
+          "label": "重叠与估计器\n对照 / 统计 / 缺口",
+          "state": "todo",
+          "detail": "2倍波动只是筛选线不是误差保证；检查相关、极端权重、源/目标一致性及必要独立POLAR。存在低重叠时再补采。"
+        },
+        {
+          "id": "labels",
+          "x": 335,
+          "y": 255,
+          "label": "形成密度 / 关联\n标注可靠范围",
+          "state": "todo",
+          "detail": "c1与c2各有外场、化学势/均匀OZ适用约束；一个轨迹重加权不同条件产生相关剖面，不能计为独立轨迹。"
+        },
+        {
+          "id": "validate",
+          "x": 335,
+          "y": 480,
+          "label": "独立参考与回归\n预测性质",
+          "state": "todo",
+          "detail": "独立目标MD或MC与材料覆盖验证；c1/c2和cDFT推断均做留出状态、物理量误差与收敛性检验。"
+        },
+        {
+          "id": "publish",
+          "x": 640,
+          "y": 480,
+          "label": "版本归档\n数据 / 代码 / 报告",
+          "state": "todo",
+          "detail": "记录配置、版本哈希、运行日志、来源、图表与未完成项；保护已有结果。"
+        }
+      ],
+      "edges": [
+        [
+          "spec",
+          "preflight"
+        ],
+        [
+          "preflight",
+          "pilot"
+        ],
+        [
+          "pilot",
+          "judge"
+        ],
+        [
+          "judge",
+          "teacher"
+        ],
+        [
+          "teacher",
+          "proceed"
+        ],
+        [
+          "proceed",
+          "field"
+        ],
+        [
+          "field",
+          "quality"
+        ],
+        [
+          "quality",
+          "labels"
+        ],
+        [
+          "labels",
+          "validate"
+        ],
+        [
+          "validate",
+          "publish"
+        ],
+        [
+          "quality",
+          "bulk"
+        ],
+        [
+          "bulk",
+          "pilot"
+        ]
+      ]
+    }
+  ]
+}

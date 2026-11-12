@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "symmpolar"
+version = "0.1.0"
+description = "MACELES/LES toolkit: build LAMMPS+Symmetrix, export the model, run the c1/c2 density scan"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "ase>=3.22",
+  "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+# needed only to build the symmetrix Python extension (extract model / cubin)
+engine = ["scikit-build-core>=0.8", "pybind11>=2.11"]
+
+[project.scripts]
+symmpolar = "symmpolar.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["symmpolar"]

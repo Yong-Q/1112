@@ -1,0 +1,49 @@
+# Drop-in replacement for <symmetrix-xl>/symmetrix/pyproject.toml that builds
+# the CUDA engine wheel published as `symmpolar-engine`.
+#
+#   SYMMPOLAR_CUDA_ARCH=80 pip wheel <symmetrix-xl>/symmetrix --no-deps
+#
+# The import package stays `symmetrix`; only the distribution name changes, so
+# `SYMMETRIX_DISTRIBUTION_NAME` is overridden to keep the backend metadata
+# consistent with the wheel.
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "build_backend"
+backend-path = ["."]
+
+[tool.scikit-build]
+cmake.version = ">=3.27"
+build-dir = "build"
+wheel.exclude = ["lib/", "lib64/", "include/", "bin/"]
+wheel.packages = ["source/symmetrix"]
+
+[tool.scikit-build.cmake.define]
+SYMMETRIX_DEVICE_BACKEND = "CUDA"
+SYMMETRIX_DISTRIBUTION_NAME = "symmpolar-engine"
+Kokkos_ENABLE_CUDA = "ON"
+Kokkos_ENABLE_OPENMP = "OFF"
+Kokkos_ENABLE_SERIAL = "ON"
+SYMMETRIX_SPHERICART_CUDA = "ON"
+SPHERICART_ENABLE_CUDA = "ON"
+CMAKE_CXX_STANDARD = "20"
+CMAKE_CUDA_ARCHITECTURES = "$env{SYMMPOLAR_CUDA_ARCH}"
+CMAKE_CXX_COMPILER = "$env{SYMMPOLAR_NVCC_WRAPPER}"
+CMAKE_CUDA_COMPILER = "$env{CUDACXX}"
+
+[project]
+name = "symmpolar-engine"
+version = "0.1.1"
+description = "Symmetrix-XL + MACELES/LES CUDA engine (wheel for the MACELES sampling toolchain)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["numpy", "scipy", "ase"]
+
+[project.optional-dependencies]
+cubin = []
+
+[project.scripts]
+symmetrix = "symmetrix.cli.main:main"
+symmetrix_extract_mace = "symmetrix.cli.extract_mace:main"
+symmetrix_prepare_jit_device_artifact = "symmetrix.cli.prepare_jit_device_artifact:main"
+symmetrix_prepare_jit_host_artifact = "symmetrix.cli.prepare_jit_host_artifact:main"

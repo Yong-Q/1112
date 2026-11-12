@@ -1,0 +1,25 @@
+{
+  "purpose": "six-molecule MACELES homogeneous sampling plan, no MD executed",
+  "test_base_commit": "0514d3e992e70a519bf7db9bbd11c0acaf61945b",
+  "files": {
+    "QA.md": "29cca07098c19853bffd4cd5efccbbc9db093369ae3d67a118252de829d54f65",
+    "README.md": "b81663feb9143205825d603e2e436874b9a46b96f44fc3456d5c5614f9e0b2c1",
+    "budget.json": "b1b3d57e3cdc5e83d2092d22c79afcfec03cc504f3a9c4e7805c9f3133fa3b49",
+    "density_grid.csv": "c824376ec150c678d458fc9faeda788ce78ccad8c3e81e1d945250d3eb2d2371",
+    "evidence/MACELES_ENGINE_VALIDATION_2026-10-30.md": "878c7da627de94b74d39bcfe3f9feb4ab9992b1bf92782e4e595af57e2f1dc83",
+    "evidence/MACELES_FORCE_FIX_2026-10-30.md": "02175cf961cbca64a319cb99ab3ea4edda5cd37511204c3d78fd97db1f5afc0c",
+    "evidence/MACELES_Q4_VERIFY_2026-10-30.md": "eb15bd81903faf952d5b1e386554abd5606bb5835c5a903d5c9a7070a056cee0",
+    "evidence/critical_constants.json": "0337681bfd94ec79863a46eca2423982f6836bdc6a6a1ae03146f2647b600b2e",
+    "evidence/prl_source.json": "83756cb3610fd7438af1101a7e1d84018be527925467e674a9357a57e1288a79",
+    "evidence/source_snapshot.json": "72e2c7dc57308bbbb1cbe366800173779175b88143eecbf236f552b7ff7f4801",
+    "molecule_summary.csv": "35bf16133431e3493db6c58e56d6d7e9eb7c85eeddee30b4d1d89e101e60f884",
+    "report.pdf": "1593891ab063030f99a4e550a94e7e1e9f0272067f8081d46fbfdf882973e324",
+    "runtime_budget.csv": "b57cd58af95a5f212d86c0852547783c00e28de6ffe14a84eb8fd84c49ab8546",
+    "source/build_plan.py": "b8f3c90ee7c04abb3412fc2fd6be5574e018071c814d3f94bc7662ecea3b07d5",
+    "source/plan_inputs.json": "d3ad4905a2bc0bc467c065ff9736de83eb11ea82a0a16e5d95027b5e06ddfc79",
+    "source/report.template.tex": "d0d60e1dcc281de959414e4d5f32db9085f949d3470709659078013140524962",
+    "source/report.tex": "7de3c13ed92071de3f7657522e8cc4a9e15c285008c956a6808179719bb6687d",
+    "states_10_per_molecule.csv": "395fa13d29e7257f1b6f6f2ffb599374030ff71f22509567a235933e69e26040",
+    "states_20_per_molecule.csv": "34a452c599d92bb4a309058c37d02f922be83871fa85ce3f95d1188538e5aa33"
+  }
+}

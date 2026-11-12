@@ -1,0 +1,88 @@
+{
+  "input_frames": 501,
+  "water_molecules": 384,
+  "temperature_K": 300,
+  "zbins": 40,
+  "bin_width_A": 0.8772053214638597,
+  "smooth_sigma_bins": 1,
+  "smooth_sigma_A": 0.8772053214638597,
+  "bootstrap_blocks": 20,
+  "bootstrap_resamples": 200,
+  "bootstrap_seed": 20261028,
+  "bootstrap_resamples_missing_max_weight_frame": 78,
+  "direct_full_ESS": 2.348673951064581,
+  "direct_first_half_ESS": 2.2394582890166577,
+  "direct_last_half_ESS": 1.0220088786974193,
+  "max_weight_full": 0.5959870772176555,
+  "max_weight_first_half": 0.6130591915090194,
+  "max_weight_last_half": 0.9891350653976286,
+  "interior_mask_source_and_direct_density_min_per_A3": 0.005,
+  "interior_bins": 23,
+  "comparison": {
+    "source": {
+      "RMS_difference_to_direct_interior_per_A3": 0.004506983191109967,
+      "RMS_first_vs_last_interior_per_A3": 0.0010152921406416115,
+      "median_bootstrap_95pct_width_interior_per_A3": 0.001322408382935323,
+      "first_vs_last_global_L1_fraction": 0.016028012948207174,
+      "peak_density_per_A3": 0.03934630738522956,
+      "peak_z_A": 18.85991441147298,
+      "source_occupancy_at_peak": 9462,
+      "maximum_frame_count_at_peak": 31,
+      "fraction_particles_in_low_source_density_bins": 0.015375499001996008,
+      "bins_above_raw_frame_maximum": 0
+    },
+    "direct": {
+      "RMS_difference_to_direct_interior_per_A3": 0.0,
+      "RMS_first_vs_last_interior_per_A3": 0.00934358788491792,
+      "median_bootstrap_95pct_width_interior_per_A3": 0.013177888479256645,
+      "first_vs_last_global_L1_fraction": 0.17885198098242294,
+      "peak_density_per_A3": 0.04234132812913166,
+      "peak_z_A": 15.351093125617544,
+      "source_occupancy_at_peak": 9404,
+      "maximum_frame_count_at_peak": 31,
+      "fraction_particles_in_low_source_density_bins": 0.07635367028259629,
+      "bins_above_raw_frame_maximum": 0
+    },
+    "smoothed": {
+      "RMS_difference_to_direct_interior_per_A3": 0.0036489388613641658,
+      "RMS_first_vs_last_interior_per_A3": 0.006286786835276586,
+      "median_bootstrap_95pct_width_interior_per_A3": 0.007013833532444516,
+      "first_vs_last_global_L1_fraction": 0.14644448438675986,
+      "peak_density_per_A3": 0.038032089232086425,
+      "peak_z_A": 15.351093125617544,
+      "source_occupancy_at_peak": 9404,
+      "maximum_frame_count_at_peak": 31,
+      "fraction_particles_in_low_source_density_bins": 0.08103913294326322,
+      "bins_above_raw_frame_maximum": null
+    },
+    "mean_gap": {
+      "RMS_difference_to_direct_interior_per_A3": 0.03324106798235707,
+      "RMS_first_vs_last_interior_per_A3": 1.536753679022579e-05,
+      "median_bootstrap_95pct_width_interior_per_A3": 0.03459313313508458,
+      "first_vs_last_global_L1_fraction": 0.9597656731564584,
+      "peak_density_per_A3": 0.295267555923356,
+      "peak_z_A": 32.017994233430876,
+      "source_occupancy_at_peak": 40,
+      "maximum_frame_count_at_peak": 6,
+      "fraction_particles_in_low_source_density_bins": 0.9999999918061127,
+      "bins_above_raw_frame_maximum": 10
+    },
+    "gaussian_gap": {
+      "RMS_difference_to_direct_interior_per_A3": 0.03324106826543371,
+      "RMS_first_vs_last_interior_per_A3": 4.530464764326622e-17,
+      "median_bootstrap_95pct_width_interior_per_A3": 0.010215480197418886,
+      "first_vs_last_global_L1_fraction": 0.9339554791045188,
+      "peak_density_per_A3": 0.7999999996800435,
+      "peak_z_A": 5.701834589515088,
+      "source_occupancy_at_peak": 94,
+      "maximum_frame_count_at_peak": 7,
+      "fraction_particles_in_low_source_density_bins": 1.0,
+      "bins_above_raw_frame_maximum": 1
+    }
+  },
+  "input_sha256": {
+    "trajectory": "5ccaa551419deccd4e7b28eb38714fc9a4d402bab52ffa34756ac568b03595c8",
+    "energy_csv": "8368a09c7d0e60e590536acd22f3d9742499761a63b7101746d283fb443501e3"
+  },
+  "limitations": "No independent target POLAR trajectory or target forces. Full vs baseline and split differences are not errors/accuracy. Histogram smoothing has bias; mean and Gaussian-gap are approximations; binned conditional-gap tails may be poorly sampled. Block bootstrap cannot reveal missing target modes; trajectory dependence and equilibration unresolved. No absolute c1/chemical potential and no c2."
+}

@@ -1,0 +1,12 @@
+{
+  "test_base_commit": "0514d3e992e70a519bf7db9bbd11c0acaf61945b",
+  "symmetrix_polar_commit": "6f8beacbe211dcd1688de40b3175c36501f92fea",
+  "maceles_force_fix_blob_sha": "13b2046f9b8f345b6be525680928821360b1873f",
+  "maceles_verify_blob_sha": "cce6ae90a97cdde308bc1b8d5ff7074efaab1a80",
+  "coolprop_commit": "e647ebe1734b4b4c01ceb341158d937019d06614",
+  "date": "2026-10-30",
+  "status": "planning_only_no_MD_submitted",
+  "scope": "six pure species; 3000 atoms; one isotherm per species; 1 ns production per density; 10-point pilot nested in 20-point budget",
+  "density_mapping": "Reference convention using FULL-LJ critical T*=1.312 and density*=0.316, not exact phase mapping of PRL truncated 4sigma LJ or MACELES",
+  "runtime_warning": "Latest official 192-channel force-corrected model at 3000 atoms has no published timing in pinned snapshot. Toy 128-channel pre-fix speed is a reference only."
+}

@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "count": 15,
+  "results": [
+    {
+      "test": "test_direct_correlation.py::test_c2_roundtrip_shape",
+      "passed": true
+    },
+    {
+      "test": "test_direct_correlation.py::test_ideal_gas_has_zero_c2",
+      "passed": true
+    },
+    {
+      "test": "test_direct_correlation.py::test_oz_recovers_py_hard_sphere_smooth_part",
+      "passed": true
+    },
+    {
+      "test": "test_direct_correlation.py::test_oz_recovers_smooth_analytic_c",
+      "passed": true
+    },
+    {
+      "test": "test_off_polar.py::test_collapse_verdict",
+      "passed": true
+    },
+    {
+      "test": "test_off_polar.py::test_linear_fit_recovers_slope",
+      "passed": true
+    },
+    {
+      "test": "test_off_polar.py::test_observable_reweighting",
+      "passed": true
+    },
+    {
+      "test": "test_off_polar.py::test_rdf_ideal_gas_normalizes_to_one",
+      "passed": true
+    },
+    {
+      "test": "test_off_polar.py::test_rdf_integral_matches_pair_count",
+      "passed": true
+    },
+    {
+      "test": "test_off_polar.py::test_weights_sum_and_ess",
+      "passed": true
+    },
+    {
+      "test": "test_theory.py::test_beta_config",
+      "passed": true
+    },
+    {
+      "test": "test_theory.py::test_constant_offset_is_invariant",
+      "passed": true
+    },
+    {
+      "test": "test_theory.py::test_gaussian_fep_converges_to_exact_moments",
+      "passed": true
+    },
+    {
+      "test": "test_theory.py::test_sigma_scales_sqrt_n",
+      "passed": true
+    },
+    {
+      "test": "test_uploaded_501_rdf.py::test_uploaded_501_helper_matches_validated_core",
+      "passed": true
+    }
+  ]
+}

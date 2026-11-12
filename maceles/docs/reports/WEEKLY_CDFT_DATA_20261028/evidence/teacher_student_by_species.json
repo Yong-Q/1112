@@ -1,0 +1,128 @@
+{
+ "ALL": {
+  "n_frames": 3465,
+  "n_atoms": 446232,
+  "mae_e_meV_per_atom": 1.1244571868561477,
+  "mae_f_meV_per_A": 7.753094262492581
+ },
+ "species:C2H4": {
+  "n_frames": 474,
+  "n_atoms": 80592,
+  "mae_e_meV_per_atom": 0.6402297286571922,
+  "mae_f_meV_per_A": 4.23651403731945
+ },
+ "dataset:bulk": {
+  "n_frames": 3129,
+  "n_atoms": 444608,
+  "mae_e_meV_per_atom": 1.1242877602013785,
+  "mae_f_meV_per_A": 7.777750339686113
+ },
+ "cross:C2H4|bulk": {
+  "n_frames": 418,
+  "n_atoms": 80256,
+  "mae_e_meV_per_atom": 0.6389713148622647,
+  "mae_f_meV_per_A": 4.248741003368916
+ },
+ "species:C2H6": {
+  "n_frames": 374,
+  "n_atoms": 81856,
+  "mae_e_meV_per_atom": 0.8208760299401813,
+  "mae_f_meV_per_A": 2.449763226869706
+ },
+ "cross:C2H6|bulk": {
+  "n_frames": 318,
+  "n_atoms": 81408,
+  "mae_e_meV_per_atom": 0.8217939452927198,
+  "mae_f_meV_per_A": 2.456949206304076
+ },
+ "species:CH4": {
+  "n_frames": 577,
+  "n_atoms": 83640,
+  "mae_e_meV_per_atom": 1.0965343063306925,
+  "mae_f_meV_per_A": 2.043614586554072
+ },
+ "cross:CH4|bulk": {
+  "n_frames": 521,
+  "n_atoms": 83360,
+  "mae_e_meV_per_atom": 1.0956726894268471,
+  "mae_f_meV_per_A": 2.049201430952602
+ },
+ "species:CO2": {
+  "n_frames": 680,
+  "n_atoms": 60072,
+  "mae_e_meV_per_atom": 1.4651343423483478,
+  "mae_f_meV_per_A": 23.552767046185377
+ },
+ "cross:CO2|bulk": {
+  "n_frames": 624,
+  "n_atoms": 59904,
+  "mae_e_meV_per_atom": 1.465205488663244,
+  "mae_f_meV_per_A": 23.61682374076802
+ },
+ "species:H2O": {
+  "n_frames": 683,
+  "n_atoms": 60360,
+  "mae_e_meV_per_atom": 1.5147795977448406,
+  "mae_f_meV_per_A": 11.095589335977495
+ },
+ "cross:H2O|bulk": {
+  "n_frames": 627,
+  "n_atoms": 60192,
+  "mae_e_meV_per_atom": 1.5132795149750302,
+  "mae_f_meV_per_A": 11.12453378593584
+ },
+ "species:NH3": {
+  "n_frames": 677,
+  "n_atoms": 79712,
+  "mae_e_meV_per_atom": 1.4027747477361143,
+  "mae_f_meV_per_A": 8.307435299689661
+ },
+ "cross:NH3|bulk": {
+  "n_frames": 621,
+  "n_atoms": 79488,
+  "mae_e_meV_per_atom": 1.4026165407955524,
+  "mae_f_meV_per_A": 8.326743228912077
+ },
+ "dataset:gas": {
+  "n_frames": 336,
+  "n_atoms": 1624,
+  "mae_e_meV_per_atom": 1.170841698016097,
+  "mae_f_meV_per_A": 1.0029162028465213
+ },
+ "cross:H2O|gas": {
+  "n_frames": 56,
+  "n_atoms": 168,
+  "mae_e_meV_per_atom": 2.0522378244138615,
+  "mae_f_meV_per_A": 0.7252064080420614
+ },
+ "cross:NH3|gas": {
+  "n_frames": 56,
+  "n_atoms": 224,
+  "mae_e_meV_per_atom": 1.458915610644088,
+  "mae_f_meV_per_A": 1.4558787013361232
+ },
+ "cross:C2H4|gas": {
+  "n_frames": 56,
+  "n_atoms": 336,
+  "mae_e_meV_per_atom": 0.9408108522455634,
+  "mae_f_meV_per_A": 1.3160158609326953
+ },
+ "cross:CH4|gas": {
+  "n_frames": 56,
+  "n_atoms": 280,
+  "mae_e_meV_per_atom": 1.353049967418331,
+  "mae_f_meV_per_A": 0.3803311970488371
+ },
+ "cross:C2H6|gas": {
+  "n_frames": 56,
+  "n_atoms": 448,
+  "mae_e_meV_per_atom": 0.6540776973074409,
+  "mae_f_meV_per_A": 1.1439681067957734
+ },
+ "cross:CO2|gas": {
+  "n_frames": 56,
+  "n_atoms": 168,
+  "mae_e_meV_per_atom": 1.439765599208104,
+  "mae_f_meV_per_A": 0.7119799492906227
+ }
+}

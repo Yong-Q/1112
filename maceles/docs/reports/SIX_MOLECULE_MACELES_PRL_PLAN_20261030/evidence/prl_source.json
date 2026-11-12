@@ -1,0 +1,31 @@
+{
+  "title": "Learning Neural Free-Energy Functionals with Pair-Correlation Matching",
+  "doi": "10.1103/PhysRevLett.134.056103",
+  "local_pdf": "/home/qiuyong/bza/paper/PhysRevLett.134.056103_(1)_(1).pdf",
+  "sha256": "bd7586f4e0716d0beac57d007045d3bb9a4a39c277c3baa77baeaa5f55f63e49",
+  "read_pages": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_location": "p. 3, Methods paragraph beginning We illustrate this methodology",
+  "T_star": 2,
+  "beta_epsilon": 0.5,
+  "rho_star_range": [
+    0.02,
+    0.67
+  ],
+  "beta_mu_range": [
+    -4,
+    0.5
+  ],
+  "cutoff_sigma": 4,
+  "box_L_sigma": 10,
+  "bulk_training_combinations": 800,
+  "trial_moves_per_simulation": 1000000000,
+  "ensemble": "GCMC",
+  "external_potential_bulk": 0,
+  "mapping_warning": "No physical Kelvin, sigma, or densities for six molecular MACELES systems are specified by this LJ paper."
+}

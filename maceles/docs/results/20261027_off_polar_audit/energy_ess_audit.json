@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "input_sha256": {
+    "frames_501_total_energies.csv": "8368a09c7d0e60e590536acd22f3d9742499761a63b7101746d283fb443501e3",
+    "log.production_1fs": "1734f56412b6b4528ed1eebf728119f4929f8a658bbc78d37be075a33875416d",
+    "in.production_1fs": "8ddc5458990b0c34e291445c54fac0577cdd686176c0acf7af42aadce34695d0",
+    "reweight_500ps_water1152.py": "48a5a60e7c34680b420488ee77702ef10095cd92a994f663c01d961409373fd9"
+  },
+  "frames": 501,
+  "temperature_setpoint_K": 300,
+  "ess_independent": 2.348673951031116,
+  "stored_ess": 2.3486739510314862,
+  "sigma_beta_population": 13.761608157776525,
+  "deltaU_eV": {
+    "mean": 480.86383778725803,
+    "std_population": 0.3557650911498546,
+    "min": 479.87079836660996,
+    "max": 482.0884147202596
+  },
+  "constant_shift10000eV_max_weight_error": 0.0,
+  "top10": [
+    {
+      "frame": 403,
+      "time_ps": 403.0,
+      "weight": 0.5959870772236857,
+      "gap_eV": 479.87079836660996
+    },
+    {
+      "frame": 0,
+      "time_ps": 0.0,
+      "weight": 0.24367045129366022,
+      "gap_eV": 479.89392045419663
+    },
+    {
+      "frame": 2,
+      "time_ps": 2.0,
+      "weight": 0.09252522722236256,
+      "gap_eV": 479.91895385994576
+    },
+    {
+      "frame": 170,
+      "time_ps": 170.0,
+      "weight": 0.05036000476145748,
+      "gap_eV": 479.9346792185679
+    },
+    {
+      "frame": 13,
+      "time_ps": 13.0,
+      "weight": 0.008309462039235075,
+      "gap_eV": 479.98125941469334
+    },
+    {
+      "frame": 405,
+      "time_ps": 405.0,
+      "weight": 0.005160762557096097,
+      "gap_eV": 479.9935729941353
+    },
+    {
+      "frame": 144,
+      "time_ps": 144.0,
+      "weight": 0.001139668486000371,
+      "gap_eV": 480.0326184827136
+    },
+    {
+      "frame": 439,
+      "time_ps": 439.0,
+      "weight": 0.0011009697556521633,
+      "gap_eV": 480.0335115666967
+    },
+    {
+      "frame": 7,
+      "time_ps": 7.0,
+      "weight": 0.0009082804182010576,
+      "gap_eV": 480.0384853235446
+    },
+    {
+      "frame": 121,
+      "time_ps": 121.0,
+      "weight": 0.00035193955007310534,
+      "gap_eV": 480.0629954425385
+    }
+  ],
+  "top1_mass": 0.5959870772236857,
+  "top3_mass": 0.9321827557397084,
+  "top10_mass": 0.9995138433074239,
+  "thermo_temperature_K": {
+    "mean": 299.8396696007984,
+    "std_population": 7.1228093717129,
+    "min": 272.90418,
+    "max": 319.86964
+  },
+  "ten_time_blocks": [
+    {
+      "block": 0,
+      "first_ps": 0.0,
+      "last_ps": 50.0,
+      "temperature_K": 297.54777843137254,
+      "gap_eV": {
+        "mean": 480.7034722654806,
+        "std_population": 0.4168107799009109,
+        "min": 479.89392045419663,
+        "max": 481.472901810077
+      },
+      "global_weight_mass": 0.3454582607974672,
+      "within_block_ESS": 1.7548638320039922
+    },
+    {
+      "block": 1,
+      "first_ps": 51.0,
+      "last_ps": 100.0,
+      "temperature_K": 299.7127692,
+      "gap_eV": {
+        "mean": 480.8579854017287,
+        "std_population": 0.33562311474618,
+        "min": 480.08685497182887,
+        "max": 481.4912701403955
+      },
+      "global_weight_mass": 0.00014102538713427296,
+      "within_block_ESS": 1.0169171342087469
+    },
+    {
+      "block": 2,
+      "first_ps": 101.0,
+      "last_ps": 150.0,
+      "temperature_K": 300.5819278,
+      "gap_eV": {
+        "mean": 480.80695661827923,
+        "std_population": 0.33397754986628775,
+        "min": 480.0326184827136,
+        "max": 481.59901254158467
+      },
+      "global_weight_mass": 0.0014971788076250032,
+      "within_block_ESS": 1.5755209326681952
+    },
+    {
+      "block": 3,
+      "first_ps": 151.0,
+      "last_ps": 200.0,
+      "temperature_K": 300.7767284,
+      "gap_eV": {
+        "mean": 480.85186870618725,
+        "std_population": 0.3520748828921292,
+        "min": 479.9346792185679,
+        "max": 481.8368825777434
+      },
+      "global_weight_mass": 0.05036151514136456,
+      "within_block_ESS": 1.000059983339174
+    },
+    {
+      "block": 4,
+      "first_ps": 201.0,
+      "last_ps": 250.0,
+      "temperature_K": 299.4378764,
+      "gap_eV": {
+        "mean": 480.9191233075666,
+        "std_population": 0.31159052657472897,
+        "min": 480.15939265547786,
+        "max": 481.54320186993573
+      },
+      "global_weight_mass": 8.4548792694924e-06,
+      "within_block_ESS": 1.0001899265190495
+    },
+    {
+      "block": 5,
+      "first_ps": 251.0,
+      "last_ps": 300.0,
+      "temperature_K": 298.2805592,
+      "gap_eV": {
+        "mean": 480.91050495943983,
+        "std_population": 0.2919773232130667,
+        "min": 480.151521522901,
+        "max": 481.58740078716073
+      },
+      "global_weight_mass": 1.1468258902035088e-05,
+      "within_block_ESS": 1.0009310781934457
+    },
+    {
+      "block": 6,
+      "first_ps": 301.0,
+      "last_ps": 350.0,
+      "temperature_K": 299.2344968,
+      "gap_eV": {
+        "mean": 480.8260088280216,
+        "std_population": 0.2610152504768909,
+        "min": 480.0697079459205,
+        "max": 481.46997781214304
+      },
+      "global_weight_mass": 0.00027146435904640677,
+      "within_block_ESS": 1.0000453052212244
+    },
+    {
+      "block": 7,
+      "first_ps": 351.0,
+      "last_ps": 400.0,
+      "temperature_K": 302.9623052,
+      "gap_eV": {
+        "mean": 480.95580233888467,
+        "std_population": 0.3564325453268214,
+        "min": 480.3389724524459,
+        "max": 481.63552858598996
+      },
+      "global_weight_mass": 1.201712801454231e-08,
+      "within_block_ESS": 1.9101445046363459
+    },
+    {
+      "block": 8,
+      "first_ps": 401.0,
+      "last_ps": 450.0,
+      "temperature_K": 299.96541,
+      "gap_eV": {
+        "mean": 480.8544565541763,
+        "std_population": 0.4519183385960261,
+        "min": 479.87079836660996,
+        "max": 482.0884147202596
+      },
+      "global_weight_mass": 0.6022488417525372,
+      "within_block_ESS": 1.0210434320284754
+    },
+    {
+      "block": 9,
+      "first_ps": 451.0,
+      "last_ps": 500.0,
+      "temperature_K": 299.9426824,
+      "gap_eV": {
+        "mean": 480.95540620325136,
+        "std_population": 0.32846640775619346,
+        "min": 480.21626713243313,
+        "max": 481.64533862739336
+      },
+      "global_weight_mass": 1.7785995258521188e-06,
+      "within_block_ESS": 2.00002193617419
+    }
+  ],
+  "discard_sensitivity": [
+    {
+      "discard_before_ps": 0,
+      "remaining_frames": 501,
+      "ess": 2.348673951031116,
+      "sigma_beta": 13.761608157776525,
+      "scope": "predeclared stationarity sensitivity, not selected for high ESS"
+    },
+    {
+      "discard_before_ps": 20,
+      "remaining_frames": 481,
+      "ess": 1.197500003854098,
+      "sigma_beta": 13.224195288793341,
+      "scope": "predeclared stationarity sensitivity, not selected for high ESS"
+    },
+    {
+      "discard_before_ps": 50,
+      "remaining_frames": 451,
+      "ess": 1.197499994056096,
+      "sigma_beta": 13.31506606637827,
+      "scope": "predeclared stationarity sensitivity, not selected for high ESS"
+    },
+    {
+      "discard_before_ps": 100,
+      "remaining_frames": 401,
+      "ess": 1.1969840963437797,
+      "sigma_beta": 13.307946613477469,
+      "scope": "predeclared stationarity sensitivity, not selected for high ESS"
+    },
+    {
+      "discard_before_ps": 200,
+      "remaining_frames": 301,
+      "ess": 1.0220375607309877,
+      "sigma_beta": 13.387962088989513,
+      "scope": "predeclared stationarity sensitivity, not selected for high ESS"
+    }
+  ],
+  "source_PyTorch_minus_MD_eV": {
+    "mean": 2.9221407185613497,
+    "std_population": 0.029977880372757282,
+    "min": 2.834999999962747,
+    "max": 3.01500000001397
+  },
+  "source_FP32_ULP_eV": 0.0625,
+  "source_FP32_ULP_over_kBT": 2.41760794203033,
+  "MD_source_energy_sensitivity_ESS": 2.0898813677864614,
+  "MD_source_energy_sensitivity_sigma_beta": 13.634901248245312,
+  "sensitivity_caveat": "Thermo rounded to~.01eV and dumped coordinates rounded; not a certified source-Hamiltonian correction",
+  "linear_centered_slope": 0.9247699657700016,
+  "linear_residual_sigma_beta": 12.726362289755603,
+  "RDF_existing_keys": [
+    "r",
+    "g_off",
+    "g_reweighted"
+  ],
+  "RDF_existing_tail_6to8A": {
+    "g_off": 0.7827699687747913,
+    "g_reweighted": 0.7468622455880803
+  },
+  "RDF_defect": "oo_rdf_weighted hist counts N(N-1)/2 unordered pairs but norm uses N(N-1)/V. Missing1/2 produces exactly half the RDF for same input; does not affect ESS.",
+  "input_neighbor_policy": "every100, checkno, skin2A; missed-neighbor risk requires shorter-interval engine test; not established from1ps dumps",
+  "model_weights_available_here": false
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "formula": "H2O",
+    "fluid": "Water",
+    "atoms_per_molecule": 3,
+    "Tc_K": 647.096,
+    "rhoc_mol_m3": 17873.72799560906,
+    "molar_mass_kg_mol": 0.018015268,
+    "BibTeX_EOS": "Wagner-JPCRD-2002",
+    "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Water.json",
+    "source_sha256": "540f8e84f721e526e2f9acff775cd9dbddcf2ef35284440ea501b7dd37ac53ac",
+    "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614"
+  },
+  {
+    "formula": "NH3",
+    "fluid": "Ammonia",
+    "atoms_per_molecule": 4,
+    "Tc_K": 405.56,
+    "rhoc_mol_m3": 13696,
+    "molar_mass_kg_mol": 0.01703052,
+    "BibTeX_EOS": "Gao-JPCRD-2023",
+    "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Ammonia.json",
+    "source_sha256": "3767030442d75716b7c803fe00795974575619460e595a2e6235d4b615636ce3",
+    "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614"
+  },
+  {
+    "formula": "CH4",
+    "fluid": "Methane",
+    "atoms_per_molecule": 5,
+    "Tc_K": 190.564,
+    "rhoc_mol_m3": 10139.128,
+    "molar_mass_kg_mol": 0.0160428,
+    "BibTeX_EOS": "Setzmann-JPCRD-1991",
+    "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Methane.json",
+    "source_sha256": "a74d4225db6c06b188cc30a2af4cdcbc2892c0e131a622222c638225735d65f9",
+    "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614"
+  },
+  {
+    "formula": "C2H4",
+    "fluid": "Ethylene",
+    "atoms_per_molecule": 6,
+    "Tc_K": 282.35,
+    "rhoc_mol_m3": 7636.9293156279,
+    "molar_mass_kg_mol": 0.02805316,
+    "BibTeX_EOS": "Smukala-JPCRD-2000",
+    "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Ethylene.json",
+    "source_sha256": "5c54797571d3042224de87ec4c163880d9d2f9fcade5c6c7ca758635ce7a5181",
+    "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614"
+  },
+  {
+    "formula": "C2H6",
+    "fluid": "Ethane",
+    "atoms_per_molecule": 8,
+    "Tc_K": 305.322,
+    "rhoc_mol_m3": 6856.8866849999995,
+    "molar_mass_kg_mol": 0.03006904,
+    "BibTeX_EOS": "Buecker-JPCRD-2006",
+    "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/Ethane.json",
+    "source_sha256": "cdc71e1c43af94ea454a7c5dc184ad735ea6bccc7028ec969ad60b774fe93e19",
+    "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614"
+  },
+  {
+    "formula": "CO2",
+    "fluid": "CarbonDioxide",
+    "atoms_per_molecule": 3,
+    "Tc_K": 304.1282,
+    "rhoc_mol_m3": 10624.9063,
+    "molar_mass_kg_mol": 0.0440098,
+    "BibTeX_EOS": "Span-JPCRD-1996",
+    "source_url": "https://raw.githubusercontent.com/CoolProp/CoolProp/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids/CarbonDioxide.json",
+    "source_sha256": "9d3ebf8fcce8052f06e0d0fabca849309d2a4a638e9dcccc1ac9efd1e32af75e",
+    "source_git_commit": "e647ebe1734b4b4c01ceb341158d937019d06614"
+  }
+]

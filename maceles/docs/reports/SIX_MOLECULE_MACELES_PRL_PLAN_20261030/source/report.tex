@@ -1,0 +1,225 @@
+\documentclass[a4paper]{ctexart}
+\usepackage[margin=19mm,headheight=16pt]{geometry}
+\usepackage{fontspec,amsmath,amssymb,booktabs,longtable,array,tabularx,hyperref,fancyhdr,xcolor}
+\IfFileExists{/home/qiuyong/fonts/arial.ttf}{
+\setmainfont[Path=/home/qiuyong/fonts/,BoldFont=ARIALBD.TTF,ItalicFont=ARIALI.TTF]{arial.ttf}
+\setCJKmainfont[Path=/home/qiuyong/fonts/,AutoFakeBold=2,AutoFakeSlant=0.15]{1611458310630572.ttf}
+}{}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdftitle={六分子MACELES均相采样清单与时间预算}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{六分子均相采样：PRL 范围与 MACELES 预算}\fancyhead[R]{2026-10-30}\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.22}
+\newcommand{\nm}{\mathrm{nm}}
+\newcommand{\planned}{\textcolor{red!65!black}{计划，未运行}}
+\begin{document}
+\begin{center}
+{\LARGE 六种小分子的均相采样清单}\\[6pt]
+{\large 每盒3000原子；每条1 ns；MACELES；先10点、预留20点}\\[4pt]
+采样方法、完整密度表与计算时间预算
+\end{center}
+
+\section*{1\quad 采样数量与 PRL 原文核对}
+\textbf{建议先为每种分子跑10个密度点，共60条；按每种20点、共120条预留算量。}
+20点清单保留全部首批10点，扩展时每种只新增10条。每个点只跑一条基础轨迹，生产1 ns，另预留100 ps平衡；因此两阶段总生产量为60/120 ns，含平衡为66/132 ns。这里的“10或20”是\emph{每种分子的不同密度状态数}，不是同密度的重复轨迹数。
+
+\textbf{用途。} 先采集均匀体相的分子质心两体关联，得到 $g(r)$、$S(k)$ 和 OZ 反演的标量 $c_2$，再为通用分子描述 $\xi$ 的泛函训练准备标签。现有水轨迹的温度／外场后处理方法可以继续探索；本清单主要增加\emph{平均密度覆盖}，不预先重复所有外场和温度组合。
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{lXX}\toprule
+项目 & PRL 正文第3页 & 本次计划\\\midrule
+相互作用 & 截断并平移的 LJ，$r_c=4\sigma$ & MACELES-OFF small，须带电荷响应力修正\\
+温度 & $T^*=k_BT/\epsilon=2$ & 每种1条等温线；实际K值按第2页参考约定\\
+密度 & $\rho^*=\rho\sigma^3=0.02$--$0.67$ & 同一约化端点，换算为6种候选物理密度\\
+采样 & GCMC；$\beta\mu\in[-4,0.5]$；每次$10^9$试探移动 & 固定分子数NVT；改盒体积得到各密度\\
+训练组合 & 800组体相密度与关联 & 每种10/20组；6种合计60/120组\\
+盒与外场 & $L=10\sigma$；零外场；周期边界 & 3000原子；立方周期盒；零外场\\\bottomrule
+\end{tabularx}\end{center}
+
+\textbf{温度不是 $T^*=1/2$。} 两个等价写法是
+\[
+T^*=\frac{k_BT}{\epsilon}=2,
+\qquad \beta\epsilon=\frac{\epsilon}{k_BT}=\frac12,
+\qquad T=2\frac{\epsilon}{k_B}.
+\]
+$\beta=1/(k_BT)$ 有能量倒数的单位；$T^*$ 无量纲。原文没有给水等六分子的$\epsilon$，也没有写 $T=2T_c$。PRL 的 $10^9$ MC 移动不能换算成1 ns MD。
+
+\textbf{10与20的判断依据。} 密度跨度为33.5倍，首批10点用于建立整条等温线；扩到20点将最大密度间隔减半，并加一个低密度点。该选择用于控制预算，\emph{不能证明20点就达到论文800组的精度}。以未参与训练的密度状态、分块 $g(r)/S(k)$ 误差和后续外场预测决定是否补点。高变化区优先补，平滑区不机械加密。
+
+\clearpage
+\section*{2\quad 六分子物理范围的预算约定}
+MACELES 的势能是机器学习函数，不含唯一的分子 LJ $\epsilon,\sigma$。因此不能把0.02--0.67直接写成分子/\AA$^3$，也不能用某个原子位点的LJ直径充当所有分子的直径。本报告为列出可执行的候选数值，\textbf{提出一个统一的对应态参考尺度}：
+\[
+\frac{\epsilon_{\rm ref}}{k_B}=\frac{T_c}{1.312},\quad
+\sigma_{\rm ref}^3=\frac{0.316}{\rho_c},\quad
+T_{\rm plan}=\frac{2T_c}{1.312},\quad
+\rho_{\rm plan}=\frac{\rho^*}{\sigma_{\rm ref}^3}.
+\]
+$T_c,\rho_c$ 采用真实流体EOS常数；1.312、0.316是NIST列出的\emph{完整LJ}临界约化值。这是本次\emph{预算坐标约定}，不是对六种MACELES势的拟合，也不是PRL截断4$\sigma$势的精确临界映射。各分子的候选温度约为 $1.5244T_c$；势函数实际相态和化学稳定性仍需检查。
+
+\begin{center}\small
+\begin{tabular}{lrrrrr}\toprule
+分子 & 分子数 & $T_{\rm plan}$/K & $\sigma_{\rm ref}$/\AA & $\rho$/分子 nm$^{-3}$ & 盒长/\AA\\\midrule
+H2O & 1000 & 986.4 & 3.085 & 0.681--22.822 & 35.3--113.6 \\
+NH3 & 750 & 618.2 & 3.371 & 0.522--17.488 & 35.0--112.8 \\
+CH4 & 600 & 290.5 & 3.727 & 0.386--12.946 & 35.9--115.8 \\
+C2H4 & 500 & 430.4 & 4.096 & 0.291--9.751 & 37.2--119.8 \\
+C2H6 & 375 & 465.4 & 4.246 & 0.261--8.755 & 35.0--112.8 \\
+CO2 & 1000 & 463.6 & 3.669 & 0.405--13.566 & 41.9--135.2 \\
+\bottomrule\end{tabular}\end{center}
+每一行均为\textbf{恰好3000原子}。盒长一栏按从小到大排列：最大密度对应最小盒，最小密度对应最大盒；不是同一分子数下另变原子数。
+
+\begin{center}\small
+\begin{tabular}{lrrr}\toprule
+分子 & 质量密度/g cm$^{-3}$ & 10点间隔/分子 nm$^{-3}$ & 20点最大间隔/分子 nm$^{-3}$\\\midrule
+H2O & 0.0204--0.6827 & 2.460 & 1.230 \\
+NH3 & 0.0148--0.4945 & 1.885 & 0.943 \\
+CH4 & 0.0103--0.3449 & 1.396 & 0.698 \\
+C2H4 & 0.0136--0.4542 & 1.051 & 0.526 \\
+C2H6 & 0.0130--0.4372 & 0.944 & 0.472 \\
+CO2 & 0.0296--0.9914 & 1.462 & 0.731 \\
+\bottomrule\end{tabular}\end{center}
+
+\textbf{盒长和质量密度换算。} 本表 $\rho$ 是分子质心数密度，不是原子密度。若 $a$ 为一个分子的原子数，$N_{\rm mol}=3000/a$，则
+\[
+L[\text{\AA}]=10\left(\frac{N_{\rm mol}}{\rho[\mathrm{nm}^{-3}]}\right)^{1/3},\quad
+\rho_m[\mathrm{g\,cm}^{-3}]=\frac{\rho[\mathrm{nm}^{-3}]\,M[\mathrm{g/mol}]}{602.214076}.
+\]
+CSV保留未舍入的密度、温度和盒长；建盒使用CSV，不从PDF三位小数反算。实际运行前用正式检查点核对这些状态；若分子解离或形成密度层，当前单分子均相标签定义不再适用。
+
+\textbf{与现有数据的关系。} 表中温度和密度并非先前300 K水扫描的已验证范围。对每个新的源状态重新计算源势能和目标势能，才可评估其温度／外场复用范围。参考尺度改变时应重生成清单；不宣称已覆盖PNAS所有温度、局部密度峰值或完整取向响应。
+
+\clearpage
+\section*{3\quad 完整20点密度清单}
+首批点按 $\rho_j^*=0.02+j(0.65/9)$，$j=0,\ldots,9$；均匀间隔为0.0722222。扩展时插入相邻首批点的9个中点，再加 $\rho^*=0.0380556$，总计20点。\textbf{最大间隔0.0361111，最低区两个间隔为0.0180556。} 该20点表是嵌套表，与独立生成的20点等距表不同，避免扩展时废弃原来的8个内部密度点。
+
+\begin{center}\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{rrr|rrrrrr}\toprule
+编号 & 阶段 & $\rho^*_{\rm ref}$ & H2O & NH3 & CH4 & C2H4 & C2H6 & CO2\\
+ & & & \multicolumn{6}{c}{候选分子质心数密度，单位：分子/nm$^3$}\\\midrule
+1 & 首批 & 0.020000 & 0.681 & 0.522 & 0.386 & 0.291 & 0.261 & 0.405 \\
+2 & 补点 & 0.038056 & 1.296 & 0.993 & 0.735 & 0.554 & 0.497 & 0.771 \\
+3 & 补点 & 0.056111 & 1.911 & 1.465 & 1.084 & 0.817 & 0.733 & 1.136 \\
+4 & 首批 & 0.092222 & 3.141 & 2.407 & 1.782 & 1.342 & 1.205 & 1.867 \\
+5 & 补点 & 0.128333 & 4.371 & 3.350 & 2.480 & 1.868 & 1.677 & 2.599 \\
+6 & 首批 & 0.164444 & 5.601 & 4.292 & 3.177 & 2.393 & 2.149 & 3.330 \\
+7 & 补点 & 0.200556 & 6.831 & 5.235 & 3.875 & 2.919 & 2.621 & 4.061 \\
+8 & 首批 & 0.236667 & 8.062 & 6.177 & 4.573 & 3.444 & 3.093 & 4.792 \\
+9 & 补点 & 0.272778 & 9.292 & 7.120 & 5.271 & 3.970 & 3.565 & 5.523 \\
+10 & 首批 & 0.308889 & 10.522 & 8.062 & 5.969 & 4.496 & 4.036 & 6.254 \\
+11 & 补点 & 0.345000 & 11.752 & 9.005 & 6.666 & 5.021 & 4.508 & 6.986 \\
+12 & 首批 & 0.381111 & 12.982 & 9.947 & 7.364 & 5.547 & 4.980 & 7.717 \\
+13 & 补点 & 0.417222 & 14.212 & 10.890 & 8.062 & 6.072 & 5.452 & 8.448 \\
+14 & 首批 & 0.453333 & 15.442 & 11.832 & 8.760 & 6.598 & 5.924 & 9.179 \\
+15 & 补点 & 0.489444 & 16.672 & 12.775 & 9.457 & 7.123 & 6.396 & 9.910 \\
+16 & 首批 & 0.525556 & 17.902 & 13.718 & 10.155 & 7.649 & 6.868 & 10.642 \\
+17 & 补点 & 0.561667 & 19.132 & 14.660 & 10.853 & 8.175 & 7.340 & 11.373 \\
+18 & 首批 & 0.597778 & 20.362 & 15.603 & 11.551 & 8.700 & 7.811 & 12.104 \\
+19 & 补点 & 0.633889 & 21.592 & 16.545 & 12.248 & 9.226 & 8.283 & 12.835 \\
+20 & 首批 & 0.670000 & 22.822 & 17.488 & 12.946 & 9.751 & 8.755 & 13.566 \\
+\bottomrule\end{tabular}\end{center}
+
+\textbf{逐条任务清单。} \texttt{states\_10\_per\_molecule.csv} 包含首批60行；\texttt{states\_20\_per\_molecule.csv} 包含扩展后全部120行。每行有分子、密度编号、首批/补点、温度、分子数、原子数、三种密度单位、盒边长、生产长度、平衡预留和步长。所有行的状态均为\planned。
+
+\textbf{训练状态与轨迹帧。} 10点意味着每种10个源密度标签，每个标签的结构统计由整段轨迹平均得到。1000个保存帧不等于1000个独立密度状态。同一源状态派生的不同温度／外场结果应放入同一个数据分组，不能随意拆到训练与测试两边。
+
+\textbf{加点顺序。} 首批10点覆盖整个范围；比较相邻点的结构变化，并在空隙处作留出插值检查。若低密度端、关联峰快速变化区或高密度端误差较大，优先做表中的相应补点；若仍明显非线性，再另加局部点。没有证据支持把所有分子统一削减到1--3个密度点。
+
+\clearpage
+\section*{4\quad MACELES 的方法版本与时间预算}
+源仓固定快照为 \texttt{6f8beac}，2026-10-30。最新修正记录指出，正式模型 MACELES-OFF small 是192通道、2层相互作用、4.5 \AA{}截断的联合训练MACE+LES模型。引擎已补上
+\[
+F=-\left.\frac{\partial E_{\rm LR}}{\partial R}\right|_q
+  -\sum_i\frac{\partial E_{\rm LR}}{\partial q_i}\frac{\partial q_i}{\partial R}
+  +F_{\rm short}.
+\]
+只算固定电荷的Ewald力会漏掉第二项，不能用于正式采样。修复后与PyTorch的同构型对照已记录，但正式模型的六个3000原子体系\textbf{洁净GPU测速仍未公布}。
+
+\begin{center}\small\begin{tabularx}{\textwidth}{lXX}\toprule
+记录 & 数值与测量边界 & 本预算中的用途\\\midrule
+试验MACELES，128通道 & 1500原子水；A100；0.5 fs；9 ps耗时171.18 s，6.34 $\mu$s/atom/step & 旧模型、力修正前；仅作速度参照\\
+正式MACELES-OFF，192通道 & 修正后的单点能量/力对照已报告；3000原子测速待公布 & 不能由上行冒充正式吞吐\\
+10 / 20 / 40 $\mu$s/atom/step & 本报告提出的三个算量情景 & 20用于预留；不是实测或置信区间\\\bottomrule
+\end{tabularx}\end{center}
+
+1 ns、0.5 fs需要 $2\times10^6$ 步。若 $s$ 是每原子每步耗时，单位$\mu$s，则
+\[
+t_{1\rm ns}[\mathrm h]=\frac{s\,3000\,10^{-6}(10^6/0.5)}{3600}
+=1.666667s,\qquad
+H_{\rm total}=6n_\rho(1+0.1)t_{1\rm ns}.
+\]
+\begin{center}\small\begin{tabular}{rrrrrr}\toprule
+$s$/\,$\mu$s & 每分子点数 & 1 ns/h & 含平衡/GPU h & 3卡/天 & 3卡+25\%/天\\\midrule
+6.34 & 10 & 10.57 & 697.4 & 9.7 & 12.1 \\
+6.34 & 20 & 10.57 & 1394.8 & 19.4 & 24.2 \\
+10.00 & 10 & 16.67 & 1100.0 & 15.3 & 19.1 \\
+10.00 & 20 & 16.67 & 2200.0 & 30.6 & 38.2 \\
+20.00 & 10 & 33.33 & 2200.0 & 30.6 & 38.2 \\
+20.00 & 20 & 33.33 & 4400.0 & 61.1 & 76.4 \\
+40.00 & 10 & 66.67 & 4400.0 & 61.1 & 76.4 \\
+40.00 & 20 & 66.67 & 8800.0 & 122.2 & 152.8 \\
+\bottomrule\end{tabular}\end{center}
+
+\textbf{当前预留建议。} 按20情景：每种10条含平衡约366.7 GPU时，六种2200 GPU时；20条扩展后为每种733.3、六种4400 GPU时。加25\%调度／额外平衡余量为2750/5500 GPU时；3卡分别约38.2/76.4天。表内并行天数假设每张卡速度相同、每卡一条任务且持续可用；4090与A100不能直接按同速承诺。
+
+\textbf{未计费用。} 队列等待、正式模型重测速、教师单点／独立目标轨迹、失败重跑和新增密度均另计；25\%余量不能代替这些未知项。低密度盒更大，Ewald开销随盒和参数变化；3000原子跨分子线性外推只用于情景算术。若1 fs通过稳定性与结构检查，MD步数与表内时间减半。
+
+\clearpage
+\section*{5\quad 每条轨迹的采样方法与预期数据}
+\textbf{基础轨迹。} 纯组分、全周期立方盒、零外势、NVT；先无坏接触建盒和预热，再预留100 ps平衡，生产1 ns。100 ps是预算，不是保证平衡的结论。每个状态保留检查点、势函数哈希、引擎版本、温度、步长、随机种子与完整能量日志。验证分子数、连接关系、无系统漂移及三个方向的密度均匀性。
+
+\begin{center}\small\begin{tabularx}{\textwidth}{lrrX}\toprule
+输出 & 每条数量 & 60/120条合计 & 含义\\\midrule
+生产长度 &1 ns&60/120 ns&不含平衡；另6/12 ns预留\\
+完整构型，间隔1 ps&1000&6万/12万帧&不重复记$t=0$；并非独立帧\\
+在线结构，间隔0.05 ps&20000&120万/240万次&质心对计数、非零$k$结构因子累积\\
+候选教师评分，间隔5 ps&200&1.2万/2.4万次&可选起始密度；时间另计\\
+所有保存帧均评分&1000&6万/12万次&与上一行是替代方案，不相加\\
+体相源状态标签 &1&60/120组&一组含整个$r/k$网格上的均值及误差\\\bottomrule
+\end{tabularx}\end{center}
+
+分子先按周期边界展开，再算质心；同时保留O位点等位点统计和分子取向供后续检查。不同分子的 $g(r)$ 应统一使用\emph{分子质心}变量比较；全原子总RDF包含分子内峰，不可替代。对截断半径不超过 $L/2$ 的壳层，逐帧非重复分子对计数为 $n_m(x)$，有限N归一化可用
+\[
+g_m=\frac{2V}{N_{\rm mol}(N_{\rm mol}-1)\,\Delta V_m}\langle n_m(x)\rangle,
+\qquad
+S(\mathbf k)=\frac1{N_{\rm mol}}\left\langle\left|\sum_j e^{i\mathbf k\cdot R_j}\right|^2\right\rangle,
+\quad \mathbf k\ne0.
+\]
+RDF采用分子间对；归一化、有限尺寸修正和OZ求变换的网格约定要保存。NVT固定粒子数使严格 $k=0$ 模式没有涨落，不能把该点直接当作热力学可压缩性；低$k$与长程尾误差需单独检查。
+
+\textbf{$c_2$与$c_1$标签。} 均相各向同性的分子质心标量关联满足
+\[
+h=g-1,\quad \hat c_2(k)=\frac{\hat h(k)}{1+\rho\hat h(k)},\quad
+c_{1,b}=-\beta\mu_{\rm ex},\quad
+\frac{d c_{1,b}}{d\rho}=\hat c_2(0).
+\]
+后两式需统一理想分子参考。绝对$c_1$需额外化学势信息，或从低密度$c_1\to0$积分并处理未采的$[0,\rho_{\min}]$区段；仅给均匀密度不能确定它。柔性分子的插入参考还需内部构象规范。质心标量OZ并不能恢复完整的 $c_2(R,\Omega;R',\Omega')$，后续显式取向任务需保留角关联。
+
+\textbf{误差检查。} 将生产段分为10个100 ps块，比较结构均值和时间相关；相关时间长于块时增加块长度／轨迹。相邻源密度的留出检查用于决定补点，不能把同轨迹相邻帧当独立测试。当前引擎旧记录提示Ewald virial未完整接入，未经核对的压力不作EOS或$c_1$真值。
+
+\clearpage
+\section*{6\quad 复用、执行顺序与证据入口}
+\textbf{温度和外场复用。} 对源势$U_s$、源温度$T_s$采到的同一批构型，目标势$U_t$、目标温度$T$和外场$V$的候选权重为
+\[
+\ln q(x)=\beta_s U_s(x)-\beta[U_t(x)+V(x)]+C,\qquad
+\langle A\rangle_t\simeq\frac{\sum_i q_i A(x_i)}{\sum_i q_i}.
+\]
+若直接统计MACELES自身、同温同场，则不需要这一步。若以POLAR为目标，需在源帧重新计算目标能量；源不是OFF23时不能套用原OFF23能量。沿用用户要求的\emph{势能差与MD热涨落量级比较}作初筛，再核对目标密度及结构；1152原子、300 K水的已测扫描不自动转移到3000原子或其他分子。
+
+固定$N,V$的权重始终满足整盒平均密度 $N/V$；只改变温度／外场，不能把同一基础盒变成另一个平均密度的均匀体相。所以本计划保留每种10--20个实际源密度点；外场候选数不额外计成MD轨迹。相邻密度坐标映射等方法若后续启用，应另核对Jacobian、能量和统计误差，当前未假定它能取消这些轨迹。
+
+\textbf{执行顺序。} 本次只交付预算，不提交MD。实际执行先固定正式检查点和修复后的引擎，逐分子复核稀／密状态能量与力一致性，补上正式3000原子速度，再更新时间表。随后先做首批10点；按均相性、结构分块误差和密度插值结果选择扩展点。源轨迹只生产一次，后处理与泛函训练可以复用；额外教师验证单独记账。
+
+\textbf{目录交付。} 首页README给结论和入口；\texttt{report.pdf}是本报告；5个CSV包含逐条任务、密度大表、六分子汇总和时间预算；\texttt{budget.json}保存全部未舍入数字。\texttt{source/}内有生成脚本、模板、输入参数和本次生成的TeX；\texttt{evidence/}保存原文定位、EOS参数来源及两份速度／力修正原记录。重建输出必须写新目录，历史文档和轨迹保持原件。
+
+\subsection*{来源与核对范围}
+\small
+\begin{enumerate}
+\item Dijkman等，\emph{Learning Neural Free-Energy Functionals with Pair-Correlation Matching}，Phys. Rev. Lett. 134, 056103 (2025)。DOI：\href{https://doi.org/10.1103/PhysRevLett.134.056103}{10.1103/PhysRevLett.134.056103}。本机PDF：\texttt{bza/paper/PhysRevLett.134.056103\_(1)\_(1).pdf}。已读正文第1--5页；温度、密度、800组与MC移动数均见第3页。PDF哈希见\texttt{evidence/prl\_source.json}。
+\item NIST，\href{https://www.nist.gov/mml/csd/chemical-informatics-group/lennard-jones-fluid-properties}{Lennard-Jones Fluid Properties}。用于约化定义及完整LJ参考临界量；网页明确指出截断方案会改变临界性质，故不将其作为PRL截断势的精确换算。
+\item CoolProp，官方\href{https://github.com/CoolProp/CoolProp/tree/e647ebe1734b4b4c01ceb341158d937019d06614/dev/fluids}{流体EOS参数}，固定提交\texttt{e647ebe}。从Water、Ammonia、Methane、Ethylene、Ethane、CarbonDioxide的JSON直接读取临界温度、临界摩尔密度和摩尔质量。对应EOS键分别为Wagner-2002、Gao-2023、Setzmann-1991、Smukala-2000、Buecker-2006、Span-1996；来源URL和原文件哈希逐行保存在\texttt{critical\_constants.json}。这些是真实流体参考，不是MACELES预测临界量。
+\item \href{https://github.com/Yong-Q/symmetrix-polar/blob/6f8beacbe211dcd1688de40b3175c36501f92fea/docs/results/MACELES_Q4_VERIFY_2026-10-30.md}{MACELES重复验证与持续测速}；\href{https://github.com/Yong-Q/symmetrix-polar/blob/6f8beacbe211dcd1688de40b3175c36501f92fea/docs/results/MACELES_FORCE_FIX_2026-10-30.md}{电荷响应力修正}。固定提交\texttt{6f8beac}；前者是试验模型记录，后者说明正式模型修正及生产测速待补。未将旧README中学生势的准确率归到MACELES上。
+\item \href{https://github.com/Yong-Q/test}{test仓库}基线\texttt{0514d3e}。已有热波动与温度／场扫描作为背景保留；本报告没有宣称六分子3000原子均相标签已经完成或复用范围已经验证。
+\end{enumerate}
+\normalsize
+\textbf{预算状态。} 密度点数为工程选择；物理范围为对应态候选；正式吞吐待测速。已有证据能够支持清单换算与情景算量，尚不能把60/120条写成达到PRL精度所需的确定轨迹数。
+\end{document}

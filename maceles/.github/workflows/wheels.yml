@@ -1,0 +1,82 @@
+name: symmpolar-engine wheel
+
+# Builds one CUDA engine wheel with SASS for several architectures (one fatbin),
+# so `pip install` works on A100 (sm_80) and H100 (sm_90) alike.
+# Compiling needs nvcc only, no GPU, so a hosted runner is enough.
+#
+#   manual:  Actions -> symmpolar-engine wheel -> Run workflow
+#   release: git tag v0.1.1 && git push --tags   (also publishes to PyPI)
+#
+# Secrets:
+#   SYMMETRIX_DEPLOY_KEY  optional, for the private symmetrix-xl fork
+#   PYPI_TOKEN            for the release job
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+env:
+  CUDA_VERSION: "12.9.0"
+  CUDA_ARCHES: "80;90"      # A100; H100
+  CUDA_HOME: /usr/local/cuda
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: CUDA toolkit
+        uses: Jimver/cuda-toolkit@v0.2.19
+        with:
+          cuda: ${{ env.CUDA_VERSION }}
+          method: network
+          sub-packages: '["nvcc","cudart","cublas","curand"]'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install scikit-build-core pybind11 wheel cmake ninja
+
+      - name: Build wheel (pinned engine base)
+        env:
+          DEPLOY_KEY: ${{ secrets.SYMMETRIX_DEPLOY_KEY }}
+          SYMMPOLAR_CUDA_ARCH: ${{ env.CUDA_ARCHES }}
+        run: |
+          if [ -n "$DEPLOY_KEY" ]; then
+            install -m 600 /dev/null /tmp/deploy_key
+            printf '%s\n' "$DEPLOY_KEY" > /tmp/deploy_key
+            export GIT_SSH_COMMAND="ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no"
+          fi
+          # default SYMMETRIX_REPO is the public fork, branch polar-les
+          chmod +x packaging/symmpolar-engine/build_wheel.sh
+          packaging/symmpolar-engine/build_wheel.sh
+          ls -lh dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: symmpolar-engine-cu${{ env.CUDA_VERSION }}-sm80-sm90
+          path: dist/*.whl
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install twine
+      - name: Upload to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: python -m twine upload --skip-existing dist/*.whl

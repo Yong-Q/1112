@@ -1,0 +1,31 @@
+units metal
+atom_style atomic/kk
+atom_modify map yes
+boundary p p p
+package kokkos neigh half newton on
+newton on
+read_data data.lammps
+read_dump seed_5ps.lammpstrj 10000 x y z
+reset_timestep 0
+pair_style symmetrix/mace/float32/kk streamed_edges direct profile speed jit_device_artifact /workspace/group/shared/bza/symmetrix-polar/bench/plan_d_linear_2026-10-23/jit_cache/artifacts/9831e6a1a234bfe74d76b597d598ff09d50f6b129aae2dbb913beff5a78961b5/factorized_cuda_module_gen11_src847380c859abdbe6d213af7f595ebc0cba0f1986c73e8bce6c2a05b98cffecb1.cubin jit_device_blocks_per_compute_unit 8
+pair_coeff * * /workspace/group/shared/bza/task3_sampling_database/mlip/models/symmetrix/mace-off23-medium.json O H
+neighbor 2.0 bin
+neigh_modify every 100 delay 0 check no
+timestep 0.001
+velocity all create 300.0 98765 mom yes rot no dist gaussian
+fix 1 all nvt temp 300.0 300.0 0.1
+thermo 1000
+thermo_style custom step temp pe
+run_style verlet/kk
+
+# 20 ps equilibration at 1 fs from the 5 ps dump frame (new velocities).
+run 20000
+write_restart restart_1fs.eq
+
+# 500 ps production at 1 fs, one dump frame per ps.
+reset_timestep 0
+dump 2 all custom 1000 traj_500ps_1fs.lammpstrj id type x y z
+dump_modify 2 sort id
+restart 25000 restart_1fs.prod.*
+run 500000
+write_restart restart_1fs.final

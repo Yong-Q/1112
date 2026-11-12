@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研技术报告与博客"
+  short_description: "直接阅读原始写作参照，按读者任务组织图文论证并降低中文技术文稿的阅读负担"
+  default_prompt: "使用 $research-tech-report，读取指定正文及技能内的参照原文，按页面用途重组解释顺序，保留科学证据，交付清楚连贯的正文。"

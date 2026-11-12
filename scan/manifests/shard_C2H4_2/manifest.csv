@@ -1,0 +1,4 @@
+sim_id,data,traj,species,temperature,timestep,steps,dump_every,density,c2_pair,seed,elements
+C2H4-T430.4-r03-rho0.4533,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/C2H4/r03_rho0.4533.lammps,,C2H4,430.4,0.0005,2000000,1000,0.006598,C C,12345,C H N O
+C2H4-T430.4-r04-rho0.3811,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/C2H4/r04_rho0.3811.lammps,,C2H4,430.4,0.0005,2000000,1000,0.005547,C C,12345,C H N O
+C2H4-T430.4-r05-rho0.3089,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/C2H4/r05_rho0.3089.lammps,,C2H4,430.4,0.0005,2000000,1000,0.004496,C C,12345,C H N O

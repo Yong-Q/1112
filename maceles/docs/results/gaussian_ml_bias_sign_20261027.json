@@ -1,0 +1,9 @@
+{
+  "beta": 1.0,
+  "true_gap_mean": 0.0,
+  "residual_std": 1.0,
+  "quadrature_weighted_mean": -1.0000000000000109,
+  "analytic_weighted_mean": -1.0,
+  "uploaded_eq18_printed_plus_prediction": 1.0,
+  "interpretation": "For the Gaussian uncertainty and negative Boltzmann exponent printed in Chehaibou2019 equations 17-18, exponential tilting shifts the mean by -beta*s^2. Uploaded equation18 prints +beta*s^2; this is a sign inconsistency, not a reason to change frame weights."
+}

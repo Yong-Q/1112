@@ -1,0 +1,2 @@
+sim_id,data,traj,species,temperature,timestep,steps,dump_every,density,c2_pair,seed,elements
+H2O-T986.4-r09-rho0.0200,/publicfs10/fs10-m9/home/m9s005258/qy/cdft/scan/data/H2O/r09_rho0.0200.lammps,,H2O,986.4,0.0005,2000000,1000,0.000681,O O,12345,C H N O
