@@ -1,0 +1,42 @@
+[
+ {
+  "species": "H2O",
+  "frames": 50,
+  "atoms": 2001,
+  "dE_rms_meV_per_atom": 0.00023064,
+  "dE_max_meV_per_atom": 0.00037621,
+  "dF_mae_meV_per_A": 0.063099,
+  "dF_max_meV_per_A": 0.994563,
+  "F_corr": 0.999999997
+ },
+ {
+  "species": "NH3",
+  "frames": 50,
+  "atoms": 2000,
+  "dE_rms_meV_per_atom": 0.00182429,
+  "dE_max_meV_per_atom": 0.00189945,
+  "dF_mae_meV_per_A": 0.02532,
+  "dF_max_meV_per_A": 0.780106,
+  "F_corr": 0.999999999
+ },
+ {
+  "species": "CO2",
+  "frames": 50,
+  "atoms": 2001,
+  "dE_rms_meV_per_atom": 0.00564105,
+  "dE_max_meV_per_atom": 0.00581411,
+  "dF_mae_meV_per_A": 0.152684,
+  "dF_max_meV_per_A": 1.295209,
+  "F_corr": 0.999999984
+ },
+ {
+  "species": "C2H6",
+  "frames": 50,
+  "atoms": 4000,
+  "dE_rms_meV_per_atom": 0.00073601,
+  "dE_max_meV_per_atom": 0.00081749,
+  "dF_mae_meV_per_A": 0.017599,
+  "dF_max_meV_per_A": 0.270367,
+  "F_corr": 1.0
+ }
+]
