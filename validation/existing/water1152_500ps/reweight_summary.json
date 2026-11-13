@@ -1,0 +1,19 @@
+{
+ "traj": "/workspace/group/shared/bza/symmetrix-polar/bench/off23_500ps_water1152_2026-10-23/traj_500ps_1fs.lammpstrj",
+ "n_frames": 501,
+ "n_atoms": 1152,
+ "temperature_K": 300.0,
+ "source_model": "/workspace/group/shared/bza/task3_sampling_database/mlip/models/MACE-OFF23_medium.model",
+ "target_model": "/workspace/group/shared/bza/task3_sampling_database/mlip/models/mace-polar/MACE-POLAR-1-M.model",
+ "dE_meV_per_atom_mean": 417.41652585699484,
+ "dE_meV_per_atom_std": 0.30882386384536004,
+ "residual_meV_per_atom_std": 0.2855919402691343,
+ "sigma_beta": 13.761608157776532,
+ "sigma_beta_residual": 13.761608157776532,
+ "ess": 2.3486739510314862,
+ "ess_fraction": 0.004687971958146679,
+ "linear_slope": 0.9247699657655172,
+ "linear_intercept_eV": -59650.777158631114,
+ "linear_r2": 0.9623833961636912,
+ "verdict": "collapse"
+}
